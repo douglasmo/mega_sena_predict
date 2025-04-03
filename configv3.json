@@ -5,7 +5,6 @@
     "sequence_length": 20,                   
     "num_features_base": 60,
     "num_features_time": 60,
-
     "rolling_freq_windows": [10, 50, 100],
     "gru_units": 256,                     
     "use_batch_norm": true,              
