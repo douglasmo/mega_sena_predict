@@ -1,0 +1,942 @@
+2025-04-01 22:06:51,831 - INFO - Configurações carregadas de config.json
+2025-04-01 22:06:51,832 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:06:51,832 - INFO - Configurações carregadas de config.json
+2025-04-01 22:06:51,833 - INFO - Baixando e preparando os dados...
+2025-04-01 22:06:51,833 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:06:51,834 - INFO - Cache expirado ou não encontrado. Baixando dados...
+2025-04-01 22:06:53,704 - INFO - Dados salvos no cache: cache\464ff187a3793fb1e4665abcce455791.json
+2025-04-01 22:06:53,720 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:06:53,729 - INFO - Pré-processando os dados...
+2025-04-01 22:06:53,729 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:06:53,734 - ERROR - Erro durante o pré-processamento: '<=' not supported between instances of 'int' and 'Timestamp'
+2025-04-01 22:06:53,734 - INFO - Criando sequências para o modelo...
+2025-04-01 22:06:53,734 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:06:53,734 - ERROR - Dados insuficientes (2) para sequência de tamanho 10
+2025-04-01 22:06:53,735 - ERROR - Falha na criação das sequências
+2025-04-01 22:07:54,652 - INFO - Configurações carregadas de config.json
+2025-04-01 22:07:54,652 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:07:54,652 - INFO - Configurações carregadas de config.json
+2025-04-01 22:07:54,652 - INFO - Baixando e preparando os dados...
+2025-04-01 22:07:54,653 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:07:54,653 - INFO - Carregando dados do cache...
+2025-04-01 22:07:54,684 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:07:54,702 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:07:54,708 - INFO - Pré-processando os dados...
+2025-04-01 22:07:54,708 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:07:54,726 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:07:54,726 - INFO - Criando sequências para o modelo...
+2025-04-01 22:07:54,727 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:07:54,727 - ERROR - Dados insuficientes (2) para sequência de tamanho 10
+2025-04-01 22:07:54,728 - ERROR - Falha na criação das sequências
+2025-04-01 22:08:15,634 - INFO - Configurações carregadas de config.json
+2025-04-01 22:08:15,634 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:08:15,635 - INFO - Configurações carregadas de config.json
+2025-04-01 22:08:15,635 - INFO - Baixando e preparando os dados...
+2025-04-01 22:08:15,635 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:08:15,635 - INFO - Carregando dados do cache...
+2025-04-01 22:08:15,664 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:08:15,682 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:08:15,688 - INFO - Pré-processando os dados...
+2025-04-01 22:08:15,688 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:08:15,705 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:08:15,705 - INFO - Criando sequências para o modelo...
+2025-04-01 22:08:15,706 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:08:15,706 - ERROR - Dados insuficientes (2) para sequência de tamanho 10
+2025-04-01 22:08:15,706 - ERROR - Falha na criação das sequências
+2025-04-01 22:09:06,592 - INFO - Configurações carregadas de config.json
+2025-04-01 22:09:06,593 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:09:06,593 - INFO - Configurações carregadas de config.json
+2025-04-01 22:09:06,593 - INFO - Baixando e preparando os dados...
+2025-04-01 22:09:06,594 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:09:06,594 - INFO - Carregando dados do cache...
+2025-04-01 22:09:06,623 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:09:06,642 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:09:06,647 - INFO - Pré-processando os dados...
+2025-04-01 22:09:06,647 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:09:06,665 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:09:06,665 - INFO - Criando sequências para o modelo...
+2025-04-01 22:09:06,666 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:09:06,671 - INFO - 2836 sequências criadas com sucesso
+2025-04-01 22:09:06,672 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:09:06,672 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:09:06,683 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:09:06,684 - INFO - - Treino: 2048 amostras
+2025-04-01 22:09:06,684 - INFO - - Validação: 362 amostras
+2025-04-01 22:09:06,684 - INFO - - Teste: 426 amostras
+2025-04-01 22:09:06,684 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:09:06,684 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:09:06,824 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:09:06,824 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:09:09,567 - INFO - Época 1/100 - Loss: 0.4960 - Val Loss: 0.3323
+2025-04-01 22:09:10,054 - INFO - Época 2/100 - Loss: 0.3602 - Val Loss: 0.3259
+2025-04-01 22:09:10,523 - INFO - Época 3/100 - Loss: 0.3471 - Val Loss: 0.3253
+2025-04-01 22:09:10,993 - INFO - Época 4/100 - Loss: 0.3433 - Val Loss: 0.3255
+2025-04-01 22:09:11,462 - INFO - Época 5/100 - Loss: 0.3396 - Val Loss: 0.3254
+2025-04-01 22:09:11,940 - INFO - Época 6/100 - Loss: 0.3382 - Val Loss: 0.3255
+2025-04-01 22:09:12,408 - INFO - Época 7/100 - Loss: 0.3376 - Val Loss: 0.3256
+2025-04-01 22:09:12,880 - INFO - Época 8/100 - Loss: 0.3368 - Val Loss: 0.3254
+2025-04-01 22:09:13,381 - INFO - Época 9/100 - Loss: 0.3349 - Val Loss: 0.3254
+2025-04-01 22:09:13,871 - INFO - Época 10/100 - Loss: 0.3350 - Val Loss: 0.3255
+2025-04-01 22:09:14,374 - INFO - Época 11/100 - Loss: 0.3341 - Val Loss: 0.3253
+2025-04-01 22:09:14,882 - INFO - Época 12/100 - Loss: 0.3335 - Val Loss: 0.3253
+2025-04-01 22:09:15,351 - INFO - Época 13/100 - Loss: 0.3333 - Val Loss: 0.3253
+2025-04-01 22:09:15,829 - INFO - Época 14/100 - Loss: 0.3338 - Val Loss: 0.3253
+2025-04-01 22:09:16,306 - INFO - Época 15/100 - Loss: 0.3331 - Val Loss: 0.3253
+2025-04-01 22:09:16,829 - INFO - Época 16/100 - Loss: 0.3330 - Val Loss: 0.3253
+2025-04-01 22:09:17,347 - INFO - Época 17/100 - Loss: 0.3328 - Val Loss: 0.3253
+2025-04-01 22:09:17,828 - INFO - Época 18/100 - Loss: 0.3320 - Val Loss: 0.3254
+2025-04-01 22:09:18,316 - INFO - Época 19/100 - Loss: 0.3324 - Val Loss: 0.3253
+2025-04-01 22:09:18,798 - INFO - Época 20/100 - Loss: 0.3328 - Val Loss: 0.3254
+2025-04-01 22:09:19,277 - INFO - Época 21/100 - Loss: 0.3330 - Val Loss: 0.3255
+2025-04-01 22:09:19,790 - INFO - Época 22/100 - Loss: 0.3323 - Val Loss: 0.3254
+2025-04-01 22:09:20,301 - INFO - Época 23/100 - Loss: 0.3320 - Val Loss: 0.3254
+2025-04-01 22:09:20,788 - INFO - Época 24/100 - Loss: 0.3323 - Val Loss: 0.3254
+2025-04-01 22:09:21,320 - INFO - Época 25/100 - Loss: 0.3322 - Val Loss: 0.3254
+2025-04-01 22:09:21,794 - INFO - Época 26/100 - Loss: 0.3323 - Val Loss: 0.3254
+2025-04-01 22:09:21,811 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:09:21,811 - INFO - Avaliando o modelo...
+2025-04-01 22:09:21,811 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:09:22,333 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,334 - INFO - Métricas de Avaliação:
+2025-04-01 22:09:22,334 - INFO - Loss no Teste: 0.3253
+2025-04-01 22:09:22,334 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:09:22,334 - INFO - AUC no Teste: 0.5021
+2025-04-01 22:09:22,334 - INFO - 
+Estatísticas de Acertos:
+2025-04-01 22:09:22,334 - INFO - Média de acertos por sorteio: 0.641
+2025-04-01 22:09:22,334 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:09:22,335 - INFO - Sorteios com 0 acerto(s): 210 (49.3%)
+2025-04-01 22:09:22,335 - INFO - Sorteios com 1 acerto(s): 162 (38.0%)
+2025-04-01 22:09:22,335 - INFO - Sorteios com 2 acerto(s): 51 (12.0%)
+2025-04-01 22:09:22,335 - INFO - Sorteios com 3 acerto(s): 3 (0.7%)
+2025-04-01 22:09:22,335 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,336 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:09:22,336 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,336 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:09:22,336 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:09:22,400 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,401 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:09:22,401 - INFO - Números: [5, 13, 24, 51, 53, 54]
+2025-04-01 22:09:22,401 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:09:22,401 - INFO - Confiança Média: 0.1131
+2025-04-01 22:09:22,402 - INFO - Confiança Máxima: 0.1185
+2025-04-01 22:09:22,402 - INFO - Confiança Mínima: 0.1083
+2025-04-01 22:09:22,402 - INFO - 
+Probabilidades por número:
+2025-04-01 22:09:22,402 - INFO - Número 24: 0.1083
+2025-04-01 22:09:22,402 - INFO - Número 54: 0.1115
+2025-04-01 22:09:22,402 - INFO - Número 13: 0.1119
+2025-04-01 22:09:22,403 - INFO - Número 53: 0.1125
+2025-04-01 22:09:22,403 - INFO - Número 51: 0.1158
+2025-04-01 22:09:22,403 - INFO - Número 5: 0.1185
+2025-04-01 22:09:22,403 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,403 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:09:22,403 - INFO - --------------------------------------------------
+2025-04-01 22:09:22,403 - INFO - Gerando visualizações...
+2025-04-01 22:09:22,404 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:09:22,547 - ERROR - Erro ao gerar gráficos: 'lr'
+2025-04-01 22:09:22,548 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:09:22,645 - ERROR - Erro ao gerar análise visual: unsupported operand type(s) for -: 'list' and 'int'
+2025-04-01 22:09:22,646 - INFO - Exportando resultados...
+2025-04-01 22:09:22,646 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:09:23,253 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:09:23,254 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:09:23,254 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:09:23,254 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:09:23,254 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:09:23,255 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 22:10:17,655 - INFO - Configurações carregadas de config.json
+2025-04-01 22:10:17,656 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:10:17,656 - INFO - Configurações carregadas de config.json
+2025-04-01 22:10:17,656 - INFO - Baixando e preparando os dados...
+2025-04-01 22:10:17,657 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:10:17,657 - INFO - Carregando dados do cache...
+2025-04-01 22:10:17,686 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:10:17,704 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:10:17,710 - INFO - Pré-processando os dados...
+2025-04-01 22:10:17,711 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:10:17,727 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:10:17,728 - INFO - Criando sequências para o modelo...
+2025-04-01 22:10:17,728 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:10:17,734 - INFO - 2836 sequências criadas com sucesso
+2025-04-01 22:10:17,734 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:10:17,734 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:10:17,743 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:10:17,743 - INFO - - Treino: 2048 amostras
+2025-04-01 22:10:17,744 - INFO - - Validação: 362 amostras
+2025-04-01 22:10:17,744 - INFO - - Teste: 426 amostras
+2025-04-01 22:10:17,744 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:10:17,744 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:10:17,871 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:10:17,872 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:10:20,612 - INFO - Época 1/100 - Loss: 0.5242 - Val Loss: 0.3359
+2025-04-01 22:10:21,104 - INFO - Época 2/100 - Loss: 0.3629 - Val Loss: 0.3267
+2025-04-01 22:10:21,666 - INFO - Época 3/100 - Loss: 0.3507 - Val Loss: 0.3259
+2025-04-01 22:10:22,141 - INFO - Época 4/100 - Loss: 0.3434 - Val Loss: 0.3256
+2025-04-01 22:10:22,607 - INFO - Época 5/100 - Loss: 0.3408 - Val Loss: 0.3255
+2025-04-01 22:10:23,089 - INFO - Época 6/100 - Loss: 0.3395 - Val Loss: 0.3256
+2025-04-01 22:10:23,560 - INFO - Época 7/100 - Loss: 0.3382 - Val Loss: 0.3254
+2025-04-01 22:10:24,023 - INFO - Época 8/100 - Loss: 0.3373 - Val Loss: 0.3258
+2025-04-01 22:10:24,485 - INFO - Época 9/100 - Loss: 0.3374 - Val Loss: 0.3256
+2025-04-01 22:10:24,949 - INFO - Época 10/100 - Loss: 0.3349 - Val Loss: 0.3255
+2025-04-01 22:10:25,416 - INFO - Época 11/100 - Loss: 0.3346 - Val Loss: 0.3258
+2025-04-01 22:10:25,900 - INFO - Época 12/100 - Loss: 0.3335 - Val Loss: 0.3257
+2025-04-01 22:10:26,368 - INFO - Época 13/100 - Loss: 0.3332 - Val Loss: 0.3255
+2025-04-01 22:10:26,841 - INFO - Época 14/100 - Loss: 0.3331 - Val Loss: 0.3255
+2025-04-01 22:10:27,307 - INFO - Época 15/100 - Loss: 0.3330 - Val Loss: 0.3256
+2025-04-01 22:10:27,770 - INFO - Época 16/100 - Loss: 0.3330 - Val Loss: 0.3256
+2025-04-01 22:10:28,251 - INFO - Época 17/100 - Loss: 0.3331 - Val Loss: 0.3256
+2025-04-01 22:10:28,719 - INFO - Época 18/100 - Loss: 0.3325 - Val Loss: 0.3257
+2025-04-01 22:10:29,183 - INFO - Época 19/100 - Loss: 0.3324 - Val Loss: 0.3257
+2025-04-01 22:10:29,652 - INFO - Época 20/100 - Loss: 0.3325 - Val Loss: 0.3257
+2025-04-01 22:10:30,114 - INFO - Época 21/100 - Loss: 0.3326 - Val Loss: 0.3257
+2025-04-01 22:10:30,581 - INFO - Época 22/100 - Loss: 0.3327 - Val Loss: 0.3257
+2025-04-01 22:10:30,598 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:10:30,598 - INFO - Avaliando o modelo...
+2025-04-01 22:10:30,599 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:10:31,118 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,118 - INFO - Métricas de Avaliação:
+2025-04-01 22:10:31,118 - INFO - Loss no Teste: 0.3256
+2025-04-01 22:10:31,118 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:10:31,119 - INFO - AUC no Teste: 0.4996
+2025-04-01 22:10:31,119 - INFO - 
+Estatísticas de Acertos:
+2025-04-01 22:10:31,119 - INFO - Média de acertos por sorteio: 0.601
+2025-04-01 22:10:31,119 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:10:31,119 - INFO - Sorteios com 0 acerto(s): 216 (50.7%)
+2025-04-01 22:10:31,119 - INFO - Sorteios com 1 acerto(s): 168 (39.4%)
+2025-04-01 22:10:31,119 - INFO - Sorteios com 2 acerto(s): 38 (8.9%)
+2025-04-01 22:10:31,120 - INFO - Sorteios com 3 acerto(s): 4 (0.9%)
+2025-04-01 22:10:31,120 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,120 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:10:31,120 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,120 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:10:31,121 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:10:31,183 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,183 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:10:31,184 - INFO - Números: [4, 5, 10, 24, 33, 53]
+2025-04-01 22:10:31,184 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:10:31,184 - INFO - Confiança Média: 0.1110
+2025-04-01 22:10:31,184 - INFO - Confiança Máxima: 0.1128
+2025-04-01 22:10:31,184 - INFO - Confiança Mínima: 0.1083
+2025-04-01 22:10:31,184 - INFO - 
+Probabilidades por número:
+2025-04-01 22:10:31,184 - INFO - Número 24: 0.1083
+2025-04-01 22:10:31,184 - INFO - Número 33: 0.1099
+2025-04-01 22:10:31,185 - INFO - Número 53: 0.1109
+2025-04-01 22:10:31,185 - INFO - Número 5: 0.1120
+2025-04-01 22:10:31,185 - INFO - Número 10: 0.1124
+2025-04-01 22:10:31,185 - INFO - Número 4: 0.1128
+2025-04-01 22:10:31,185 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,185 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:10:31,185 - INFO - --------------------------------------------------
+2025-04-01 22:10:31,186 - INFO - Gerando visualizações...
+2025-04-01 22:10:31,186 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:10:31,631 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 22:10:31,631 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:10:32,049 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 22:10:32,049 - INFO - Exportando resultados...
+2025-04-01 22:10:32,050 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:10:32,647 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:10:32,648 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:10:32,648 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:10:32,648 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:10:32,649 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:10:32,649 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 22:14:07,306 - INFO - Configurações carregadas de config.json
+2025-04-01 22:14:07,307 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:14:07,307 - INFO - Configurações carregadas de config.json
+2025-04-01 22:14:07,307 - INFO - Baixando e preparando os dados...
+2025-04-01 22:14:07,308 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:14:07,308 - INFO - Carregando dados do cache...
+2025-04-01 22:14:07,349 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:14:07,379 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:14:07,389 - INFO - Pré-processando os dados...
+2025-04-01 22:14:07,389 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:14:07,408 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:14:07,409 - INFO - Criando sequências para o modelo...
+2025-04-01 22:14:07,409 - INFO - Criando sequências de tamanho 10...
+2025-04-01 22:14:07,414 - INFO - 2836 sequências criadas com sucesso
+2025-04-01 22:14:07,414 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:14:07,415 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:14:07,424 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:14:07,425 - INFO - - Treino: 2048 amostras
+2025-04-01 22:14:07,425 - INFO - - Validação: 362 amostras
+2025-04-01 22:14:07,425 - INFO - - Teste: 426 amostras
+2025-04-01 22:14:07,425 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:14:07,425 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:14:07,575 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:14:07,575 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:14:10,415 - INFO - Época 1/100 - Loss: 0.5203 - Val Loss: 0.3383
+2025-04-01 22:14:10,903 - INFO - Época 2/100 - Loss: 0.3634 - Val Loss: 0.3262
+2025-04-01 22:14:11,381 - INFO - Época 3/100 - Loss: 0.3493 - Val Loss: 0.3256
+2025-04-01 22:14:11,852 - INFO - Época 4/100 - Loss: 0.3435 - Val Loss: 0.3254
+2025-04-01 22:14:12,315 - INFO - Época 5/100 - Loss: 0.3408 - Val Loss: 0.3254
+2025-04-01 22:14:12,793 - INFO - Época 6/100 - Loss: 0.3374 - Val Loss: 0.3260
+2025-04-01 22:14:13,268 - INFO - Época 7/100 - Loss: 0.3373 - Val Loss: 0.3254
+2025-04-01 22:14:13,761 - INFO - Época 8/100 - Loss: 0.3361 - Val Loss: 0.3253
+2025-04-01 22:14:14,372 - INFO - Época 9/100 - Loss: 0.3355 - Val Loss: 0.3257
+2025-04-01 22:14:14,844 - INFO - Época 10/100 - Loss: 0.3339 - Val Loss: 0.3253
+2025-04-01 22:14:15,315 - INFO - Época 11/100 - Loss: 0.3337 - Val Loss: 0.3256
+2025-04-01 22:14:15,785 - INFO - Época 12/100 - Loss: 0.3335 - Val Loss: 0.3253
+2025-04-01 22:14:16,256 - INFO - Época 13/100 - Loss: 0.3331 - Val Loss: 0.3252
+2025-04-01 22:14:16,726 - INFO - Época 14/100 - Loss: 0.3327 - Val Loss: 0.3252
+2025-04-01 22:14:17,196 - INFO - Época 15/100 - Loss: 0.3328 - Val Loss: 0.3252
+2025-04-01 22:14:17,711 - INFO - Época 16/100 - Loss: 0.3326 - Val Loss: 0.3252
+2025-04-01 22:14:18,198 - INFO - Época 17/100 - Loss: 0.3321 - Val Loss: 0.3253
+2025-04-01 22:14:18,670 - INFO - Época 18/100 - Loss: 0.3321 - Val Loss: 0.3252
+2025-04-01 22:14:19,171 - INFO - Época 19/100 - Loss: 0.3323 - Val Loss: 0.3252
+2025-04-01 22:14:19,680 - INFO - Época 20/100 - Loss: 0.3318 - Val Loss: 0.3253
+2025-04-01 22:14:20,183 - INFO - Época 21/100 - Loss: 0.3322 - Val Loss: 0.3253
+2025-04-01 22:14:20,763 - INFO - Época 22/100 - Loss: 0.3321 - Val Loss: 0.3252
+2025-04-01 22:14:21,539 - INFO - Época 23/100 - Loss: 0.3318 - Val Loss: 0.3252
+2025-04-01 22:14:22,118 - INFO - Época 24/100 - Loss: 0.3313 - Val Loss: 0.3252
+2025-04-01 22:14:22,669 - INFO - Época 25/100 - Loss: 0.3313 - Val Loss: 0.3253
+2025-04-01 22:14:23,211 - INFO - Época 26/100 - Loss: 0.3313 - Val Loss: 0.3252
+2025-04-01 22:14:23,738 - INFO - Época 27/100 - Loss: 0.3313 - Val Loss: 0.3254
+2025-04-01 22:14:24,223 - INFO - Época 28/100 - Loss: 0.3315 - Val Loss: 0.3252
+2025-04-01 22:14:24,694 - INFO - Época 29/100 - Loss: 0.3314 - Val Loss: 0.3253
+2025-04-01 22:14:25,192 - INFO - Época 30/100 - Loss: 0.3310 - Val Loss: 0.3253
+2025-04-01 22:14:25,669 - INFO - Época 31/100 - Loss: 0.3310 - Val Loss: 0.3253
+2025-04-01 22:14:26,163 - INFO - Época 32/100 - Loss: 0.3308 - Val Loss: 0.3254
+2025-04-01 22:14:26,664 - INFO - Época 33/100 - Loss: 0.3313 - Val Loss: 0.3253
+2025-04-01 22:14:26,681 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:14:26,681 - INFO - Avaliando o modelo...
+2025-04-01 22:14:26,682 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:14:27,220 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,220 - INFO - Métricas de Avaliação:
+2025-04-01 22:14:27,221 - INFO - Loss no Teste: 0.3253
+2025-04-01 22:14:27,221 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:14:27,221 - INFO - AUC no Teste: 0.5043
+2025-04-01 22:14:27,221 - INFO - 
+Estatísticas de Acertos:
+2025-04-01 22:14:27,221 - INFO - Média de acertos por sorteio: 0.646
+2025-04-01 22:14:27,221 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:14:27,221 - INFO - Sorteios com 0 acerto(s): 208 (48.8%)
+2025-04-01 22:14:27,222 - INFO - Sorteios com 1 acerto(s): 166 (39.0%)
+2025-04-01 22:14:27,222 - INFO - Sorteios com 2 acerto(s): 47 (11.0%)
+2025-04-01 22:14:27,222 - INFO - Sorteios com 3 acerto(s): 5 (1.2%)
+2025-04-01 22:14:27,222 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,222 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:14:27,222 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,222 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:14:27,222 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:14:27,283 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,283 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:14:27,283 - INFO - Números: [10, 17, 23, 33, 51, 53]
+2025-04-01 22:14:27,284 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:14:27,284 - INFO - Confiança Média: 0.1124
+2025-04-01 22:14:27,284 - INFO - Confiança Máxima: 0.1171
+2025-04-01 22:14:27,284 - INFO - Confiança Mínima: 0.1103
+2025-04-01 22:14:27,284 - INFO - 
+Probabilidades por número:
+2025-04-01 22:14:27,284 - INFO - Número 17: 0.1103
+2025-04-01 22:14:27,284 - INFO - Número 51: 0.1103
+2025-04-01 22:14:27,284 - INFO - Número 23: 0.1104
+2025-04-01 22:14:27,284 - INFO - Número 33: 0.1124
+2025-04-01 22:14:27,284 - INFO - Número 53: 0.1135
+2025-04-01 22:14:27,284 - INFO - Número 10: 0.1171
+2025-04-01 22:14:27,285 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,285 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:14:27,285 - INFO - --------------------------------------------------
+2025-04-01 22:14:27,285 - INFO - Gerando visualizações...
+2025-04-01 22:14:27,285 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:14:27,756 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 22:14:27,756 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:14:28,232 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 22:14:28,232 - INFO - Exportando resultados...
+2025-04-01 22:14:28,233 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:14:28,891 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:14:28,891 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:14:28,892 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:14:28,892 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:14:28,892 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:14:28,892 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 22:18:33,149 - INFO - Configurações carregadas de config.json
+2025-04-01 22:18:33,149 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:18:33,150 - INFO - Configurações carregadas de config.json
+2025-04-01 22:18:33,150 - INFO - Baixando e preparando os dados...
+2025-04-01 22:18:33,150 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:18:33,151 - INFO - Carregando dados do cache...
+2025-04-01 22:18:33,181 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:18:33,199 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:18:33,206 - INFO - Pré-processando os dados...
+2025-04-01 22:18:33,206 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:18:33,223 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:18:33,224 - INFO - Criando sequências para o modelo...
+2025-04-01 22:18:33,224 - INFO - Criando sequências de tamanho 30...
+2025-04-01 22:18:33,235 - INFO - 2816 sequências criadas com sucesso
+2025-04-01 22:18:33,235 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:18:33,236 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:18:33,261 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:18:33,262 - INFO - - Treino: 2034 amostras
+2025-04-01 22:18:33,262 - INFO - - Validação: 359 amostras
+2025-04-01 22:18:33,262 - INFO - - Teste: 423 amostras
+2025-04-01 22:18:33,262 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:18:33,262 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:18:33,391 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:18:33,391 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:18:36,953 - INFO - Época 1/100 - Loss: 0.4929 - Val Loss: 0.3352
+2025-04-01 22:18:38,002 - INFO - Época 2/100 - Loss: 0.3619 - Val Loss: 0.3268
+2025-04-01 22:18:39,041 - INFO - Época 3/100 - Loss: 0.3500 - Val Loss: 0.3262
+2025-04-01 22:18:40,087 - INFO - Época 4/100 - Loss: 0.3441 - Val Loss: 0.3256
+2025-04-01 22:18:41,156 - INFO - Época 5/100 - Loss: 0.3404 - Val Loss: 0.3254
+2025-04-01 22:18:42,198 - INFO - Época 6/100 - Loss: 0.3389 - Val Loss: 0.3254
+2025-04-01 22:18:43,232 - INFO - Época 7/100 - Loss: 0.3378 - Val Loss: 0.3253
+2025-04-01 22:18:44,268 - INFO - Época 8/100 - Loss: 0.3364 - Val Loss: 0.3257
+2025-04-01 22:18:45,358 - INFO - Época 9/100 - Loss: 0.3355 - Val Loss: 0.3254
+2025-04-01 22:18:46,403 - INFO - Época 10/100 - Loss: 0.3350 - Val Loss: 0.3253
+2025-04-01 22:18:47,462 - INFO - Época 11/100 - Loss: 0.3337 - Val Loss: 0.3257
+2025-04-01 22:18:48,497 - INFO - Época 12/100 - Loss: 0.3331 - Val Loss: 0.3255
+2025-04-01 22:18:49,550 - INFO - Época 13/100 - Loss: 0.3332 - Val Loss: 0.3254
+2025-04-01 22:18:50,643 - INFO - Época 14/100 - Loss: 0.3329 - Val Loss: 0.3254
+2025-04-01 22:18:51,720 - INFO - Época 15/100 - Loss: 0.3322 - Val Loss: 0.3254
+2025-04-01 22:18:52,828 - INFO - Época 16/100 - Loss: 0.3323 - Val Loss: 0.3254
+2025-04-01 22:18:53,889 - INFO - Época 17/100 - Loss: 0.3325 - Val Loss: 0.3254
+2025-04-01 22:18:54,939 - INFO - Época 18/100 - Loss: 0.3325 - Val Loss: 0.3253
+2025-04-01 22:18:55,998 - INFO - Época 19/100 - Loss: 0.3327 - Val Loss: 0.3253
+2025-04-01 22:18:57,074 - INFO - Época 20/100 - Loss: 0.3319 - Val Loss: 0.3253
+2025-04-01 22:18:58,110 - INFO - Época 21/100 - Loss: 0.3320 - Val Loss: 0.3253
+2025-04-01 22:18:59,151 - INFO - Época 22/100 - Loss: 0.3320 - Val Loss: 0.3254
+2025-04-01 22:18:59,170 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:18:59,170 - INFO - Avaliando o modelo...
+2025-04-01 22:18:59,170 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:18:59,801 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,802 - INFO - Métricas de Avaliação:
+2025-04-01 22:18:59,802 - INFO - Loss no Teste: 0.3254
+2025-04-01 22:18:59,802 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:18:59,802 - INFO - AUC no Teste: 0.4987
+2025-04-01 22:18:59,802 - INFO - 
+Estatísticas de Acertos:
+2025-04-01 22:18:59,802 - INFO - Média de acertos por sorteio: 0.593
+2025-04-01 22:18:59,803 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:18:59,803 - INFO - Sorteios com 0 acerto(s): 223 (52.7%)
+2025-04-01 22:18:59,803 - INFO - Sorteios com 1 acerto(s): 152 (35.9%)
+2025-04-01 22:18:59,803 - INFO - Sorteios com 2 acerto(s): 45 (10.6%)
+2025-04-01 22:18:59,803 - INFO - Sorteios com 3 acerto(s): 3 (0.7%)
+2025-04-01 22:18:59,803 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,803 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:18:59,803 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,803 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:18:59,803 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:18:59,866 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,866 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:18:59,866 - INFO - Números: [5, 10, 23, 24, 27, 54]
+2025-04-01 22:18:59,867 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:18:59,867 - INFO - Confiança Média: 0.1153
+2025-04-01 22:18:59,867 - INFO - Confiança Máxima: 0.1182
+2025-04-01 22:18:59,867 - INFO - Confiança Mínima: 0.1140
+2025-04-01 22:18:59,867 - INFO - 
+Probabilidades por número:
+2025-04-01 22:18:59,867 - INFO - Número 5: 0.1140
+2025-04-01 22:18:59,868 - INFO - Número 10: 0.1142
+2025-04-01 22:18:59,868 - INFO - Número 54: 0.1148
+2025-04-01 22:18:59,868 - INFO - Número 24: 0.1150
+2025-04-01 22:18:59,868 - INFO - Número 27: 0.1156
+2025-04-01 22:18:59,868 - INFO - Número 23: 0.1182
+2025-04-01 22:18:59,868 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,868 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:18:59,868 - INFO - --------------------------------------------------
+2025-04-01 22:18:59,868 - INFO - Gerando visualizações...
+2025-04-01 22:18:59,868 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:19:00,304 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 22:19:00,305 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:19:00,724 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 22:19:00,724 - INFO - Exportando resultados...
+2025-04-01 22:19:00,725 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:19:01,323 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:19:01,324 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:19:01,324 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:19:01,324 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:19:01,324 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:19:01,324 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 22:22:02,179 - INFO - Configurações carregadas de config.json
+2025-04-01 22:22:02,180 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:22:02,180 - INFO - Configurações carregadas de config.json
+2025-04-01 22:22:02,181 - INFO - Baixando e preparando os dados...
+2025-04-01 22:22:02,181 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:22:02,181 - INFO - Carregando dados do cache...
+2025-04-01 22:22:02,211 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:22:02,229 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:22:02,235 - INFO - Pré-processando os dados...
+2025-04-01 22:22:02,235 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:22:02,252 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:22:02,253 - INFO - Criando sequências para o modelo...
+2025-04-01 22:22:02,253 - INFO - Criando sequências de tamanho 30...
+2025-04-01 22:22:02,265 - INFO - 2816 sequências criadas com sucesso
+2025-04-01 22:22:02,266 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:22:02,266 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:22:02,295 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:22:02,296 - INFO - - Treino: 2034 amostras
+2025-04-01 22:22:02,296 - INFO - - Validação: 359 amostras
+2025-04-01 22:22:02,296 - INFO - - Teste: 423 amostras
+2025-04-01 22:22:02,296 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:22:02,296 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:22:02,430 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:22:02,430 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:22:06,164 - INFO - Época 1/100 - Loss: 0.4752 - Val Loss: 0.3275
+2025-04-01 22:22:07,309 - INFO - Época 2/100 - Loss: 0.3589 - Val Loss: 0.3256
+2025-04-01 22:22:08,430 - INFO - Época 3/100 - Loss: 0.3475 - Val Loss: 0.3256
+2025-04-01 22:22:09,480 - INFO - Época 4/100 - Loss: 0.3437 - Val Loss: 0.3258
+2025-04-01 22:22:10,515 - INFO - Época 5/100 - Loss: 0.3410 - Val Loss: 0.3256
+2025-04-01 22:22:11,544 - INFO - Época 6/100 - Loss: 0.3391 - Val Loss: 0.3259
+2025-04-01 22:22:12,599 - INFO - Época 7/100 - Loss: 0.3369 - Val Loss: 0.3254
+2025-04-01 22:22:13,742 - INFO - Época 8/100 - Loss: 0.3362 - Val Loss: 0.3258
+2025-04-01 22:22:14,835 - INFO - Época 9/100 - Loss: 0.3351 - Val Loss: 0.3253
+2025-04-01 22:22:15,875 - INFO - Época 10/100 - Loss: 0.3346 - Val Loss: 0.3256
+2025-04-01 22:22:16,984 - INFO - Época 11/100 - Loss: 0.3336 - Val Loss: 0.3255
+2025-04-01 22:22:18,045 - INFO - Época 12/100 - Loss: 0.3341 - Val Loss: 0.3253
+2025-04-01 22:22:19,131 - INFO - Época 13/100 - Loss: 0.3332 - Val Loss: 0.3255
+2025-04-01 22:22:20,244 - INFO - Época 14/100 - Loss: 0.3320 - Val Loss: 0.3258
+2025-04-01 22:22:21,297 - INFO - Época 15/100 - Loss: 0.3318 - Val Loss: 0.3253
+2025-04-01 22:22:22,490 - INFO - Época 16/100 - Loss: 0.3314 - Val Loss: 0.3256
+2025-04-01 22:22:23,575 - INFO - Época 17/100 - Loss: 0.3310 - Val Loss: 0.3256
+2025-04-01 22:22:24,615 - INFO - Época 18/100 - Loss: 0.3310 - Val Loss: 0.3256
+2025-04-01 22:22:25,653 - INFO - Época 19/100 - Loss: 0.3312 - Val Loss: 0.3255
+2025-04-01 22:22:26,715 - INFO - Época 20/100 - Loss: 0.3307 - Val Loss: 0.3256
+2025-04-01 22:22:27,782 - INFO - Época 21/100 - Loss: 0.3305 - Val Loss: 0.3256
+2025-04-01 22:22:28,826 - INFO - Época 22/100 - Loss: 0.3306 - Val Loss: 0.3255
+2025-04-01 22:22:29,855 - INFO - Época 23/100 - Loss: 0.3301 - Val Loss: 0.3255
+2025-04-01 22:22:30,889 - INFO - Época 24/100 - Loss: 0.3306 - Val Loss: 0.3256
+2025-04-01 22:22:31,938 - INFO - Época 25/100 - Loss: 0.3303 - Val Loss: 0.3257
+2025-04-01 22:22:33,031 - INFO - Época 26/100 - Loss: 0.3299 - Val Loss: 0.3255
+2025-04-01 22:22:34,079 - INFO - Época 27/100 - Loss: 0.3302 - Val Loss: 0.3256
+2025-04-01 22:22:35,120 - INFO - Época 28/100 - Loss: 0.3302 - Val Loss: 0.3256
+2025-04-01 22:22:36,158 - INFO - Época 29/100 - Loss: 0.3302 - Val Loss: 0.3257
+2025-04-01 22:22:37,194 - INFO - Época 30/100 - Loss: 0.3300 - Val Loss: 0.3257
+2025-04-01 22:22:37,213 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:22:37,214 - INFO - Avaliando o modelo...
+2025-04-01 22:22:37,214 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:22:37,364 - INFO - 
+Avaliando acertos reais nas previsões...
+2025-04-01 22:22:37,822 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,823 - INFO - ANÁLISE DE ACERTOS REAIS
+2025-04-01 22:22:37,823 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,823 - INFO - Total de sorteios analisados: 423
+2025-04-01 22:22:37,823 - INFO - Média de acertos por sorteio: 0.603
+2025-04-01 22:22:37,823 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:22:37,824 - INFO - 
+Distribuição de acertos:
+2025-04-01 22:22:37,824 - INFO - Sorteios com 0 acerto(s): 222 (52.5%)
+2025-04-01 22:22:37,824 - INFO - Sorteios com 1 acerto(s): 153 (36.2%)
+2025-04-01 22:22:37,824 - INFO - Sorteios com 2 acerto(s): 42 (9.9%)
+2025-04-01 22:22:37,824 - INFO - Sorteios com 3 acerto(s): 6 (1.4%)
+2025-04-01 22:22:37,824 - INFO - 
+Exemplo dos últimos 5 sorteios:
+2025-04-01 22:22:37,825 - INFO - 
+Sorteio 419:
+2025-04-01 22:22:37,825 - INFO - Números previstos: [5, 10, 16, 33, 53, 54]
+2025-04-01 22:22:37,825 - INFO - Números sorteados: [4, 8, 49, 51, 52, 55]
+2025-04-01 22:22:37,826 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 22:22:37,826 - INFO - 
+Sorteio 420:
+2025-04-01 22:22:37,826 - INFO - Números previstos: [5, 10, 30, 33, 53, 54]
+2025-04-01 22:22:37,826 - INFO - Números sorteados: [1, 37, 39, 40, 43, 59]
+2025-04-01 22:22:37,826 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 22:22:37,826 - INFO - 
+Sorteio 421:
+2025-04-01 22:22:37,826 - INFO - Números previstos: [5, 10, 16, 33, 53, 54]
+2025-04-01 22:22:37,826 - INFO - Números sorteados: [7, 20, 31, 54, 55, 58]
+2025-04-01 22:22:37,827 - INFO - Números acertados: [54] (1 acertos)
+2025-04-01 22:22:37,827 - INFO - 
+Sorteio 422:
+2025-04-01 22:22:37,827 - INFO - Números previstos: [5, 10, 30, 33, 53, 54]
+2025-04-01 22:22:37,827 - INFO - Números sorteados: [10, 31, 40, 52, 54, 56]
+2025-04-01 22:22:37,827 - INFO - Números acertados: [10, 54] (2 acertos)
+2025-04-01 22:22:37,827 - INFO - 
+Sorteio 423:
+2025-04-01 22:22:37,827 - INFO - Números previstos: [5, 10, 30, 33, 53, 54]
+2025-04-01 22:22:37,827 - INFO - Números sorteados: [1, 12, 16, 17, 25, 57]
+2025-04-01 22:22:37,828 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 22:22:37,828 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,828 - INFO - AVISO: Acertos passados não garantem acertos futuros.
+2025-04-01 22:22:37,828 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,828 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,828 - INFO - Métricas de Avaliação:
+2025-04-01 22:22:37,828 - INFO - Loss no Teste: 0.3255
+2025-04-01 22:22:37,828 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:22:37,829 - INFO - AUC no Teste: 0.4988
+2025-04-01 22:22:37,829 - INFO - 
+Estatísticas de Acertos Reais:
+2025-04-01 22:22:37,829 - INFO - Média de acertos por sorteio: 0.603
+2025-04-01 22:22:37,829 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:22:37,829 - INFO - 
+Distribuição de Acertos:
+2025-04-01 22:22:37,829 - INFO - Sorteios com 0 acerto(s): 222 (52.5%)
+2025-04-01 22:22:37,829 - INFO - Sorteios com 1 acerto(s): 153 (36.2%)
+2025-04-01 22:22:37,829 - INFO - Sorteios com 2 acerto(s): 42 (9.9%)
+2025-04-01 22:22:37,829 - INFO - Sorteios com 3 acerto(s): 6 (1.4%)
+2025-04-01 22:22:37,830 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,830 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:22:37,830 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,830 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:22:37,830 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:22:37,906 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,906 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:22:37,906 - INFO - Números: [5, 10, 30, 33, 53, 54]
+2025-04-01 22:22:37,907 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:22:37,907 - INFO - Confiança Média: 0.1124
+2025-04-01 22:22:37,907 - INFO - Confiança Máxima: 0.1147
+2025-04-01 22:22:37,907 - INFO - Confiança Mínima: 0.1102
+2025-04-01 22:22:37,907 - INFO - 
+Probabilidades por número:
+2025-04-01 22:22:37,907 - INFO - Número 53: 0.1102
+2025-04-01 22:22:37,908 - INFO - Número 30: 0.1115
+2025-04-01 22:22:37,908 - INFO - Número 10: 0.1117
+2025-04-01 22:22:37,908 - INFO - Número 5: 0.1123
+2025-04-01 22:22:37,908 - INFO - Número 54: 0.1141
+2025-04-01 22:22:37,908 - INFO - Número 33: 0.1147
+2025-04-01 22:22:37,908 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,908 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:22:37,909 - INFO - --------------------------------------------------
+2025-04-01 22:22:37,909 - INFO - Gerando visualizações...
+2025-04-01 22:22:37,909 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:22:38,307 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 22:22:38,308 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:22:38,723 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 22:22:38,723 - INFO - Exportando resultados...
+2025-04-01 22:22:38,723 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:22:39,307 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:22:39,307 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:22:39,308 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:22:39,308 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:22:39,308 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:22:39,308 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 22:56:36,104 - INFO - Configurações carregadas de config.json
+2025-04-01 22:56:36,105 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 22:56:36,105 - INFO - Configurações carregadas de config.json
+2025-04-01 22:56:36,106 - INFO - Baixando e preparando os dados...
+2025-04-01 22:56:36,106 - INFO - Iniciando carregamento de dados...
+2025-04-01 22:56:36,106 - INFO - Carregando dados do cache...
+2025-04-01 22:56:36,137 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 22:56:36,155 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 22:56:36,161 - INFO - Pré-processando os dados...
+2025-04-01 22:56:36,162 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 22:56:36,179 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 22:56:36,180 - INFO - Criando sequências para o modelo...
+2025-04-01 22:56:36,180 - INFO - Criando sequências de tamanho 50...
+2025-04-01 22:56:36,197 - INFO - 2796 sequências criadas com sucesso
+2025-04-01 22:56:36,197 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:56:36,198 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 22:56:36,235 - INFO - Tamanho dos conjuntos:
+2025-04-01 22:56:36,235 - INFO - - Treino: 2019 amostras
+2025-04-01 22:56:36,236 - INFO - - Validação: 357 amostras
+2025-04-01 22:56:36,236 - INFO - - Teste: 420 amostras
+2025-04-01 22:56:36,236 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:56:36,236 - INFO - Construindo o modelo LSTM...
+2025-04-01 22:56:36,367 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:56:36,368 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 22:56:40,366 - INFO - Época 1/100 - Loss: 0.5029 - Val Loss: 0.3417
+2025-04-01 22:56:41,821 - INFO - Época 2/100 - Loss: 0.3658 - Val Loss: 0.3270
+2025-04-01 22:56:43,293 - INFO - Época 3/100 - Loss: 0.3510 - Val Loss: 0.3264
+2025-04-01 22:56:44,756 - INFO - Época 4/100 - Loss: 0.3445 - Val Loss: 0.3261
+2025-04-01 22:56:46,219 - INFO - Época 5/100 - Loss: 0.3415 - Val Loss: 0.3258
+2025-04-01 22:56:47,655 - INFO - Época 6/100 - Loss: 0.3387 - Val Loss: 0.3261
+2025-04-01 22:56:49,153 - INFO - Época 7/100 - Loss: 0.3384 - Val Loss: 0.3255
+2025-04-01 22:56:50,610 - INFO - Época 8/100 - Loss: 0.3367 - Val Loss: 0.3258
+2025-04-01 22:56:52,067 - INFO - Época 9/100 - Loss: 0.3356 - Val Loss: 0.3253
+2025-04-01 22:56:53,526 - INFO - Época 10/100 - Loss: 0.3347 - Val Loss: 0.3254
+2025-04-01 22:56:54,962 - INFO - Época 11/100 - Loss: 0.3341 - Val Loss: 0.3254
+2025-04-01 22:56:56,381 - INFO - Época 12/100 - Loss: 0.3338 - Val Loss: 0.3256
+2025-04-01 22:56:57,809 - INFO - Época 13/100 - Loss: 0.3337 - Val Loss: 0.3255
+2025-04-01 22:56:59,241 - INFO - Época 14/100 - Loss: 0.3325 - Val Loss: 0.3254
+2025-04-01 22:57:00,740 - INFO - Época 15/100 - Loss: 0.3325 - Val Loss: 0.3258
+2025-04-01 22:57:02,174 - INFO - Época 16/100 - Loss: 0.3324 - Val Loss: 0.3257
+2025-04-01 22:57:03,598 - INFO - Época 17/100 - Loss: 0.3314 - Val Loss: 0.3255
+2025-04-01 22:57:05,074 - INFO - Época 18/100 - Loss: 0.3317 - Val Loss: 0.3254
+2025-04-01 22:57:06,651 - INFO - Época 19/100 - Loss: 0.3312 - Val Loss: 0.3254
+2025-04-01 22:57:08,127 - INFO - Época 20/100 - Loss: 0.3311 - Val Loss: 0.3254
+2025-04-01 22:57:09,540 - INFO - Época 21/100 - Loss: 0.3309 - Val Loss: 0.3255
+2025-04-01 22:57:10,997 - INFO - Época 22/100 - Loss: 0.3308 - Val Loss: 0.3256
+2025-04-01 22:57:12,441 - INFO - Época 23/100 - Loss: 0.3311 - Val Loss: 0.3255
+2025-04-01 22:57:13,865 - INFO - Época 24/100 - Loss: 0.3309 - Val Loss: 0.3256
+2025-04-01 22:57:13,887 - INFO - Treinamento concluído com sucesso
+2025-04-01 22:57:13,888 - INFO - Avaliando o modelo...
+2025-04-01 22:57:13,888 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 22:57:14,099 - INFO - 
+Avaliando acertos reais nas previsões...
+2025-04-01 22:57:14,596 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,596 - INFO - ANÁLISE DE ACERTOS REAIS
+2025-04-01 22:57:14,597 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,597 - INFO - Total de sorteios analisados: 420
+2025-04-01 22:57:14,597 - INFO - Média de acertos por sorteio: 0.593
+2025-04-01 22:57:14,597 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:57:14,597 - INFO - 
+Distribuição de acertos:
+2025-04-01 22:57:14,598 - INFO - Sorteios com 0 acerto(s): 223 (53.1%)
+2025-04-01 22:57:14,598 - INFO - Sorteios com 1 acerto(s): 147 (35.0%)
+2025-04-01 22:57:14,598 - INFO - Sorteios com 2 acerto(s): 48 (11.4%)
+2025-04-01 22:57:14,598 - INFO - Sorteios com 3 acerto(s): 2 (0.5%)
+2025-04-01 22:57:14,598 - INFO - 
+Exemplo dos últimos 5 sorteios:
+2025-04-01 22:57:14,598 - INFO - 
+Sorteio 416:
+2025-04-01 22:57:14,598 - INFO - Números previstos: [4, 5, 10, 23, 27, 53]
+2025-04-01 22:57:14,598 - INFO - Números sorteados: [4, 8, 49, 51, 52, 55]
+2025-04-01 22:57:14,599 - INFO - Números acertados: [4] (1 acertos)
+2025-04-01 22:57:14,599 - INFO - 
+Sorteio 417:
+2025-04-01 22:57:14,599 - INFO - Números previstos: [4, 5, 10, 23, 27, 53]
+2025-04-01 22:57:14,599 - INFO - Números sorteados: [1, 37, 39, 40, 43, 59]
+2025-04-01 22:57:14,599 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 22:57:14,599 - INFO - 
+Sorteio 418:
+2025-04-01 22:57:14,599 - INFO - Números previstos: [4, 5, 10, 23, 24, 27]
+2025-04-01 22:57:14,599 - INFO - Números sorteados: [7, 20, 31, 54, 55, 58]
+2025-04-01 22:57:14,599 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 22:57:14,599 - INFO - 
+Sorteio 419:
+2025-04-01 22:57:14,600 - INFO - Números previstos: [4, 5, 10, 17, 23, 27]
+2025-04-01 22:57:14,600 - INFO - Números sorteados: [10, 31, 40, 52, 54, 56]
+2025-04-01 22:57:14,600 - INFO - Números acertados: [10] (1 acertos)
+2025-04-01 22:57:14,600 - INFO - 
+Sorteio 420:
+2025-04-01 22:57:14,600 - INFO - Números previstos: [5, 10, 17, 23, 24, 27]
+2025-04-01 22:57:14,600 - INFO - Números sorteados: [1, 12, 16, 17, 25, 57]
+2025-04-01 22:57:14,600 - INFO - Números acertados: [17] (1 acertos)
+2025-04-01 22:57:14,600 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,601 - INFO - AVISO: Acertos passados não garantem acertos futuros.
+2025-04-01 22:57:14,601 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,601 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,601 - INFO - Métricas de Avaliação:
+2025-04-01 22:57:14,601 - INFO - Loss no Teste: 0.3254
+2025-04-01 22:57:14,601 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 22:57:14,601 - INFO - AUC no Teste: 0.5038
+2025-04-01 22:57:14,601 - INFO - 
+Estatísticas de Acertos Reais:
+2025-04-01 22:57:14,602 - INFO - Média de acertos por sorteio: 0.593
+2025-04-01 22:57:14,602 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 22:57:14,602 - INFO - 
+Distribuição de Acertos:
+2025-04-01 22:57:14,602 - INFO - Sorteios com 0 acerto(s): 223 (53.1%)
+2025-04-01 22:57:14,602 - INFO - Sorteios com 1 acerto(s): 147 (35.0%)
+2025-04-01 22:57:14,602 - INFO - Sorteios com 2 acerto(s): 48 (11.4%)
+2025-04-01 22:57:14,602 - INFO - Sorteios com 3 acerto(s): 2 (0.5%)
+2025-04-01 22:57:14,602 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,602 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 22:57:14,603 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,603 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 22:57:14,603 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 22:57:14,663 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,663 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 22:57:14,663 - INFO - Números: [5, 10, 17, 23, 24, 27]
+2025-04-01 22:57:14,664 - INFO - 
+Métricas de Confiança:
+2025-04-01 22:57:14,664 - INFO - Confiança Média: 0.1164
+2025-04-01 22:57:14,664 - INFO - Confiança Máxima: 0.1208
+2025-04-01 22:57:14,664 - INFO - Confiança Mínima: 0.1129
+2025-04-01 22:57:14,664 - INFO - 
+Probabilidades por número:
+2025-04-01 22:57:14,664 - INFO - Número 24: 0.1129
+2025-04-01 22:57:14,664 - INFO - Número 17: 0.1134
+2025-04-01 22:57:14,665 - INFO - Número 5: 0.1143
+2025-04-01 22:57:14,665 - INFO - Número 23: 0.1173
+2025-04-01 22:57:14,665 - INFO - Número 27: 0.1198
+2025-04-01 22:57:14,665 - INFO - Número 10: 0.1208
+2025-04-01 22:57:14,665 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,665 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 22:57:14,665 - INFO - --------------------------------------------------
+2025-04-01 22:57:14,665 - INFO - Gerando visualizações...
+2025-04-01 22:57:14,665 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 22:57:15,038 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 22:57:15,039 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 22:57:15,440 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 22:57:15,440 - INFO - Exportando resultados...
+2025-04-01 22:57:15,441 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 22:57:16,050 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 22:57:16,050 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 22:57:16,051 - INFO - Verifique os arquivos gerados:
+2025-04-01 22:57:16,051 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 22:57:16,051 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 22:57:16,051 - INFO - - prediction_analysis.png: Análise visual das previsões
+2025-04-01 23:00:20,690 - INFO - Configurações carregadas de config.json
+2025-04-01 23:00:20,691 - INFO - Iniciando o programa de previsão da Mega-Sena...
+2025-04-01 23:00:20,691 - INFO - Configurações carregadas de config.json
+2025-04-01 23:00:20,692 - INFO - Baixando e preparando os dados...
+2025-04-01 23:00:20,692 - INFO - Iniciando carregamento de dados...
+2025-04-01 23:00:20,692 - INFO - Carregando dados do cache...
+2025-04-01 23:00:20,722 - INFO - Dados carregados com sucesso do cache.
+2025-04-01 23:00:20,740 - INFO - Dados processados com sucesso (2846 sorteios).
+2025-04-01 23:00:20,746 - INFO - Pré-processando os dados...
+2025-04-01 23:00:20,747 - INFO - Iniciando pré-processamento dos dados...
+2025-04-01 23:00:20,763 - INFO - Dados transformados com sucesso (60 features)
+2025-04-01 23:00:20,764 - INFO - Criando sequências para o modelo...
+2025-04-01 23:00:20,764 - INFO - Criando sequências de tamanho 30...
+2025-04-01 23:00:20,777 - INFO - 2816 sequências criadas com sucesso
+2025-04-01 23:00:20,777 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 23:00:20,777 - INFO - Dividindo os dados em conjuntos de treino, validação e teste...
+2025-04-01 23:00:20,801 - INFO - Tamanho dos conjuntos:
+2025-04-01 23:00:20,801 - INFO - - Treino: 2034 amostras
+2025-04-01 23:00:20,801 - INFO - - Validação: 359 amostras
+2025-04-01 23:00:20,801 - INFO - - Teste: 423 amostras
+2025-04-01 23:00:20,802 - INFO - Construindo o modelo LSTM...
+2025-04-01 23:00:20,802 - INFO - Construindo o modelo LSTM...
+2025-04-01 23:00:20,958 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 23:00:20,958 - INFO - Iniciando o treinamento do modelo...
+2025-04-01 23:00:24,477 - INFO - Época 1/250 - Loss: 0.5040 - Val Loss: 0.3407
+2025-04-01 23:00:25,541 - INFO - Época 2/250 - Loss: 0.3619 - Val Loss: 0.3271
+2025-04-01 23:00:26,611 - INFO - Época 3/250 - Loss: 0.3485 - Val Loss: 0.3258
+2025-04-01 23:00:27,656 - INFO - Época 4/250 - Loss: 0.3438 - Val Loss: 0.3254
+2025-04-01 23:00:28,643 - INFO - Época 5/250 - Loss: 0.3394 - Val Loss: 0.3258
+2025-04-01 23:00:29,646 - INFO - Época 6/250 - Loss: 0.3391 - Val Loss: 0.3252
+2025-04-01 23:00:30,632 - INFO - Época 7/250 - Loss: 0.3371 - Val Loss: 0.3254
+2025-04-01 23:00:31,624 - INFO - Época 8/250 - Loss: 0.3361 - Val Loss: 0.3253
+2025-04-01 23:00:32,639 - INFO - Época 9/250 - Loss: 0.3353 - Val Loss: 0.3258
+2025-04-01 23:00:33,668 - INFO - Época 10/250 - Loss: 0.3344 - Val Loss: 0.3255
+2025-04-01 23:00:34,669 - INFO - Época 11/250 - Loss: 0.3338 - Val Loss: 0.3255
+2025-04-01 23:00:35,664 - INFO - Época 12/250 - Loss: 0.3337 - Val Loss: 0.3254
+2025-04-01 23:00:36,674 - INFO - Época 13/250 - Loss: 0.3328 - Val Loss: 0.3254
+2025-04-01 23:00:37,747 - INFO - Época 14/250 - Loss: 0.3318 - Val Loss: 0.3255
+2025-04-01 23:00:38,739 - INFO - Época 15/250 - Loss: 0.3326 - Val Loss: 0.3255
+2025-04-01 23:00:39,736 - INFO - Época 16/250 - Loss: 0.3315 - Val Loss: 0.3254
+2025-04-01 23:00:40,843 - INFO - Época 17/250 - Loss: 0.3318 - Val Loss: 0.3255
+2025-04-01 23:00:41,860 - INFO - Época 18/250 - Loss: 0.3317 - Val Loss: 0.3256
+2025-04-01 23:00:42,855 - INFO - Época 19/250 - Loss: 0.3314 - Val Loss: 0.3255
+2025-04-01 23:00:43,861 - INFO - Época 20/250 - Loss: 0.3316 - Val Loss: 0.3256
+2025-04-01 23:00:44,976 - INFO - Época 21/250 - Loss: 0.3316 - Val Loss: 0.3256
+2025-04-01 23:00:44,996 - INFO - Treinamento concluído com sucesso
+2025-04-01 23:00:44,996 - INFO - Avaliando o modelo...
+2025-04-01 23:00:44,997 - INFO - 
+Avaliando o modelo no conjunto de teste...
+2025-04-01 23:00:45,164 - INFO - 
+Avaliando acertos reais nas previsões...
+2025-04-01 23:00:45,641 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,641 - INFO - ANÁLISE DE ACERTOS REAIS
+2025-04-01 23:00:45,642 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,642 - INFO - Total de sorteios analisados: 423
+2025-04-01 23:00:45,642 - INFO - Média de acertos por sorteio: 0.586
+2025-04-01 23:00:45,642 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 23:00:45,642 - INFO - 
+Distribuição de acertos:
+2025-04-01 23:00:45,642 - INFO - Sorteios com 0 acerto(s): 223 (52.7%)
+2025-04-01 23:00:45,643 - INFO - Sorteios com 1 acerto(s): 156 (36.9%)
+2025-04-01 23:00:45,643 - INFO - Sorteios com 2 acerto(s): 40 (9.5%)
+2025-04-01 23:00:45,643 - INFO - Sorteios com 3 acerto(s): 4 (0.9%)
+2025-04-01 23:00:45,643 - INFO - 
+Exemplo dos últimos 5 sorteios:
+2025-04-01 23:00:45,643 - INFO - 
+Sorteio 419:
+2025-04-01 23:00:45,643 - INFO - Números previstos: [5, 28, 36, 42, 50, 53]
+2025-04-01 23:00:45,644 - INFO - Números sorteados: [4, 8, 49, 51, 52, 55]
+2025-04-01 23:00:45,644 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 23:00:45,644 - INFO - 
+Sorteio 420:
+2025-04-01 23:00:45,644 - INFO - Números previstos: [5, 28, 36, 42, 50, 53]
+2025-04-01 23:00:45,644 - INFO - Números sorteados: [1, 37, 39, 40, 43, 59]
+2025-04-01 23:00:45,644 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 23:00:45,644 - INFO - 
+Sorteio 421:
+2025-04-01 23:00:45,645 - INFO - Números previstos: [5, 28, 36, 42, 50, 53]
+2025-04-01 23:00:45,645 - INFO - Números sorteados: [7, 20, 31, 54, 55, 58]
+2025-04-01 23:00:45,645 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 23:00:45,645 - INFO - 
+Sorteio 422:
+2025-04-01 23:00:45,645 - INFO - Números previstos: [5, 23, 28, 36, 50, 53]
+2025-04-01 23:00:45,645 - INFO - Números sorteados: [10, 31, 40, 52, 54, 56]
+2025-04-01 23:00:45,645 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 23:00:45,645 - INFO - 
+Sorteio 423:
+2025-04-01 23:00:45,646 - INFO - Números previstos: [5, 28, 36, 42, 50, 53]
+2025-04-01 23:00:45,646 - INFO - Números sorteados: [1, 12, 16, 17, 25, 57]
+2025-04-01 23:00:45,646 - INFO - Números acertados: [] (0 acertos)
+2025-04-01 23:00:45,646 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,646 - INFO - AVISO: Acertos passados não garantem acertos futuros.
+2025-04-01 23:00:45,646 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,646 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,646 - INFO - Métricas de Avaliação:
+2025-04-01 23:00:45,647 - INFO - Loss no Teste: 0.3253
+2025-04-01 23:00:45,647 - INFO - Binary Accuracy no Teste: 0.9000
+2025-04-01 23:00:45,647 - INFO - AUC no Teste: 0.5029
+2025-04-01 23:00:45,647 - INFO - 
+Estatísticas de Acertos Reais:
+2025-04-01 23:00:45,647 - INFO - Média de acertos por sorteio: 0.586
+2025-04-01 23:00:45,647 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-01 23:00:45,647 - INFO - 
+Distribuição de Acertos:
+2025-04-01 23:00:45,647 - INFO - Sorteios com 0 acerto(s): 223 (52.7%)
+2025-04-01 23:00:45,648 - INFO - Sorteios com 1 acerto(s): 156 (36.9%)
+2025-04-01 23:00:45,648 - INFO - Sorteios com 2 acerto(s): 40 (9.5%)
+2025-04-01 23:00:45,648 - INFO - Sorteios com 3 acerto(s): 4 (0.9%)
+2025-04-01 23:00:45,648 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,648 - INFO - AVISO: Métricas refletem o ajuste aos dados históricos, não previsão real.
+2025-04-01 23:00:45,648 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,648 - INFO - Gerando previsão para o próximo sorteio...
+2025-04-01 23:00:45,648 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-01 23:00:45,712 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,712 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-01 23:00:45,712 - INFO - Números: [5, 28, 36, 42, 50, 53]
+2025-04-01 23:00:45,712 - INFO - 
+Métricas de Confiança:
+2025-04-01 23:00:45,713 - INFO - Confiança Média: 0.1140
+2025-04-01 23:00:45,713 - INFO - Confiança Máxima: 0.1162
+2025-04-01 23:00:45,713 - INFO - Confiança Mínima: 0.1114
+2025-04-01 23:00:45,713 - INFO - 
+Probabilidades por número:
+2025-04-01 23:00:45,713 - INFO - Número 42: 0.1114
+2025-04-01 23:00:45,713 - INFO - Número 53: 0.1124
+2025-04-01 23:00:45,713 - INFO - Número 28: 0.1128
+2025-04-01 23:00:45,713 - INFO - Número 36: 0.1153
+2025-04-01 23:00:45,714 - INFO - Número 50: 0.1161
+2025-04-01 23:00:45,714 - INFO - Número 5: 0.1162
+2025-04-01 23:00:45,714 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,714 - INFO - AVISO: Esta previsão é um exercício técnico. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-01 23:00:45,714 - INFO - --------------------------------------------------
+2025-04-01 23:00:45,714 - INFO - Gerando visualizações...
+2025-04-01 23:00:45,714 - INFO - 
+Gerando gráficos do histórico de treinamento...
+2025-04-01 23:00:46,119 - INFO - Gráficos salvos em 'training_history.png'
+2025-04-01 23:00:46,120 - INFO - 
+Gerando análise visual das previsões...
+2025-04-01 23:00:46,552 - INFO - Análise visual salva em 'prediction_analysis.png'
+2025-04-01 23:00:46,552 - INFO - Exportando resultados...
+2025-04-01 23:00:46,553 - INFO - 
+Exportando resultados para Excel...
+2025-04-01 23:00:47,175 - INFO - Resultados exportados para 'historico_e_previsoes_megasena.xlsx'
+2025-04-01 23:00:47,176 - INFO - 
+Processo concluído com sucesso!
+2025-04-01 23:00:47,176 - INFO - Verifique os arquivos gerados:
+2025-04-01 23:00:47,176 - INFO - - historico_e_previsoes_megasena.xlsx: Resultados detalhados em Excel
+2025-04-01 23:00:47,177 - INFO - - training_history.png: Gráficos do histórico de treinamento
+2025-04-01 23:00:47,177 - INFO - - prediction_analysis.png: Análise visual das previsões

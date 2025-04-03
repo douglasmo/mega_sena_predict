@@ -1,0 +1,14 @@
+{
+    "data_url": "https://loteriascaixa-api.herokuapp.com/api/megasena",
+    "data_file": null,
+    "export_file": "historico_e_previsoes_megasena.xlsx",
+    "sequence_length": 30,
+    "num_features": 60,
+    "lstm_units": 128,
+    "dropout_rate": 0.3,
+    "epochs": 250,
+    "batch_size": 32,
+    "test_size_ratio": 0.15,
+    "cache_duration_hours": 24,
+    "cache_dir": "cache"
+} 

@@ -1,0 +1,220 @@
+2025-04-02 21:10:15,617 - INFO - Configurações carregadas e mescladas de configv2.json
+2025-04-02 21:10:15,617 - INFO - Iniciando o programa de previsão da Mega-Sena (v2) em 2025-04-02 21:10:15...
+2025-04-02 21:10:15,617 - INFO - Configurações carregadas e mescladas de configv2.json
+2025-04-02 21:10:15,617 - INFO - Validando configuração...
+2025-04-02 21:10:15,617 - INFO - Configuração validada com sucesso.
+2025-04-02 21:10:15,618 - INFO - Configurações carregadas: {
+  "data_url": "https://loteriascaixa-api.herokuapp.com/api/megasena",
+  "data_file": null,
+  "export_file": "historico_e_previsoes_megasena_v2.xlsx",
+  "sequence_length": 15,
+  "num_features_base": 60,
+  "num_features_time": 60,
+  "gru_units": 128,
+  "dropout_rate": 0.35,
+  "epochs": 150,
+  "batch_size": 32,
+  "test_size_ratio": 0.15,
+  "validation_split_ratio": 0.15,
+  "cache_duration_hours": 24,
+  "cache_dir": "cache",
+  "num_features_total": 120
+}
+2025-04-02 21:10:15,618 - INFO - Etapa 1: Baixando e preparando os dados...
+2025-04-02 21:10:15,618 - INFO - Iniciando carregamento de dados...
+2025-04-02 21:10:15,619 - INFO - Carregando dados do cache...
+2025-04-02 21:10:15,650 - INFO - Dados carregados com sucesso do cache.
+2025-04-02 21:10:15,676 - INFO - Dados ordenados por 'Concurso'.
+2025-04-02 21:10:15,676 - INFO - Dados processados com sucesso da API/Cache (2846 sorteios).
+2025-04-02 21:10:15,676 - INFO - Colunas de bolas encontradas usando o padrão: ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']
+2025-04-02 21:10:15,679 - INFO - Colunas das bolas verificadas e convertidas para inteiro.
+2025-04-02 21:10:15,681 - INFO - Processamento final: 2846 sorteios carregados e formatados.
+2025-04-02 21:10:15,684 - INFO - Dados históricos carregados: 2846 sorteios.
+2025-04-02 21:10:15,684 - INFO - Etapa 2: Pré-processando os labels dos sorteios...
+2025-04-02 21:10:15,685 - INFO - Iniciando pré-processamento dos labels (MultiLabelBinarizer)...
+2025-04-02 21:10:15,707 - INFO - Labels transformados com sucesso (2846 amostras, 60 features base)
+2025-04-02 21:10:15,708 - INFO - Labels processados: 2846 sorteios válidos restantes.
+2025-04-02 21:10:15,709 - INFO - Etapa 3: Calculando features de tempo...
+2025-04-02 21:10:15,709 - INFO - Calculando features de tempo (sorteios desde a última aparição)...
+2025-04-02 21:10:15,737 - INFO - Features de tempo calculadas. Shape: (2846, 60)
+2025-04-02 21:10:15,738 - INFO - Features de tempo calculadas. Shape: (2846, 60)
+2025-04-02 21:10:15,738 - INFO - Etapa 4: Dividindo dados, escalando features e criando sequências...
+2025-04-02 21:10:15,738 - INFO - Dividindo dados e escalando features de tempo...
+2025-04-02 21:10:15,739 - INFO - Tamanhos dos conjuntos (antes de sequenciar):
+2025-04-02 21:10:15,739 - INFO - - Treino Bruto: 2056 amostras
+2025-04-02 21:10:15,739 - INFO - - Validação Bruta: 363 amostras
+2025-04-02 21:10:15,739 - INFO - - Teste Bruto: 427 amostras
+2025-04-02 21:10:15,740 - INFO - Ajustando o Scaler (StandardScaler) nas features de tempo do treino...
+2025-04-02 21:10:15,741 - INFO - Escalando features de tempo de validação e teste...
+2025-04-02 21:10:15,742 - INFO - Criando sequências para o conjunto de treino...
+2025-04-02 21:10:15,742 - INFO - Criando sequências combinadas de tamanho 15...
+2025-04-02 21:10:15,752 - INFO - 2041 sequências combinadas criadas com sucesso. Shape X: (2041, 15, 120), Shape y: (2041, 60)
+2025-04-02 21:10:15,753 - INFO - Criando sequências para o conjunto de validação...
+2025-04-02 21:10:15,753 - INFO - Criando sequências combinadas de tamanho 15...
+2025-04-02 21:10:15,755 - INFO - 348 sequências combinadas criadas com sucesso. Shape X: (348, 15, 120), Shape y: (348, 60)
+2025-04-02 21:10:15,755 - INFO - Criando sequências para o conjunto de teste...
+2025-04-02 21:10:15,755 - INFO - Criando sequências combinadas de tamanho 15...
+2025-04-02 21:10:15,758 - INFO - 412 sequências combinadas criadas com sucesso. Shape X: (412, 15, 120), Shape y: (412, 60)
+2025-04-02 21:10:15,758 - INFO - Tamanho final dos conjuntos de sequências:
+2025-04-02 21:10:15,758 - INFO - - Treino: X=(2041, 15, 120), y=(2041, 60)
+2025-04-02 21:10:15,758 - INFO - - Validação: X=(348, 15, 120), y=(348, 60)
+2025-04-02 21:10:15,759 - INFO - - Teste: X=(412, 15, 120), y=(412, 60)
+2025-04-02 21:10:15,759 - INFO - Etapa 5: Construindo o modelo GRU...
+2025-04-02 21:10:15,759 - INFO - Construindo o modelo GRU...
+2025-04-02 21:10:15,919 - INFO - Etapa 6: Treinando o modelo GRU...
+2025-04-02 21:10:15,919 - INFO - Iniciando o treinamento do modelo GRU...
+2025-04-02 21:10:19,117 - INFO - Época 1/150 - Loss: 0.5840 - Acc: 0.6837 - AUC: 0.5034 - Val Loss: 0.3512 - Val Acc: 0.9000 - Val AUC: 0.4955
+2025-04-02 21:10:19,723 - INFO - Época 2/150 - Loss: 0.3778 - Acc: 0.8886 - AUC: 0.5033 - Val Loss: 0.3298 - Val Acc: 0.9000 - Val AUC: 0.5039
+2025-04-02 21:10:20,319 - INFO - Época 3/150 - Loss: 0.3592 - Acc: 0.8975 - AUC: 0.5070 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5010
+2025-04-02 21:10:20,943 - INFO - Época 4/150 - Loss: 0.3527 - Acc: 0.8992 - AUC: 0.5064 - Val Loss: 0.3285 - Val Acc: 0.9000 - Val AUC: 0.4965
+2025-04-02 21:10:21,541 - INFO - Época 5/150 - Loss: 0.3483 - Acc: 0.8997 - AUC: 0.5095 - Val Loss: 0.3278 - Val Acc: 0.9000 - Val AUC: 0.5039
+2025-04-02 21:10:22,135 - INFO - Época 6/150 - Loss: 0.3435 - Acc: 0.8999 - AUC: 0.5147 - Val Loss: 0.3274 - Val Acc: 0.9000 - Val AUC: 0.5020
+2025-04-02 21:10:22,731 - INFO - Época 7/150 - Loss: 0.3407 - Acc: 0.9000 - AUC: 0.5178 - Val Loss: 0.3271 - Val Acc: 0.9000 - Val AUC: 0.5038
+2025-04-02 21:10:23,362 - INFO - Época 8/150 - Loss: 0.3393 - Acc: 0.9000 - AUC: 0.5192 - Val Loss: 0.3270 - Val Acc: 0.9000 - Val AUC: 0.5035
+2025-04-02 21:10:23,965 - INFO - Época 9/150 - Loss: 0.3382 - Acc: 0.9000 - AUC: 0.5177 - Val Loss: 0.3270 - Val Acc: 0.9000 - Val AUC: 0.5024
+2025-04-02 21:10:24,609 - INFO - Época 10/150 - Loss: 0.3371 - Acc: 0.9000 - AUC: 0.5219 - Val Loss: 0.3271 - Val Acc: 0.9000 - Val AUC: 0.5025
+2025-04-02 21:10:25,206 - INFO - Época 11/150 - Loss: 0.3362 - Acc: 0.9000 - AUC: 0.5219 - Val Loss: 0.3270 - Val Acc: 0.9000 - Val AUC: 0.4979
+2025-04-02 21:10:25,801 - INFO - Época 12/150 - Loss: 0.3350 - Acc: 0.9000 - AUC: 0.5253 - Val Loss: 0.3267 - Val Acc: 0.9000 - Val AUC: 0.5035
+2025-04-02 21:10:26,393 - INFO - Época 13/150 - Loss: 0.3332 - Acc: 0.9000 - AUC: 0.5299 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5000
+2025-04-02 21:10:26,994 - INFO - Época 14/150 - Loss: 0.3343 - Acc: 0.9000 - AUC: 0.5236 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5016
+2025-04-02 21:10:27,595 - INFO - Época 15/150 - Loss: 0.3322 - Acc: 0.9000 - AUC: 0.5313 - Val Loss: 0.3270 - Val Acc: 0.9000 - Val AUC: 0.5023
+2025-04-02 21:10:28,192 - INFO - Época 16/150 - Loss: 0.3326 - Acc: 0.9000 - AUC: 0.5278 - Val Loss: 0.3273 - Val Acc: 0.9000 - Val AUC: 0.5009
+2025-04-02 21:10:28,785 - INFO - Época 17/150 - Loss: 0.3317 - Acc: 0.9000 - AUC: 0.5308 - Val Loss: 0.3267 - Val Acc: 0.9000 - Val AUC: 0.5010
+2025-04-02 21:10:29,380 - INFO - Época 18/150 - Loss: 0.3314 - Acc: 0.9000 - AUC: 0.5333 - Val Loss: 0.3273 - Val Acc: 0.9000 - Val AUC: 0.4966
+2025-04-02 21:10:29,974 - INFO - Época 19/150 - Loss: 0.3310 - Acc: 0.9000 - AUC: 0.5349 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5005
+2025-04-02 21:10:30,570 - INFO - Época 20/150 - Loss: 0.3310 - Acc: 0.9000 - AUC: 0.5361 - Val Loss: 0.3270 - Val Acc: 0.9000 - Val AUC: 0.4986
+2025-04-02 21:10:31,167 - INFO - Época 21/150 - Loss: 0.3292 - Acc: 0.9000 - AUC: 0.5428 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.4997
+2025-04-02 21:10:31,756 - INFO - Época 22/150 - Loss: 0.3292 - Acc: 0.9000 - AUC: 0.5438 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5002
+2025-04-02 21:10:32,349 - INFO - Época 23/150 - Loss: 0.3296 - Acc: 0.9000 - AUC: 0.5423 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5011
+2025-04-02 21:10:32,948 - INFO - Época 24/150 - Loss: 0.3292 - Acc: 0.9000 - AUC: 0.5432 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5020
+2025-04-02 21:10:33,543 - INFO - Época 25/150 - Loss: 0.3294 - Acc: 0.9000 - AUC: 0.5424 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5003
+2025-04-02 21:10:34,137 - INFO - Época 26/150 - Loss: 0.3285 - Acc: 0.9000 - AUC: 0.5472 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5010
+2025-04-02 21:10:34,756 - INFO - Época 27/150 - Loss: 0.3286 - Acc: 0.9000 - AUC: 0.5463 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5022
+2025-04-02 21:10:35,349 - INFO - Época 28/150 - Loss: 0.3289 - Acc: 0.9000 - AUC: 0.5452 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5015
+2025-04-02 21:10:35,941 - INFO - Época 29/150 - Loss: 0.3288 - Acc: 0.9000 - AUC: 0.5471 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5024
+2025-04-02 21:10:36,534 - INFO - Época 30/150 - Loss: 0.3286 - Acc: 0.9000 - AUC: 0.5469 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5017
+2025-04-02 21:10:37,132 - INFO - Época 31/150 - Loss: 0.3288 - Acc: 0.9000 - AUC: 0.5467 - Val Loss: 0.3269 - Val Acc: 0.9000 - Val AUC: 0.5019
+2025-04-02 21:10:37,726 - INFO - Época 32/150 - Loss: 0.3283 - Acc: 0.9000 - AUC: 0.5477 - Val Loss: 0.3268 - Val Acc: 0.9000 - Val AUC: 0.5026
+2025-04-02 21:10:37,742 - INFO - Treinamento concluído com sucesso
+2025-04-02 21:10:37,742 - INFO - Treinamento concluído.
+2025-04-02 21:10:37,742 - INFO - Etapa 7: Avaliando o modelo no conjunto de teste...
+2025-04-02 21:10:37,742 - INFO - 
+Avaliando o modelo final no conjunto de teste...
+2025-04-02 21:10:37,743 - INFO - Calculando métricas básicas (Loss, Accuracy, AUC)...
+2025-04-02 21:10:37,850 - INFO - Calculando acertos reais (Top 6)...
+2025-04-02 21:10:37,851 - INFO - 
+Avaliando acertos reais nas previsões...
+2025-04-02 21:10:38,282 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,282 - INFO - ANÁLISE DE ACERTOS REAIS (TOP 6 PREVISTOS vs SORTEADOS)
+2025-04-02 21:10:38,282 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,283 - INFO - Total de sorteios no conjunto de teste analisados: 412
+2025-04-02 21:10:38,283 - INFO - Média de acertos por sorteio: 0.619
+2025-04-02 21:10:38,283 - INFO - Máximo de acertos em um sorteio: 3
+2025-04-02 21:10:38,283 - INFO - 
+Distribuição de acertos:
+2025-04-02 21:10:38,283 - INFO - Sorteios com 0 acerto(s): 205 (49.8%)
+2025-04-02 21:10:38,283 - INFO - Sorteios com 1 acerto(s): 165 (40.0%)
+2025-04-02 21:10:38,284 - INFO - Sorteios com 2 acerto(s): 36 (8.7%)
+2025-04-02 21:10:38,284 - INFO - Sorteios com 3 acerto(s): 6 (1.5%)
+2025-04-02 21:10:38,284 - INFO - 
+Exemplo dos últimos 5 sorteios do conjunto de teste:
+2025-04-02 21:10:38,284 - INFO - 
+Sorteio Teste Índice 407:
+2025-04-02 21:10:38,284 - INFO -   Números previstos (Top 6): [4, 5, 10, 17, 43, 53]
+2025-04-02 21:10:38,284 - INFO -   Números sorteados reais:   [4, 8, 49, 51, 52, 55]
+2025-04-02 21:10:38,284 - INFO -   Números acertados:         [4] (1 acertos)
+2025-04-02 21:10:38,285 - INFO - 
+Sorteio Teste Índice 408:
+2025-04-02 21:10:38,285 - INFO -   Números previstos (Top 6): [4, 5, 10, 17, 43, 53]
+2025-04-02 21:10:38,285 - INFO -   Números sorteados reais:   [1, 37, 39, 40, 43, 59]
+2025-04-02 21:10:38,285 - INFO -   Números acertados:         [43] (1 acertos)
+2025-04-02 21:10:38,285 - INFO - 
+Sorteio Teste Índice 409:
+2025-04-02 21:10:38,285 - INFO -   Números previstos (Top 6): [4, 5, 10, 17, 43, 53]
+2025-04-02 21:10:38,285 - INFO -   Números sorteados reais:   [7, 20, 31, 54, 55, 58]
+2025-04-02 21:10:38,285 - INFO -   Números acertados:         [] (0 acertos)
+2025-04-02 21:10:38,286 - INFO - 
+Sorteio Teste Índice 410:
+2025-04-02 21:10:38,286 - INFO -   Números previstos (Top 6): [4, 10, 17, 31, 43, 53]
+2025-04-02 21:10:38,286 - INFO -   Números sorteados reais:   [10, 31, 40, 52, 54, 56]
+2025-04-02 21:10:38,286 - INFO -   Números acertados:         [10, 31] (2 acertos)
+2025-04-02 21:10:38,286 - INFO - 
+Sorteio Teste Índice 411:
+2025-04-02 21:10:38,286 - INFO -   Números previstos (Top 6): [4, 5, 15, 17, 43, 53]
+2025-04-02 21:10:38,286 - INFO -   Números sorteados reais:   [1, 12, 16, 17, 25, 57]
+2025-04-02 21:10:38,286 - INFO -   Números acertados:         [17] (1 acertos)
+2025-04-02 21:10:38,286 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,287 - INFO - AVISO IMPORTANTE: Acertos passados observados neste conjunto de teste histórico
+2025-04-02 21:10:38,287 - INFO - NÃO SÃO GARANTIA NENHUMA de acertos futuros. Loterias são fundamentalmente aleatórias.
+2025-04-02 21:10:38,287 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,287 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,287 - INFO - Resultados da Avaliação no Conjunto de Teste
+2025-04-02 21:10:38,287 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,288 - INFO - Métricas Padrão:
+2025-04-02 21:10:38,288 - INFO -   - loss: 0.3272
+2025-04-02 21:10:38,288 - INFO -   - compile_metrics: 0.9000
+2025-04-02 21:10:38,288 - INFO - 
+Estatísticas de Acertos Reais (Top 6):
+2025-04-02 21:10:38,288 - INFO -   - Média de acertos por sorteio: 0.619
+2025-04-02 21:10:38,288 - INFO -   - Máximo de acertos em um sorteio: 3
+2025-04-02 21:10:38,288 - INFO - 
+  Distribuição de Acertos:
+2025-04-02 21:10:38,289 - INFO -     * Sorteios com 0 acerto(s): 205 (49.8%)
+2025-04-02 21:10:38,289 - INFO -     * Sorteios com 1 acerto(s): 165 (40.0%)
+2025-04-02 21:10:38,289 - INFO -     * Sorteios com 2 acerto(s): 36 (8.7%)
+2025-04-02 21:10:38,289 - INFO -     * Sorteios com 3 acerto(s): 6 (1.5%)
+2025-04-02 21:10:38,289 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,289 - INFO - Lembrete: Métricas refletem o desempenho no passado (conjunto de teste).
+2025-04-02 21:10:38,290 - INFO - O desempenho futuro em sorteios reais é incerto e provavelmente baixo.
+2025-04-02 21:10:38,290 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:38,290 - INFO - Etapa 8: Gerando previsão para o próximo sorteio...
+2025-04-02 21:10:38,290 - INFO - 
+Fazendo a previsão para o PRÓXIMO sorteio...
+2025-04-02 21:10:38,291 - INFO - Shape da sequência de entrada para previsão: (1, 15, 120)
+2025-04-02 21:10:38,349 - INFO - --------------------------------------------------
+2025-04-02 21:10:38,350 - INFO - Previsão dos 6 números mais prováveis:
+2025-04-02 21:10:38,350 - INFO - Números: [4, 5, 6, 17, 43, 53]
+2025-04-02 21:10:38,350 - INFO - 
+Métricas de Confiança (Probabilidade):
+2025-04-02 21:10:38,350 - INFO - Confiança Média: 0.1325
+2025-04-02 21:10:38,350 - INFO - Confiança Máxima: 0.1355
+2025-04-02 21:10:38,350 - INFO - Confiança Mínima: 0.1288
+2025-04-02 21:10:38,350 - INFO - 
+Probabilidades individuais para os números previstos:
+2025-04-02 21:10:38,351 - INFO -   - Número 43: 0.1355
+2025-04-02 21:10:38,351 - INFO -   - Número 5: 0.1352
+2025-04-02 21:10:38,351 - INFO -   - Número 53: 0.1333
+2025-04-02 21:10:38,351 - INFO -   - Número 4: 0.1312
+2025-04-02 21:10:38,351 - INFO -   - Número 17: 0.1310
+2025-04-02 21:10:38,352 - INFO -   - Número 6: 0.1288
+2025-04-02 21:10:38,352 - INFO - --------------------------------------------------
+2025-04-02 21:10:38,352 - INFO - AVISO CRÍTICO: Esta previsão é um exercício técnico baseado em dados
+2025-04-02 21:10:38,352 - INFO - históricos e um modelo estatístico. NÃO HÁ QUALQUER GARANTIA DE ACERTO.
+2025-04-02 21:10:38,352 - INFO - A Mega-Sena é um jogo de azar. Jogue com responsabilidade.
+2025-04-02 21:10:38,352 - INFO - --------------------------------------------------
+2025-04-02 21:10:38,353 - INFO - Etapa 9: Gerando visualizações...
+2025-04-02 21:10:38,353 - INFO - 
+Gerando gráficos do histórico de treinamento em training_history_v2.png...
+2025-04-02 21:10:38,763 - INFO - Gráficos salvos em 'training_history_v2.png'
+2025-04-02 21:10:38,769 - INFO - 
+Gerando análise visual das previsões em prediction_analysis_v2.png...
+2025-04-02 21:10:39,200 - INFO - Análise visual salva em 'prediction_analysis_v2.png'
+2025-04-02 21:10:39,206 - INFO - 
+Gerando gráfico de acertos ao longo do tempo no conjunto de teste em hits_over_time_v2.png...
+2025-04-02 21:10:39,206 - INFO - Calculando acertos no conjunto de teste (histórico) para plotagem...
+2025-04-02 21:10:39,564 - INFO - Gráfico de acertos ao longo do tempo salvo em 'hits_over_time_v2.png'
+2025-04-02 21:10:39,572 - INFO - Etapa 10: Exportando resultados...
+2025-04-02 21:10:39,572 - INFO - 
+Exportando resultados para Excel (historico_e_previsoes_megasena_v2.xlsx)...
+2025-04-02 21:10:39,578 - INFO - Escrevendo abas no arquivo Excel...
+2025-04-02 21:10:40,082 - INFO - Resultados exportados com sucesso para 'historico_e_previsoes_megasena_v2.xlsx'
+2025-04-02 21:10:40,083 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:40,084 - INFO - Processo concluído com sucesso em: 0:00:24.466495
+2025-04-02 21:10:40,084 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:40,084 - INFO - Verifique os arquivos gerados:
+2025-04-02 21:10:40,084 - INFO - - Log: mega_sena_v2.log
+2025-04-02 21:10:40,084 - INFO - - Excel: historico_e_previsoes_megasena_v2.xlsx
+2025-04-02 21:10:40,085 - INFO - - Gráficos PNG: training_history_v2.png, prediction_analysis_v2.png, hits_over_time_v2.png (se aplicável)
+2025-04-02 21:10:40,085 - INFO - ------------------------------------------------------------
+2025-04-02 21:10:40,085 - INFO - Lembre-se: Os resultados são experimentais e não garantem acertos.
+2025-04-02 21:10:40,085 - INFO - ------------------------------------------------------------
