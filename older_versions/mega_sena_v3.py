@@ -28,16 +28,12 @@ from datetime import datetime, timedelta
 import hashlib
 from pathlib import Path
 
-# Criação da pasta output se não existir
-output_dir = "output"
-os.makedirs(output_dir, exist_ok=True)
-
 # Configuração de logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - [%(funcName)s] - %(message)s', # Added funcName
     handlers=[
-        logging.FileHandler(os.path.join(output_dir, 'mega_sena_v3.log'), mode='w'), # Changed log file path
+        logging.FileHandler('mega_sena_v3.log', mode='w'), # Changed log file name, overwrite mode
         logging.StreamHandler()
     ]
 )
@@ -56,7 +52,7 @@ def load_config(config_file='configv3.json'):
     default_config = {
         "data_url": "https://loteriascaixa-api.herokuapp.com/api/megasena",
         "data_file": None,
-        "export_file": os.path.join(output_dir, "historico_e_previsoes_megasena_v3.xlsx"), # Path com output_dir
+        "export_file": "historico_e_previsoes_megasena_v3.xlsx", # Changed export file name
         "sequence_length": 15, # Adjusted sequence length
         "num_features_base": 60, # Base labels (MLBed numbers)
         "num_features_time": 60, # Time since last seen
@@ -70,8 +66,8 @@ def load_config(config_file='configv3.json'):
         "test_size_ratio": 0.15,
         "validation_split_ratio": 0.15,
         "cache_duration_hours": 24,
-        "cache_dir": os.path.join(output_dir, "cache"), # Path com output_dir
-        "tensorboard_log_dir": os.path.join(output_dir, "logs/fit/") # Path com output_dir
+        "cache_dir": "cache",
+        "tensorboard_log_dir": "logs/fit/" # For TensorBoard logs
     }
     # Calculate statistical features count based on windows
     # 1 (odd) + 1 (sum) + 1 (range) + 4 (zones) + len(windows)*60 (freq)
@@ -93,10 +89,6 @@ def load_config(config_file='configv3.json'):
                     elif key == "num_features_statistical" and key in config_loaded:
                          default_config[key] = value
                     elif key != "num_features_statistical" and key in default_config:
-                         # Se for um caminho de arquivo, adicionar output_dir se não for absoluto
-                         if key in ['export_file', 'cache_dir', 'tensorboard_log_dir']:
-                             if not os.path.isabs(value):
-                                 value = os.path.join(output_dir, value)
                          default_config[key] = value
                     else:
                         logger.warning(f"Ignoring unknown key '{key}' from {config_file}")
@@ -123,11 +115,11 @@ def load_config(config_file='configv3.json'):
 
     # Create TensorBoard log directory if it doesn't exist
     Path(default_config['tensorboard_log_dir']).mkdir(parents=True, exist_ok=True)
-    
-    # Ensure cache directory exists
-    Path(default_config['cache_dir']).mkdir(parents=True, exist_ok=True)
 
     return default_config
+
+# Carrega configurações
+config = load_config()
 
 # --- Sistema de Cache ---
 # (Cache functions remain the same)
@@ -906,12 +898,8 @@ def predict_next_draw(model, last_sequence_labels, last_sequence_time_raw, last_
 # --- Visualização e Exportação ---
 
 # plot_training_history remains the same as V2 (but uses new filename)
-def plot_training_history(history, filename=None):
+def plot_training_history(history, filename='training_history_v3.png'):
     """ Plots training history (Loss, Accuracy, AUC, LR). """
-    # Use default filename if none provided
-    if filename is None:
-        filename = os.path.join(output_dir, 'training_history_v3.png')
-    
     # (Implementation from V2 - robust plotting)
     logger.info(f"Gerando gráficos do histórico de treinamento em {filename}...")
     try:
@@ -937,12 +925,8 @@ def plot_training_history(history, filename=None):
     except Exception as e: logger.error(f"Erro ao gerar gráficos de treinamento: {e}", exc_info=True)
 
 # plot_prediction_analysis remains the same as V2 (but uses new filename)
-def plot_prediction_analysis(predicted_numbers, predicted_probabilities, df_full_valid, sequence_length, filename=None):
+def plot_prediction_analysis(predicted_numbers, predicted_probabilities, df_full_valid, sequence_length, filename='prediction_analysis_v3.png'):
     """ Generates visual analysis of predictions vs recent frequency. """
-    # Use default filename if none provided
-    if filename is None:
-        filename = os.path.join(output_dir, 'prediction_analysis_v3.png')
-    
     # (Implementation from V2 - plots probabilities and recent frequency)
     logger.info(f"Gerando análise visual das previsões em {filename}...")
     try:
@@ -976,12 +960,8 @@ def plot_prediction_analysis(predicted_numbers, predicted_probabilities, df_full
     except Exception as e: logger.error(f"Erro ao gerar análise visual das previsões: {e}", exc_info=True)
 
 # plot_hits_over_time remains the same as V2 (but uses new filename)
-def plot_hits_over_time(model, X_test, y_test, mlb, filename=None):
+def plot_hits_over_time(model, X_test, y_test, mlb, filename='hits_over_time_v3.png'):
     """ Plots number of hits (top 6 predicted vs actual) over the test set. """
-    # Use default filename if none provided
-    if filename is None:
-        filename = os.path.join(output_dir, 'hits_over_time_v3.png')
-    
     # (Implementation from V2 - calculates and plots hits)
     logger.info(f"Gerando gráfico de acertos ao longo do tempo no teste em {filename}...")
     if X_test is None or y_test is None or X_test.shape[0] == 0: logger.warning("Dados de teste insuficientes para plotar acertos."); return None
@@ -1206,9 +1186,9 @@ def main():
         # --- Conclusão ---
         run_end_time = datetime.now()
         logger.info("-" * 60 + f"\nProcesso V3 concluído com sucesso em: {run_end_time - run_start_time}\n" + "-" * 60)
-        logger.info(f"Log: {os.path.join(output_dir, 'mega_sena_v3.log')} | Excel: {config['export_file']}")
-        logger.info(f"Gráficos: {os.path.join(output_dir, 'training_history_v3.png')}, {os.path.join(output_dir, 'prediction_analysis_v3.png')}, {os.path.join(output_dir, 'hits_over_time_v3.png')}")
-        logger.info(f"Logs TensorBoard: {config['tensorboard_log_dir']} (use 'tensorboard --logdir {config['tensorboard_log_dir']}' para visualizar)")
+        logger.info(f"Log: mega_sena_v3.log | Excel: {config['export_file']}")
+        logger.info("Gráficos: training_history_v3.png, prediction_analysis_v3.png, hits_over_time_v3.png")
+        logger.info(f"Logs TensorBoard: {log_dir} (use 'tensorboard --logdir logs/fit' para visualizar)")
         logger.info("-" * 60 + "\nLembre-se: Resultados experimentais. Jogue com responsabilidade.\n" + "-" * 60)
 
     except Exception as e:

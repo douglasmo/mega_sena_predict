@@ -1,0 +1,177 @@
+2025-04-04 22:16:20,280 - INFO - [load_config] - Recalculated num_features_statistical to 187 based on loaded rolling_freq_windows.
+2025-04-04 22:16:20,281 - INFO - [load_config] - Configurações carregadas e mescladas de configv3.json
+2025-04-04 22:16:20,281 - INFO - [load_config] - Total features calculated: 307
+2025-04-04 22:16:20,282 - INFO - [main] - Iniciando Mega-Sena V3 em 2025-04-04 22:16:20...
+2025-04-04 22:16:20,282 - INFO - [load_config] - Recalculated num_features_statistical to 187 based on loaded rolling_freq_windows.
+2025-04-04 22:16:20,282 - INFO - [load_config] - Configurações carregadas e mescladas de configv3.json
+2025-04-04 22:16:20,282 - INFO - [load_config] - Total features calculated: 307
+2025-04-04 22:16:20,283 - INFO - [validate_config] - Validando configuração V3...
+2025-04-04 22:16:20,283 - INFO - [validate_config] - Configuração V3 validada com sucesso.
+2025-04-04 22:16:20,283 - INFO - [main] - Etapa 1: Download/Preparação Dados...
+2025-04-04 22:16:20,283 - INFO - [download_and_prepare_data] - Iniciando carregamento de dados...
+2025-04-04 22:16:20,284 - INFO - [download_and_prepare_data] - Cache expirado, não encontrado ou inválido. Baixando dados...
+2025-04-04 22:16:22,156 - INFO - [save_to_cache] - Dados salvos no cache: cache\464ff187a3793fb1e4665abcce455791.json
+2025-04-04 22:16:22,157 - INFO - [download_and_prepare_data] - Dados baixados e salvos no cache com sucesso.
+2025-04-04 22:16:22,178 - INFO - [download_and_prepare_data] - Dados ordenados por 'Concurso'.
+2025-04-04 22:16:22,179 - INFO - [download_and_prepare_data] - Dados processados com sucesso da API/Cache (2848 sorteios).
+2025-04-04 22:16:22,179 - INFO - [download_and_prepare_data] - Colunas encontradas: ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']
+2025-04-04 22:16:22,181 - INFO - [download_and_prepare_data] - Colunas das bolas verificadas e convertidas para inteiro.
+2025-04-04 22:16:22,183 - INFO - [download_and_prepare_data] - Processamento final: 2848 sorteios carregados.
+2025-04-04 22:16:22,187 - INFO - [main] - Etapa 2: Pré-processamento Labels...
+2025-04-04 22:16:22,188 - INFO - [preprocess_data_labels] - Iniciando pré-processamento dos labels (MultiLabelBinarizer)...
+2025-04-04 22:16:22,208 - INFO - [preprocess_data_labels] - Labels transformados: 2848 amostras, 60 features base.
+2025-04-04 22:16:22,209 - INFO - [main] - Labels processados: 2848 sorteios válidos.
+2025-04-04 22:16:22,209 - INFO - [main] - Etapa 3a: Cálculo Features Tempo...
+2025-04-04 22:16:22,209 - INFO - [add_time_features] - Calculando features de tempo (sorteios desde última aparição)...
+2025-04-04 22:16:22,235 - INFO - [add_time_features] - Features de tempo calculadas. Shape: (2848, 60)
+2025-04-04 22:16:22,236 - INFO - [main] - Etapa 3b: Cálculo Features Estatísticas...
+2025-04-04 22:16:22,236 - INFO - [add_statistical_features] - Calculando features estatísticas (Soma, Range, Zonas, Freq. [10, 50, 100])...
+2025-04-04 22:16:22,241 - INFO - [add_statistical_features] - Calculando frequências rolantes...
+2025-04-04 22:16:22,259 - INFO - [add_statistical_features] - Frequências rolantes calculadas.
+2025-04-04 22:16:22,260 - INFO - [add_statistical_features] - Calculando estatísticas por sorteio (Par/Ímpar, Soma, Range, Zonas)...
+2025-04-04 22:16:22,345 - INFO - [add_statistical_features] - Features estatísticas calculadas. Shape: (2848, 187)
+2025-04-04 22:16:22,346 - INFO - [main] - Etapa 4: Divisão/Escalonamento/Sequenciamento...
+2025-04-04 22:16:22,347 - INFO - [split_data] - Dividindo dados, escalando features (Tempo e Estatísticas separadamente)...
+2025-04-04 22:16:22,347 - INFO - [split_data] - Índices Brutos - Treino: 2057, Val: 363, Teste: 428
+2025-04-04 22:16:22,348 - INFO - [split_data] - Ajustando Scalers (StandardScaler) nas features do treino...
+2025-04-04 22:16:22,355 - INFO - [split_data] - Escalando features de validação e teste...
+2025-04-04 22:16:22,356 - INFO - [split_data] - Criando sequências para treino...
+2025-04-04 22:16:22,379 - INFO - [split_data] - Criando sequências para validação...
+2025-04-04 22:16:22,383 - INFO - [split_data] - Criando sequências para teste...
+2025-04-04 22:16:22,388 - INFO - [split_data] - Tamanho final dos conjuntos de sequências:
+2025-04-04 22:16:22,389 - INFO - [split_data] - - Treino: X=(2037, 20, 307), y=(2037, 60)
+2025-04-04 22:16:22,389 - INFO - [split_data] - - Validação: X=(343, 20, 307), y=(343, 60)
+2025-04-04 22:16:22,390 - INFO - [split_data] - - Teste: X=(408, 20, 307), y=(408, 60)
+2025-04-04 22:16:22,390 - INFO - [main] - Etapa 5: Construção Modelo GRU...
+2025-04-04 22:16:22,390 - INFO - [build_model] - Construindo modelo GRU: units=256, dropout=0.45, batch_norm=True
+2025-04-04 22:16:22,598 - INFO - [main] - Etapa 6: Treinamento Modelo...
+2025-04-04 22:16:22,598 - INFO - [train_model] - Iniciando o treinamento do modelo GRU...
+2025-04-04 22:16:27,972 - INFO - [on_epoch_end] - Época 1/250 - Loss: 0.9036 - Acc: 0.5073 - AUC: 0.4965 - Val Loss: 0.6961 - Val Acc: 0.5383 - Val AUC: 0.4924 - LR: 0.000800
+2025-04-04 22:16:29,357 - INFO - [on_epoch_end] - Época 2/250 - Loss: 0.8244 - Acc: 0.5275 - AUC: 0.5099 - Val Loss: 0.6601 - Val Acc: 0.6054 - Val AUC: 0.4928 - LR: 0.000800
+2025-04-04 22:16:30,736 - INFO - [on_epoch_end] - Época 3/250 - Loss: 0.7558 - Acc: 0.5584 - AUC: 0.5163 - Val Loss: 0.6124 - Val Acc: 0.7080 - Val AUC: 0.4952 - LR: 0.000800
+2025-04-04 22:16:32,126 - INFO - [on_epoch_end] - Época 4/250 - Loss: 0.6849 - Acc: 0.6080 - AUC: 0.5155 - Val Loss: 0.5560 - Val Acc: 0.8016 - Val AUC: 0.4966 - LR: 0.000800
+2025-04-04 22:16:33,504 - INFO - [on_epoch_end] - Época 5/250 - Loss: 0.5984 - Acc: 0.6837 - AUC: 0.5189 - Val Loss: 0.4844 - Val Acc: 0.8726 - Val AUC: 0.4965 - LR: 0.000800
+2025-04-04 22:16:34,880 - INFO - [on_epoch_end] - Época 6/250 - Loss: 0.5098 - Acc: 0.7734 - AUC: 0.5171 - Val Loss: 0.4123 - Val Acc: 0.8979 - Val AUC: 0.4954 - LR: 0.000800
+2025-04-04 22:16:36,249 - INFO - [on_epoch_end] - Época 7/250 - Loss: 0.4429 - Acc: 0.8326 - AUC: 0.5230 - Val Loss: 0.3630 - Val Acc: 0.9000 - Val AUC: 0.4977 - LR: 0.000800
+2025-04-04 22:16:37,619 - INFO - [on_epoch_end] - Época 8/250 - Loss: 0.3960 - Acc: 0.8703 - AUC: 0.5243 - Val Loss: 0.3389 - Val Acc: 0.9000 - Val AUC: 0.5009 - LR: 0.000800
+2025-04-04 22:16:38,996 - INFO - [on_epoch_end] - Época 9/250 - Loss: 0.3733 - Acc: 0.8856 - AUC: 0.5203 - Val Loss: 0.3326 - Val Acc: 0.9000 - Val AUC: 0.5000 - LR: 0.000800
+2025-04-04 22:16:40,369 - INFO - [on_epoch_end] - Época 10/250 - Loss: 0.3600 - Acc: 0.8925 - AUC: 0.5222 - Val Loss: 0.3324 - Val Acc: 0.9000 - Val AUC: 0.5010 - LR: 0.000800
+2025-04-04 22:16:41,738 - INFO - [on_epoch_end] - Época 11/250 - Loss: 0.3570 - Acc: 0.8943 - AUC: 0.5212 - Val Loss: 0.3321 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000800
+2025-04-04 22:16:43,136 - INFO - [on_epoch_end] - Época 12/250 - Loss: 0.3521 - Acc: 0.8967 - AUC: 0.5240 - Val Loss: 0.3319 - Val Acc: 0.9000 - Val AUC: 0.5035 - LR: 0.000800
+2025-04-04 22:16:44,531 - INFO - [on_epoch_end] - Época 13/250 - Loss: 0.3492 - Acc: 0.8976 - AUC: 0.5284 - Val Loss: 0.3330 - Val Acc: 0.9000 - Val AUC: 0.5027 - LR: 0.000800
+2025-04-04 22:16:45,895 - INFO - [on_epoch_end] - Época 14/250 - Loss: 0.3486 - Acc: 0.8976 - AUC: 0.5284 - Val Loss: 0.3334 - Val Acc: 0.9000 - Val AUC: 0.5019 - LR: 0.000800
+2025-04-04 22:16:47,259 - INFO - [on_epoch_end] - Época 15/250 - Loss: 0.3460 - Acc: 0.8986 - AUC: 0.5291 - Val Loss: 0.3328 - Val Acc: 0.9000 - Val AUC: 0.5012 - LR: 0.000800
+2025-04-04 22:16:48,628 - INFO - [on_epoch_end] - Época 16/250 - Loss: 0.3443 - Acc: 0.8987 - AUC: 0.5347 - Val Loss: 0.3329 - Val Acc: 0.9000 - Val AUC: 0.5007 - LR: 0.000800
+2025-04-04 22:16:49,997 - INFO - [on_epoch_end] - Época 17/250 - Loss: 0.3431 - Acc: 0.8990 - AUC: 0.5358 - Val Loss: 0.3317 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000800
+2025-04-04 22:16:51,375 - INFO - [on_epoch_end] - Época 18/250 - Loss: 0.3415 - Acc: 0.8994 - AUC: 0.5370 - Val Loss: 0.3316 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000800
+2025-04-04 22:16:52,748 - INFO - [on_epoch_end] - Época 19/250 - Loss: 0.3401 - Acc: 0.8990 - AUC: 0.5402 - Val Loss: 0.3302 - Val Acc: 0.9000 - Val AUC: 0.5037 - LR: 0.000800
+2025-04-04 22:16:54,111 - INFO - [on_epoch_end] - Época 20/250 - Loss: 0.3393 - Acc: 0.8995 - AUC: 0.5414 - Val Loss: 0.3304 - Val Acc: 0.9000 - Val AUC: 0.5031 - LR: 0.000800
+2025-04-04 22:16:55,488 - INFO - [on_epoch_end] - Época 21/250 - Loss: 0.3385 - Acc: 0.8995 - AUC: 0.5409 - Val Loss: 0.3300 - Val Acc: 0.9000 - Val AUC: 0.5040 - LR: 0.000800
+2025-04-04 22:16:56,854 - INFO - [on_epoch_end] - Época 22/250 - Loss: 0.3375 - Acc: 0.8995 - AUC: 0.5436 - Val Loss: 0.3301 - Val Acc: 0.9000 - Val AUC: 0.5048 - LR: 0.000800
+2025-04-04 22:16:58,228 - INFO - [on_epoch_end] - Época 23/250 - Loss: 0.3367 - Acc: 0.8998 - AUC: 0.5434 - Val Loss: 0.3300 - Val Acc: 0.9000 - Val AUC: 0.5050 - LR: 0.000800
+2025-04-04 22:16:59,600 - INFO - [on_epoch_end] - Época 24/250 - Loss: 0.3351 - Acc: 0.8997 - AUC: 0.5480 - Val Loss: 0.3296 - Val Acc: 0.9000 - Val AUC: 0.5060 - LR: 0.000800
+2025-04-04 22:17:00,980 - INFO - [on_epoch_end] - Época 25/250 - Loss: 0.3329 - Acc: 0.8998 - AUC: 0.5541 - Val Loss: 0.3294 - Val Acc: 0.9000 - Val AUC: 0.5055 - LR: 0.000800
+2025-04-04 22:17:02,351 - INFO - [on_epoch_end] - Época 26/250 - Loss: 0.3342 - Acc: 0.8998 - AUC: 0.5492 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5069 - LR: 0.000800
+2025-04-04 22:17:03,719 - INFO - [on_epoch_end] - Época 27/250 - Loss: 0.3330 - Acc: 0.8996 - AUC: 0.5524 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5070 - LR: 0.000800
+2025-04-04 22:17:05,092 - INFO - [on_epoch_end] - Época 28/250 - Loss: 0.3322 - Acc: 0.8998 - AUC: 0.5550 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5070 - LR: 0.000800
+2025-04-04 22:17:06,490 - INFO - [on_epoch_end] - Época 29/250 - Loss: 0.3325 - Acc: 0.8999 - AUC: 0.5535 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5074 - LR: 0.000800
+2025-04-04 22:17:07,853 - INFO - [on_epoch_end] - Época 30/250 - Loss: 0.3308 - Acc: 0.8999 - AUC: 0.5569 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5073 - LR: 0.000800
+2025-04-04 22:17:09,221 - INFO - [on_epoch_end] - Época 31/250 - Loss: 0.3311 - Acc: 0.8999 - AUC: 0.5584 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5075 - LR: 0.000800
+2025-04-04 22:17:10,590 - INFO - [on_epoch_end] - Época 32/250 - Loss: 0.3302 - Acc: 0.8999 - AUC: 0.5584 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5063 - LR: 0.000800
+2025-04-04 22:17:11,957 - INFO - [on_epoch_end] - Época 33/250 - Loss: 0.3300 - Acc: 0.9000 - AUC: 0.5600 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5061 - LR: 0.000800
+2025-04-04 22:17:13,329 - INFO - [on_epoch_end] - Época 34/250 - Loss: 0.3296 - Acc: 0.8999 - AUC: 0.5624 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5066 - LR: 0.000800
+2025-04-04 22:17:14,695 - INFO - [on_epoch_end] - Época 35/250 - Loss: 0.3290 - Acc: 0.9000 - AUC: 0.5638 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5063 - LR: 0.000800
+2025-04-04 22:17:16,057 - INFO - [on_epoch_end] - Época 36/250 - Loss: 0.3278 - Acc: 0.9000 - AUC: 0.5665 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5075 - LR: 0.000200
+2025-04-04 22:17:17,423 - INFO - [on_epoch_end] - Época 37/250 - Loss: 0.3274 - Acc: 0.9000 - AUC: 0.5702 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5078 - LR: 0.000200
+2025-04-04 22:17:18,792 - INFO - [on_epoch_end] - Época 38/250 - Loss: 0.3273 - Acc: 0.8999 - AUC: 0.5682 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5073 - LR: 0.000200
+2025-04-04 22:17:20,164 - INFO - [on_epoch_end] - Época 39/250 - Loss: 0.3278 - Acc: 0.9000 - AUC: 0.5699 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5074 - LR: 0.000200
+2025-04-04 22:17:21,532 - INFO - [on_epoch_end] - Época 40/250 - Loss: 0.3272 - Acc: 0.8999 - AUC: 0.5704 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5075 - LR: 0.000200
+2025-04-04 22:17:22,907 - INFO - [on_epoch_end] - Época 41/250 - Loss: 0.3268 - Acc: 0.9000 - AUC: 0.5721 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5079 - LR: 0.000200
+2025-04-04 22:17:24,273 - INFO - [on_epoch_end] - Época 42/250 - Loss: 0.3268 - Acc: 0.9000 - AUC: 0.5695 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5084 - LR: 0.000200
+2025-04-04 22:17:25,641 - INFO - [on_epoch_end] - Época 43/250 - Loss: 0.3263 - Acc: 0.9000 - AUC: 0.5742 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5083 - LR: 0.000200
+2025-04-04 22:17:27,016 - INFO - [on_epoch_end] - Época 44/250 - Loss: 0.3263 - Acc: 0.9000 - AUC: 0.5733 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5080 - LR: 0.000200
+2025-04-04 22:17:28,388 - INFO - [on_epoch_end] - Época 45/250 - Loss: 0.3259 - Acc: 0.9000 - AUC: 0.5779 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5072 - LR: 0.000200
+2025-04-04 22:17:29,763 - INFO - [on_epoch_end] - Época 46/250 - Loss: 0.3267 - Acc: 0.8998 - AUC: 0.5740 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5076 - LR: 0.000050
+2025-04-04 22:17:31,140 - INFO - [on_epoch_end] - Época 47/250 - Loss: 0.3261 - Acc: 0.9000 - AUC: 0.5758 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5077 - LR: 0.000050
+2025-04-04 22:17:32,511 - INFO - [on_epoch_end] - Época 48/250 - Loss: 0.3265 - Acc: 0.9000 - AUC: 0.5752 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5082 - LR: 0.000050
+2025-04-04 22:17:33,885 - INFO - [on_epoch_end] - Época 49/250 - Loss: 0.3264 - Acc: 0.9000 - AUC: 0.5739 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5080 - LR: 0.000050
+2025-04-04 22:17:35,262 - INFO - [on_epoch_end] - Época 50/250 - Loss: 0.3265 - Acc: 0.9000 - AUC: 0.5732 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5081 - LR: 0.000050
+2025-04-04 22:17:36,631 - INFO - [on_epoch_end] - Época 51/250 - Loss: 0.3259 - Acc: 0.9000 - AUC: 0.5737 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5078 - LR: 0.000050
+2025-04-04 22:17:36,658 - INFO - [train_model] - Treinamento concluído.
+2025-04-04 22:17:36,659 - INFO - [main] - Etapa 7: Avaliação Modelo...
+2025-04-04 22:17:36,659 - INFO - [evaluate_model] - Avaliando o modelo final no conjunto de teste...
+2025-04-04 22:17:36,659 - INFO - [evaluate_model] - Calculando métricas básicas (Loss, Accuracy, AUC)...
+2025-04-04 22:17:36,805 - INFO - [evaluate_model] - Calculando acertos reais (Top 6)...
+2025-04-04 22:17:36,805 - INFO - [evaluate_real_hits] - Avaliando acertos reais nas previsões (Top 6)...
+2025-04-04 22:17:37,339 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] - ANÁLISE DE ACERTOS REAIS (TOP 6 PREVISTOS vs SORTEADOS)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] - Total de sorteios no teste: 408
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] - Média acertos: 0.659, Máximo acertos: 3
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] - Distribuição:
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   0 acerto(s): 195 (47.8%)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   1 acerto(s): 163 (40.0%)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   2 acerto(s): 44 (10.8%)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   3 acerto(s): 6 (1.5%)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] - Exemplo últimos 5 sorteios teste:
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   Idx 403: Prev[6, 8, 18, 27, 31, 37] Real[7, 20, 31, 54, 55, 58] -> Hits [31] (1)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   Idx 404: Prev[6, 8, 18, 31, 37, 56] Real[10, 31, 40, 52, 54, 56] -> Hits [31, 56] (2)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   Idx 405: Prev[6, 8, 18, 32, 37, 56] Real[1, 12, 16, 17, 25, 57] -> Hits [] (0)
+2025-04-04 22:17:37,340 - INFO - [evaluate_real_hits] -   Idx 406: Prev[6, 18, 27, 31, 37, 56] Real[3, 5, 22, 35, 53, 56] -> Hits [56] (1)
+2025-04-04 22:17:37,341 - INFO - [evaluate_real_hits] -   Idx 407: Prev[8, 12, 27, 31, 37, 50] Real[5, 14, 19, 29, 30, 54] -> Hits [] (0)
+2025-04-04 22:17:37,341 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+AVISO: Acertos passados NÃO garantem acertos futuros.
+------------------------------------------------------------
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] - ------------------------------------------------------------
+Resultados da Avaliação no Conjunto de Teste
+------------------------------------------------------------
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] - Métricas Padrão:
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -   - loss: 0.3288
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -   - compile_metrics: 0.9000
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] - 
+Estatísticas de Acertos Reais (Top 6):
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -   - Média acertos: 0.659, Máx acertos: 3
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -   Distribuição:
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -     * 0 acerto(s): 195 (47.8%)
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -     * 1 acerto(s): 163 (40.0%)
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -     * 2 acerto(s): 44 (10.8%)
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] -     * 3 acerto(s): 6 (1.5%)
+2025-04-04 22:17:37,341 - INFO - [evaluate_model] - ------------------------------------------------------------
+Lembrete: Métricas refletem desempenho no passado.
+------------------------------------------------------------
+2025-04-04 22:17:37,341 - INFO - [main] - Etapa 8: Previsão Próximo Sorteio...
+2025-04-04 22:17:37,342 - INFO - [predict_next_draw] - Preparando sequência final e fazendo previsão para o PRÓXIMO sorteio...
+2025-04-04 22:17:37,342 - INFO - [predict_next_draw] - Shape da sequência final para previsão: (1, 20, 307)
+2025-04-04 22:17:37,403 - INFO - [predict_next_draw] - --------------------------------------------------
+2025-04-04 22:17:37,403 - INFO - [predict_next_draw] - Previsão dos 6 números mais prováveis: [8, 27, 31, 37, 50, 56]
+2025-04-04 22:17:37,403 - INFO - [predict_next_draw] - Confiança Média: 0.1487, Máx: 0.1641, Mín: 0.1400
+2025-04-04 22:17:37,403 - INFO - [predict_next_draw] - Probabilidades individuais (previstos):
+2025-04-04 22:17:37,403 - INFO - [predict_next_draw] -   - Número 56: 0.1641
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] -   - Número 50: 0.1573
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] -   - Número 27: 0.1477
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] -   - Número 31: 0.1424
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] -   - Número 8: 0.1404
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] -   - Número 37: 0.1400
+2025-04-04 22:17:37,404 - INFO - [predict_next_draw] - --------------------------------------------------
+AVISO CRÍTICO: Previsão experimental. NÃO HÁ GARANTIA DE ACERTO.
+--------------------------------------------------
+2025-04-04 22:17:37,404 - INFO - [main] - Etapa 9: Visualizações...
+2025-04-04 22:17:37,404 - INFO - [plot_training_history] - Gerando gráficos do histórico de treinamento em training_history_v3.png...
+2025-04-04 22:17:38,714 - INFO - [plot_training_history] - Gráficos salvos em 'training_history_v3.png'
+2025-04-04 22:17:38,728 - INFO - [plot_prediction_analysis] - Gerando análise visual das previsões em prediction_analysis_v3.png...
+2025-04-04 22:17:39,158 - INFO - [plot_prediction_analysis] - Análise visual salva em 'prediction_analysis_v3.png'
+2025-04-04 22:17:39,164 - INFO - [plot_hits_over_time] - Gerando gráfico de acertos ao longo do tempo no teste em hits_over_time_v3.png...
+2025-04-04 22:17:39,164 - INFO - [plot_hits_over_time] - Calculando acertos no teste para plotagem...
+2025-04-04 22:17:39,445 - INFO - [plot_hits_over_time] - Gráfico de acertos salvo em 'hits_over_time_v3.png'
+2025-04-04 22:17:39,451 - INFO - [main] - Etapa 10: Exportação Resultados...
+2025-04-04 22:17:39,451 - INFO - [export_results] - Exportando resultados para Excel (historico_e_previsoes_megasena_v3.xlsx)...
+2025-04-04 22:17:39,457 - INFO - [export_results] - Escrevendo abas no Excel...
+2025-04-04 22:17:40,110 - INFO - [export_results] - Resultados exportados para 'historico_e_previsoes_megasena_v3.xlsx'
+2025-04-04 22:17:40,111 - INFO - [main] - ------------------------------------------------------------
+Processo V3 concluído com sucesso em: 0:01:19.829297
+------------------------------------------------------------
+2025-04-04 22:17:40,111 - INFO - [main] - Log: mega_sena_v3.log | Excel: historico_e_previsoes_megasena_v3.xlsx
+2025-04-04 22:17:40,111 - INFO - [main] - Gráficos: training_history_v3.png, prediction_analysis_v3.png, hits_over_time_v3.png
+2025-04-04 22:17:40,112 - INFO - [main] - Logs TensorBoard: logs/fit/20250404-221622 (use 'tensorboard --logdir logs/fit' para visualizar)
+2025-04-04 22:17:40,112 - INFO - [main] - ------------------------------------------------------------
+Lembre-se: Resultados experimentais. Jogue com responsabilidade.
+------------------------------------------------------------
