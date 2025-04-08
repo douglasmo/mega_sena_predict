@@ -20,6 +20,7 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, TensorB
 import requests
 from io import StringIO
 import os
+import sys
 import warnings
 import matplotlib.pyplot as plt
 import logging
@@ -28,17 +29,46 @@ from datetime import datetime, timedelta
 import hashlib
 from pathlib import Path
 
+# Importar módulo de otimização de hiperparâmetros
+try:
+    from hyperparameter_tuning import HyperparameterTuner
+    hyperparameter_tuning_available = True
+except ImportError:
+    hyperparameter_tuning_available = False
+    warnings.warn("Módulo de otimização de hiperparâmetros não encontrado. A funcionalidade de teste de hiperparâmetros não estará disponível.")
+
 # Criação da pasta output se não existir
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
 
-# Configuração de logging
+# Configuração de logging com codificação UTF-8
+log_file = os.path.join(output_dir, 'mega_sena_v3.log')
+file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
+
+# Configurar o StreamHandler para usar a codificação UTF-8 se possível
+# ou fallback para ASCII com substituição
+class EncodingStreamHandler(logging.StreamHandler):
+    def __init__(self):
+        super().__init__(stream=sys.stdout)
+    
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            try:
+                self.stream.write(msg + self.terminator)
+            except UnicodeEncodeError:
+                # Fallback para ASCII se não puder usar UTF-8
+                self.stream.write(msg.encode('ascii', 'replace').decode('ascii') + self.terminator)
+            self.flush()
+        except Exception:
+            self.handleError(record)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - [%(funcName)s] - %(message)s', # Added funcName
     handlers=[
-        logging.FileHandler(os.path.join(output_dir, 'mega_sena_v3.log'), mode='w'), # Changed log file path
-        logging.StreamHandler()
+        file_handler,
+        EncodingStreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
@@ -664,40 +694,115 @@ def build_model(sequence_length, num_features_total, num_features_base, gru_unit
     """ Constrói o modelo GRU com opção de Batch Normalization. """
     logger.info(f"Construindo modelo GRU: units={gru_units}, dropout={dropout_rate}, batch_norm={use_batch_norm}")
     try:
+        
+        # Cria o modelo sequencial com um nome
         model = Sequential(name="Modelo_GRU_MegaSena_V3")
+
+        # Primeira camada: entrada com o formato (tamanho da sequência, número total de features)
         model.add(Input(shape=(sequence_length, num_features_total)))
 
-        # Optional Batch Norm before GRU
+        # Se o uso de batch normalization estiver ativado, aplica logo após a entrada
+        if use_batch_norm:
+            model.add(BatchNormalization())  # Normaliza os dados para facilitar o aprendizado
+
+        # Primeira camada GRU
+        # return_sequences=True mantém a saída em formato de sequência (necessário se houver outra GRU depois)
+        model.add(GRU(
+            gru_units,  # número de neurônios
+            return_sequences=True,
+            kernel_initializer='he_normal',  # forma de iniciar os pesos
+            recurrent_initializer='orthogonal'  # forma de iniciar os pesos recorrentes
+        ))
+
+        # Normaliza a saída da primeira GRU (opcional, mas ajuda em alguns casos)
         if use_batch_norm:
             model.add(BatchNormalization())
 
-        # GRU Layers (consider making number of layers/units configurable)
-        model.add(GRU(gru_units, return_sequences=True, kernel_initializer='he_normal', recurrent_initializer='orthogonal'))
-        if use_batch_norm: model.add(BatchNormalization()) # BN after recurrent layer recommended by some
+        # Dropout para evitar overfitting (desliga aleatoriamente parte dos neurônios)
         model.add(Dropout(dropout_rate))
 
-        # Second GRU layer (optional, could be removed for simpler model)
-        model.add(GRU(gru_units // 2, return_sequences=False, kernel_initializer='he_normal', recurrent_initializer='orthogonal')) # return_sequences=False for last GRU
-        if use_batch_norm: model.add(BatchNormalization())
+        # Segunda camada GRU (opcional), com metade dos neurônios e sem retornar sequência
+        model.add(GRU(
+            gru_units // 2,
+            return_sequences=False,
+            kernel_initializer='he_normal',
+            recurrent_initializer='orthogonal'
+        ))
+
+        # Novamente, aplica normalização (se estiver ativado)
+        if use_batch_norm:
+            model.add(BatchNormalization())
+
+        # Mais um dropout para regularização
         model.add(Dropout(dropout_rate))
 
-        # Dense Layers
-        model.add(Dense(gru_units // 2, activation='relu')) # Increased dense layer size slightly
-        if use_batch_norm: model.add(BatchNormalization()) # BN before activation can sometimes work better for ReLU
+        # Camada densa (totalmente conectada) com ReLU para aprender padrões não lineares
+        model.add(Dense(gru_units // 2, activation='relu'))
+
+        # Normaliza os dados antes da ativação ReLU (alguns testes indicam que isso pode ser melhor)
+        if use_batch_norm:
+            model.add(BatchNormalization())
+
+        # Dropout antes da saída
         model.add(Dropout(dropout_rate))
 
-        # Output Layer (predicting the 60 base numbers)
+        # Camada de saída com ativação sigmoid para prever os 60 números (resultado entre 0 e 1)
         model.add(Dense(num_features_base, activation='sigmoid'))
 
-        # Compilation
-        # Consider AdamW or Nadam, potentially lower initial learning rate
+        # Otimizador Adam com taxa de aprendizado baixa (para treinar com mais calma e precisão)
         optimizer = tf.keras.optimizers.Adam(learning_rate=0.0008)
+
+        # Compila o modelo com:
+        # - função de perda: binary_crossentropy (porque o resultado é binário: número foi ou não foi sorteado)
+        # - métrica: acurácia binária e AUC (para medir a performance geral)
         model.compile(
             optimizer=optimizer,
             loss='binary_crossentropy',
             metrics=['binary_accuracy', tf.keras.metrics.AUC(name='auc')]
         )
-        model.summary(print_fn=logger.info)
+        
+        # Construir o modelo para que os shapes sejam calculados
+        model.build((None, sequence_length, num_features_total))
+        
+        # Usar uma versão de texto simplificada para o resumo do modelo em vez da versão gráfica
+        logger.info("Resumo do Modelo:")
+        
+        # Exibir camadas em formato simples de texto
+        total_params = 0
+        trainable_params = 0
+        non_trainable_params = 0
+        
+        for i, layer in enumerate(model.layers):
+            try:
+                layer_info = f"Camada {i+1}: {layer.name} ({layer.__class__.__name__})"
+                
+                # Obter o shape da saída de forma segura
+                if hasattr(layer, 'output_shape'):
+                    output_shape = str(layer.output_shape)
+                else:
+                    # Fallback para camadas sem output_shape
+                    output_shape = "Desconhecido"
+                
+                layer_info += f" - Output Shape: {output_shape}"
+                
+                # Contar parâmetros
+                layer_params = layer.count_params()
+                layer_info += f" - Parâmetros: {layer_params:,}"
+                
+                total_params += layer_params
+                trainable_layer_params = sum([tf.size(w).numpy() for w in layer.trainable_weights]) if layer.trainable_weights else 0
+                trainable_params += trainable_layer_params
+                non_trainable_params += layer_params - trainable_layer_params
+                
+                logger.info(layer_info)
+            except Exception as e:
+                logger.warning(f"Erro ao obter informações da camada {i+1}: {e}")
+        
+        # Exibir totais
+        logger.info(f"Total de parâmetros: {total_params:,}")
+        logger.info(f"Parâmetros treináveis: {trainable_params:,}")
+        logger.info(f"Parâmetros não-treináveis: {non_trainable_params:,}")
+        
         return model
     except Exception as e:
         logger.error(f"Erro ao construir o modelo GRU: {e}", exc_info=True)
@@ -1135,6 +1240,49 @@ def main():
         if statistical_features_raw is None or len(statistical_features_raw) != len(encoded_labels): logger.critical("Falha Etapa 3b. Abortando."); return
         # ### MODIFICATION END V3 ###
 
+        # --- Teste de Hiperparâmetros (se ativado) ---
+        if config.get('test_hyperparameters', False) and hyperparameter_tuning_available:
+            logger.info("-" * 60)
+            logger.info("MODO DE TESTE DE HIPERPARÂMETROS ATIVADO")
+            logger.info("-" * 60)
+            
+            # Instanciar o tuner
+            tuner = HyperparameterTuner(
+                base_config=config,
+                encoded_labels=encoded_labels,
+                time_features_raw=time_features_raw,
+                statistical_features_raw=statistical_features_raw,
+                build_model_fn=build_model,
+                split_data_fn=split_data,
+                validate_config_fn=validate_config,
+                output_dir=output_dir
+            )
+            
+            # Executar a busca de hiperparâmetros
+            logger.info("Iniciando busca de hiperparâmetros...")
+            best_params = tuner.run_search()
+            
+            if best_params:
+                logger.info("Aplicando a melhor configuração de hiperparâmetros encontrada.")
+                # Atualizar a configuração com os melhores parâmetros
+                for key, value in best_params.items():
+                    config[key] = value
+                logger.info(f"Configuração atualizada com os melhores hiperparâmetros: {best_params}")
+                
+                # Recalcular num_features_total (caso sequence_length tenha mudado)
+                config['num_features_total'] = (
+                    config['num_features_base'] +
+                    config['num_features_time'] +
+                    config['num_features_statistical']
+                )
+            else:
+                logger.warning("Não foi possível determinar a melhor configuração. Usando configuração original.")
+                
+            logger.info("-" * 60)
+            logger.info("CONCLUÍDO TESTE DE HIPERPARÂMETROS. CONTINUANDO COM TREINAMENTO FINAL.")
+            logger.info("-" * 60)
+        
+        # --- Fluxo Normal (com ou sem otimização de hiperparâmetros) ---
         logger.info("Etapa 4: Divisão/Escalonamento/Sequenciamento...")
         # ### MODIFICATION START V3 ###
         # Pass statistical features and expect two scalers back

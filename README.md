@@ -15,6 +15,7 @@ Este projeto implementa um modelo de deep learning usando GRU (Gated Recurrent U
 - Logging completo para rastreamento de erros
 - Configuração flexível via arquivo JSON
 - Suporte a TensorBoard para monitoramento do treinamento
+- Otimização automática de hiperparâmetros
 
 ## Requisitos
 
@@ -27,6 +28,7 @@ Este projeto implementa um modelo de deep learning usando GRU (Gated Recurrent U
   - matplotlib
   - openpyxl
   - requests
+  - tqdm
 
 ## Instalação
 
@@ -36,8 +38,16 @@ git clone https://github.com/seu-usuario/mega-sena.git
 cd mega-sena
 ```
 
-2. Instale as dependências:
+2. Configure o ambiente virtual e instale as dependências (Windows):
 ```bash
+setup_env.bat
+```
+
+Ou manualmente:
+```bash
+python -m venv .env
+source .env/bin/activate  # Linux/Mac
+.env\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
@@ -45,18 +55,59 @@ pip install -r requirements.txt
 
 ## Uso
 
-Execute o script principal:
+### Usando menus (Windows)
+Execute o arquivo batch e siga as instruções:
 ```bash
-python mega_sena_v3.py
+run_mega_sena.bat
+```
+
+### Linha de comando
+```bash
+# Execução normal
+python run_mega_sena.py
+
+# Teste de hiperparâmetros com Grid Search
+python run_mega_sena.py --test-hyperparameters --method grid
+
+# Teste de hiperparâmetros com Random Search (ex: 15 iterações)
+python run_mega_sena.py --test-hyperparameters --method random --iterations 15
 ```
 
 O programa irá:
 1. Baixar os dados históricos (ou usar cache se disponível)
 2. Calcular features estatísticas e temporais
-3. Treinar o modelo GRU
+3. Treinar o modelo GRU (ou otimizar hiperparâmetros se solicitado)
 4. Gerar previsões para o próximo sorteio
 5. Criar visualizações
 6. Exportar resultados em Excel
+
+## Otimização de Hiperparâmetros
+
+O sistema permite buscar automaticamente a melhor configuração de hiperparâmetros:
+
+1. **Grid Search**: Testa todas as combinações possíveis de parâmetros
+2. **Random Search**: Testa um subconjunto aleatório de combinações
+
+Os hiperparâmetros testáveis incluem:
+- Tamanho da sequência (`sequence_length`)
+- Unidades GRU (`gru_units`)
+- Taxa de dropout (`dropout_rate`)
+- Uso de Batch Normalization (`use_batch_norm`)
+- Tamanho do batch (`batch_size`)
+
+Configure os parâmetros a serem testados no arquivo `configv3.json`:
+
+```json
+"hyperparameter_search": {
+    "method": "grid",
+    "n_iterations": 20,
+    "param_grid": {
+        "sequence_length": [10, 15, 20, 25],
+        "gru_units": [128, 192, 256, 320],
+        ...
+    }
+}
+```
 
 ## Arquivos Gerados
 
@@ -66,17 +117,26 @@ O programa irá:
 - `hits_over_time_v3.png`: Gráfico de acertos ao longo do tempo
 - `mega_sena_v3.log`: Log detalhado da execução
 - `logs/fit/`: Diretório com logs do TensorBoard
+- `hyperparameter_results.xlsx`: Resultados da otimização de hiperparâmetros
+- `hyperparameter_analysis.png`: Análise gráfica dos hiperparâmetros
+- `top_hyperparameters.png`: Gráfico das melhores configurações
 
 ## Estrutura do Projeto
 
 ```
 mega_sena/
 ├── mega_sena_v3.py      # Script principal
+├── hyperparameter_tuning.py # Módulo de otimização de hiperparâmetros
 ├── configv3.json        # Configurações do modelo
+├── run_mega_sena.py     # Script para execução via terminal
+├── run_mega_sena.bat    # Script para execução via Windows
+├── setup_env.bat        # Script para configurar ambiente virtual
 ├── requirements.txt     # Dependências do projeto
-├── README.md           # Este arquivo
-├── cache/              # Diretório para cache de dados
-└── logs/               # Diretório para logs do TensorBoard
+├── README.md            # Este arquivo
+├── .env/                # Ambiente virtual Python
+├── output/              # Diretório para arquivos de saída
+├── cache/               # Diretório para cache de dados
+└── logs/                # Diretório para logs do TensorBoard
 ```
 
 ## Configuração
@@ -87,22 +147,22 @@ O arquivo `configv3.json` permite ajustar vários parâmetros:
 {
     "data_url": "https://loteriascaixa-api.herokuapp.com/api/megasena",
     "data_file": null,
-    "export_file": "historico_e_previsoes_megasena_v3.xlsx",
-    "sequence_length": 15,
+    "export_file": "output/historico_e_previsoes_megasena_v3.xlsx",
+    "sequence_length": 20,                   
     "num_features_base": 60,
     "num_features_time": 60,
-    "num_features_statistical": 187,
     "rolling_freq_windows": [10, 50, 100],
-    "gru_units": 192,
-    "use_batch_norm": true,
-    "dropout_rate": 0.4,
-    "epochs": 200,
-    "batch_size": 64,
+    "gru_units": 256,                     
+    "use_batch_norm": true,              
+    "dropout_rate": 0.45,               
+    "epochs": 250,                    
+    "batch_size": 64,                     
     "test_size_ratio": 0.15,
     "validation_split_ratio": 0.15,
     "cache_duration_hours": 24,
-    "cache_dir": "cache",
-    "tensorboard_log_dir": "logs/fit/"
+    "cache_dir": "output/cache",
+    "tensorboard_log_dir": "output/logs/fit/",
+    "test_hyperparameters": false
 }
 ```
 
