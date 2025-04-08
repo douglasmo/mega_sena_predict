@@ -1,202 +1,304 @@
-2025-04-08 11:22:01,216 - INFO - [main] - Iniciando Mega-Sena V3 em 2025-04-08 11:22:01...
-2025-04-08 11:22:01,217 - WARNING - [load_config] - Ignoring unknown key 'test_hyperparameters' from configv3.json
-2025-04-08 11:22:01,218 - WARNING - [load_config] - Ignoring unknown key 'hyperparameter_search' from configv3.json
-2025-04-08 11:22:01,218 - INFO - [load_config] - Recalculated num_features_statistical to 187 based on loaded rolling_freq_windows.
-2025-04-08 11:22:01,218 - INFO - [load_config] - Configurações carregadas e mescladas de configv3.json
-2025-04-08 11:22:01,219 - INFO - [load_config] - Total features calculated: 307
-2025-04-08 11:22:01,219 - INFO - [validate_config] - Validando configuração V3...
-2025-04-08 11:22:01,220 - INFO - [validate_config] - Configuração V3 validada com sucesso.
-2025-04-08 11:22:01,220 - INFO - [main] - Etapa 1: Download/Preparação Dados...
-2025-04-08 11:22:01,220 - INFO - [download_and_prepare_data] - Iniciando carregamento de dados...
-2025-04-08 11:22:01,220 - INFO - [download_and_prepare_data] - Carregando dados do cache...
-2025-04-08 11:22:01,249 - INFO - [download_and_prepare_data] - Dados carregados com sucesso do cache.
-2025-04-08 11:22:01,269 - INFO - [download_and_prepare_data] - Dados ordenados por 'Concurso'.
-2025-04-08 11:22:01,269 - INFO - [download_and_prepare_data] - Dados processados com sucesso da API/Cache (2849 sorteios).
-2025-04-08 11:22:01,269 - INFO - [download_and_prepare_data] - Colunas encontradas: ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']
-2025-04-08 11:22:01,271 - INFO - [download_and_prepare_data] - Colunas das bolas verificadas e convertidas para inteiro.
-2025-04-08 11:22:01,273 - INFO - [download_and_prepare_data] - Processamento final: 2849 sorteios carregados.
-2025-04-08 11:22:01,276 - INFO - [main] - Etapa 2: Pré-processamento Labels...
-2025-04-08 11:22:01,277 - INFO - [preprocess_data_labels] - Iniciando pré-processamento dos labels (MultiLabelBinarizer)...
-2025-04-08 11:22:01,301 - INFO - [preprocess_data_labels] - Labels transformados: 2849 amostras, 60 features base.
-2025-04-08 11:22:01,302 - INFO - [main] - Labels processados: 2849 sorteios válidos.
-2025-04-08 11:22:01,302 - INFO - [main] - Etapa 3a: Cálculo Features Tempo...
-2025-04-08 11:22:01,303 - INFO - [add_time_features] - Calculando features de tempo (sorteios desde última aparição)...
-2025-04-08 11:22:01,330 - INFO - [add_time_features] - Features de tempo calculadas. Shape: (2849, 60)
-2025-04-08 11:22:01,331 - INFO - [main] - Etapa 3b: Cálculo Features Estatísticas...
-2025-04-08 11:22:01,332 - INFO - [add_statistical_features] - Calculando features estatísticas (Soma, Range, Zonas, Freq. [10, 50, 100])...
-2025-04-08 11:22:01,337 - INFO - [add_statistical_features] - Calculando frequências rolantes...
-2025-04-08 11:22:01,356 - INFO - [add_statistical_features] - Frequências rolantes calculadas.
-2025-04-08 11:22:01,356 - INFO - [add_statistical_features] - Calculando estatísticas por sorteio (Par/Ímpar, Soma, Range, Zonas)...
-2025-04-08 11:22:01,450 - INFO - [add_statistical_features] - Features estatísticas calculadas. Shape: (2849, 187)
-2025-04-08 11:22:01,451 - INFO - [main] - Etapa 4: Divisão/Escalonamento/Sequenciamento...
-2025-04-08 11:22:01,451 - INFO - [split_data] - Dividindo dados, escalando features (Tempo e Estatísticas separadamente)...
-2025-04-08 11:22:01,451 - INFO - [split_data] - Índices Brutos - Treino: 2057, Val: 364, Teste: 428
-2025-04-08 11:22:01,452 - INFO - [split_data] - Ajustando Scalers (StandardScaler) nas features do treino...
-2025-04-08 11:22:01,459 - INFO - [split_data] - Escalando features de validação e teste...
-2025-04-08 11:22:01,461 - INFO - [split_data] - Criando sequências para treino...
-2025-04-08 11:22:01,488 - INFO - [split_data] - Criando sequências para validação...
-2025-04-08 11:22:01,493 - INFO - [split_data] - Criando sequências para teste...
-2025-04-08 11:22:01,500 - INFO - [split_data] - Tamanho final dos conjuntos de sequências:
-2025-04-08 11:22:01,500 - INFO - [split_data] - - Treino: X=(2037, 20, 307), y=(2037, 60)
-2025-04-08 11:22:01,500 - INFO - [split_data] - - Validação: X=(344, 20, 307), y=(344, 60)
-2025-04-08 11:22:01,500 - INFO - [split_data] - - Teste: X=(408, 20, 307), y=(408, 60)
-2025-04-08 11:22:01,501 - INFO - [main] - Etapa 5: Construção Modelo GRU...
-2025-04-08 11:22:01,501 - INFO - [build_model] - Construindo modelo GRU: units=256, dropout=0.45, batch_norm=True
-2025-04-08 11:22:01,734 - INFO - [build_model] - Resumo do Modelo:
-2025-04-08 11:22:01,735 - INFO - [build_model] - Camada 1: batch_normalization (BatchNormalization) - Output Shape: Desconhecido - Parâmetros: 1,228
-2025-04-08 11:22:01,737 - INFO - [build_model] - Camada 2: gru (GRU) - Output Shape: Desconhecido - Parâmetros: 433,920
-2025-04-08 11:22:01,738 - INFO - [build_model] - Camada 3: batch_normalization_1 (BatchNormalization) - Output Shape: Desconhecido - Parâmetros: 1,024
-2025-04-08 11:22:01,739 - INFO - [build_model] - Camada 4: dropout (Dropout) - Output Shape: Desconhecido - Parâmetros: 0
-2025-04-08 11:22:01,741 - INFO - [build_model] - Camada 5: gru_1 (GRU) - Output Shape: Desconhecido - Parâmetros: 148,224
-2025-04-08 11:22:01,742 - INFO - [build_model] - Camada 6: batch_normalization_2 (BatchNormalization) - Output Shape: Desconhecido - Parâmetros: 512
-2025-04-08 11:22:01,743 - INFO - [build_model] - Camada 7: dropout_1 (Dropout) - Output Shape: Desconhecido - Parâmetros: 0
-2025-04-08 11:22:01,744 - INFO - [build_model] - Camada 8: dense (Dense) - Output Shape: Desconhecido - Parâmetros: 16,512
-2025-04-08 11:22:01,745 - INFO - [build_model] - Camada 9: batch_normalization_3 (BatchNormalization) - Output Shape: Desconhecido - Parâmetros: 512
-2025-04-08 11:22:01,745 - INFO - [build_model] - Camada 10: dropout_2 (Dropout) - Output Shape: Desconhecido - Parâmetros: 0
-2025-04-08 11:22:01,748 - INFO - [build_model] - Camada 11: dense_1 (Dense) - Output Shape: Desconhecido - Parâmetros: 7,740
-2025-04-08 11:22:01,748 - INFO - [build_model] - Total de parâmetros: 609,672
-2025-04-08 11:22:01,748 - INFO - [build_model] - Parâmetros treináveis: 608,034
-2025-04-08 11:22:01,748 - INFO - [build_model] - Parâmetros não-treináveis: 1,638
-2025-04-08 11:22:01,749 - INFO - [main] - Etapa 6: Treinamento Modelo...
-2025-04-08 11:22:01,749 - INFO - [train_model] - Iniciando o treinamento do modelo GRU...
-2025-04-08 11:22:07,556 - INFO - [on_epoch_end] - Época 1/250 - Loss: 0.8969 - Acc: 0.5069 - AUC: 0.5017 - Val Loss: 0.6906 - Val Acc: 0.5492 - Val AUC: 0.4910 - LR: 0.000800
-2025-04-08 11:22:09,313 - INFO - [on_epoch_end] - Época 2/250 - Loss: 0.8213 - Acc: 0.5273 - AUC: 0.5072 - Val Loss: 0.6578 - Val Acc: 0.6214 - Val AUC: 0.4868 - LR: 0.000800
-2025-04-08 11:22:10,905 - INFO - [on_epoch_end] - Época 3/250 - Loss: 0.7524 - Acc: 0.5596 - AUC: 0.5126 - Val Loss: 0.6047 - Val Acc: 0.7266 - Val AUC: 0.4857 - LR: 0.000800
-2025-04-08 11:22:12,341 - INFO - [on_epoch_end] - Época 4/250 - Loss: 0.6782 - Acc: 0.6120 - AUC: 0.5176 - Val Loss: 0.5418 - Val Acc: 0.8266 - Val AUC: 0.4859 - LR: 0.000800
-2025-04-08 11:22:13,782 - INFO - [on_epoch_end] - Época 5/250 - Loss: 0.5928 - Acc: 0.6908 - AUC: 0.5210 - Val Loss: 0.4640 - Val Acc: 0.8860 - Val AUC: 0.4863 - LR: 0.000800
-2025-04-08 11:22:15,190 - INFO - [on_epoch_end] - Época 6/250 - Loss: 0.5071 - Acc: 0.7763 - AUC: 0.5182 - Val Loss: 0.4012 - Val Acc: 0.8993 - Val AUC: 0.4866 - LR: 0.000800
-2025-04-08 11:22:16,665 - INFO - [on_epoch_end] - Época 7/250 - Loss: 0.4375 - Acc: 0.8395 - AUC: 0.5200 - Val Loss: 0.3603 - Val Acc: 0.9000 - Val AUC: 0.4880 - LR: 0.000800
-2025-04-08 11:22:18,183 - INFO - [on_epoch_end] - Época 8/250 - Loss: 0.3939 - Acc: 0.8727 - AUC: 0.5176 - Val Loss: 0.3391 - Val Acc: 0.9000 - Val AUC: 0.4884 - LR: 0.000800
-2025-04-08 11:22:19,742 - INFO - [on_epoch_end] - Época 9/250 - Loss: 0.3716 - Acc: 0.8859 - AUC: 0.5179 - Val Loss: 0.3332 - Val Acc: 0.9000 - Val AUC: 0.4893 - LR: 0.000800
-2025-04-08 11:22:21,179 - INFO - [on_epoch_end] - Época 10/250 - Loss: 0.3591 - Acc: 0.8936 - AUC: 0.5246 - Val Loss: 0.3319 - Val Acc: 0.9000 - Val AUC: 0.4905 - LR: 0.000800
-2025-04-08 11:22:22,571 - INFO - [on_epoch_end] - Época 11/250 - Loss: 0.3547 - Acc: 0.8955 - AUC: 0.5255 - Val Loss: 0.3317 - Val Acc: 0.9000 - Val AUC: 0.4905 - LR: 0.000800
-2025-04-08 11:22:23,990 - INFO - [on_epoch_end] - Época 12/250 - Loss: 0.3523 - Acc: 0.8963 - AUC: 0.5284 - Val Loss: 0.3320 - Val Acc: 0.9000 - Val AUC: 0.4912 - LR: 0.000800
-2025-04-08 11:22:25,497 - INFO - [on_epoch_end] - Época 13/250 - Loss: 0.3494 - Acc: 0.8975 - AUC: 0.5266 - Val Loss: 0.3325 - Val Acc: 0.9000 - Val AUC: 0.4921 - LR: 0.000800
-2025-04-08 11:22:27,077 - INFO - [on_epoch_end] - Época 14/250 - Loss: 0.3476 - Acc: 0.8978 - AUC: 0.5312 - Val Loss: 0.3323 - Val Acc: 0.9000 - Val AUC: 0.4942 - LR: 0.000800
-2025-04-08 11:22:28,602 - INFO - [on_epoch_end] - Época 15/250 - Loss: 0.3455 - Acc: 0.8981 - AUC: 0.5326 - Val Loss: 0.3322 - Val Acc: 0.9000 - Val AUC: 0.4948 - LR: 0.000800
-2025-04-08 11:22:30,062 - INFO - [on_epoch_end] - Época 16/250 - Loss: 0.3437 - Acc: 0.8988 - AUC: 0.5348 - Val Loss: 0.3319 - Val Acc: 0.9000 - Val AUC: 0.4956 - LR: 0.000800
-2025-04-08 11:22:31,820 - INFO - [on_epoch_end] - Época 17/250 - Loss: 0.3425 - Acc: 0.8992 - AUC: 0.5359 - Val Loss: 0.3314 - Val Acc: 0.9000 - Val AUC: 0.4982 - LR: 0.000800
-2025-04-08 11:22:33,368 - INFO - [on_epoch_end] - Época 18/250 - Loss: 0.3422 - Acc: 0.8990 - AUC: 0.5371 - Val Loss: 0.3309 - Val Acc: 0.9000 - Val AUC: 0.4996 - LR: 0.000800
-2025-04-08 11:22:35,007 - INFO - [on_epoch_end] - Época 19/250 - Loss: 0.3400 - Acc: 0.8993 - AUC: 0.5409 - Val Loss: 0.3304 - Val Acc: 0.9000 - Val AUC: 0.4993 - LR: 0.000800
-2025-04-08 11:22:36,803 - INFO - [on_epoch_end] - Época 20/250 - Loss: 0.3406 - Acc: 0.8995 - AUC: 0.5347 - Val Loss: 0.3303 - Val Acc: 0.9000 - Val AUC: 0.4988 - LR: 0.000800
-2025-04-08 11:22:39,052 - INFO - [on_epoch_end] - Época 21/250 - Loss: 0.3390 - Acc: 0.8991 - AUC: 0.5420 - Val Loss: 0.3304 - Val Acc: 0.9000 - Val AUC: 0.4989 - LR: 0.000800
-2025-04-08 11:22:40,820 - INFO - [on_epoch_end] - Época 22/250 - Loss: 0.3375 - Acc: 0.8997 - AUC: 0.5435 - Val Loss: 0.3301 - Val Acc: 0.9000 - Val AUC: 0.4997 - LR: 0.000800
-2025-04-08 11:22:42,570 - INFO - [on_epoch_end] - Época 23/250 - Loss: 0.3368 - Acc: 0.8996 - AUC: 0.5461 - Val Loss: 0.3299 - Val Acc: 0.9000 - Val AUC: 0.5004 - LR: 0.000800
-2025-04-08 11:22:44,007 - INFO - [on_epoch_end] - Época 24/250 - Loss: 0.3362 - Acc: 0.8997 - AUC: 0.5447 - Val Loss: 0.3298 - Val Acc: 0.9000 - Val AUC: 0.4999 - LR: 0.000800
-2025-04-08 11:22:45,549 - INFO - [on_epoch_end] - Época 25/250 - Loss: 0.3352 - Acc: 0.8998 - AUC: 0.5460 - Val Loss: 0.3297 - Val Acc: 0.9000 - Val AUC: 0.4989 - LR: 0.000800
-2025-04-08 11:22:46,990 - INFO - [on_epoch_end] - Época 26/250 - Loss: 0.3351 - Acc: 0.8998 - AUC: 0.5459 - Val Loss: 0.3295 - Val Acc: 0.9000 - Val AUC: 0.4996 - LR: 0.000800
-2025-04-08 11:22:48,386 - INFO - [on_epoch_end] - Época 27/250 - Loss: 0.3330 - Acc: 0.8998 - AUC: 0.5517 - Val Loss: 0.3295 - Val Acc: 0.9000 - Val AUC: 0.5000 - LR: 0.000800
-2025-04-08 11:22:49,765 - INFO - [on_epoch_end] - Época 28/250 - Loss: 0.3324 - Acc: 0.8999 - AUC: 0.5535 - Val Loss: 0.3295 - Val Acc: 0.9000 - Val AUC: 0.4998 - LR: 0.000800
-2025-04-08 11:22:51,368 - INFO - [on_epoch_end] - Época 29/250 - Loss: 0.3324 - Acc: 0.8998 - AUC: 0.5528 - Val Loss: 0.3294 - Val Acc: 0.9000 - Val AUC: 0.4996 - LR: 0.000800
-2025-04-08 11:22:52,819 - INFO - [on_epoch_end] - Época 30/250 - Loss: 0.3317 - Acc: 0.8996 - AUC: 0.5554 - Val Loss: 0.3293 - Val Acc: 0.9000 - Val AUC: 0.5001 - LR: 0.000800
-2025-04-08 11:22:54,210 - INFO - [on_epoch_end] - Época 31/250 - Loss: 0.3313 - Acc: 0.8999 - AUC: 0.5550 - Val Loss: 0.3292 - Val Acc: 0.9000 - Val AUC: 0.5035 - LR: 0.000800
-2025-04-08 11:22:55,587 - INFO - [on_epoch_end] - Época 32/250 - Loss: 0.3302 - Acc: 0.9000 - AUC: 0.5590 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5040 - LR: 0.000800
-2025-04-08 11:22:56,970 - INFO - [on_epoch_end] - Época 33/250 - Loss: 0.3297 - Acc: 0.8998 - AUC: 0.5607 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5036 - LR: 0.000800
-2025-04-08 11:22:58,746 - INFO - [on_epoch_end] - Época 34/250 - Loss: 0.3291 - Acc: 0.9000 - AUC: 0.5623 - Val Loss: 0.3289 - Val Acc: 0.9000 - Val AUC: 0.5037 - LR: 0.000800
-2025-04-08 11:23:00,619 - INFO - [on_epoch_end] - Época 35/250 - Loss: 0.3290 - Acc: 0.9000 - AUC: 0.5633 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5027 - LR: 0.000800
-2025-04-08 11:23:02,422 - INFO - [on_epoch_end] - Época 36/250 - Loss: 0.3287 - Acc: 0.9000 - AUC: 0.5629 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5019 - LR: 0.000800
-2025-04-08 11:23:04,533 - INFO - [on_epoch_end] - Época 37/250 - Loss: 0.3278 - Acc: 0.9000 - AUC: 0.5673 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5019 - LR: 0.000800
-2025-04-08 11:23:06,205 - INFO - [on_epoch_end] - Época 38/250 - Loss: 0.3280 - Acc: 0.9000 - AUC: 0.5657 - Val Loss: 0.3286 - Val Acc: 0.9000 - Val AUC: 0.5035 - LR: 0.000800
-2025-04-08 11:23:07,789 - INFO - [on_epoch_end] - Época 39/250 - Loss: 0.3268 - Acc: 0.9000 - AUC: 0.5722 - Val Loss: 0.3286 - Val Acc: 0.9000 - Val AUC: 0.5032 - LR: 0.000800
-2025-04-08 11:23:09,493 - INFO - [on_epoch_end] - Época 40/250 - Loss: 0.3263 - Acc: 0.9000 - AUC: 0.5733 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5032 - LR: 0.000800
-2025-04-08 11:23:10,920 - INFO - [on_epoch_end] - Época 41/250 - Loss: 0.3268 - Acc: 0.8999 - AUC: 0.5703 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000800
-2025-04-08 11:23:12,415 - INFO - [on_epoch_end] - Época 42/250 - Loss: 0.3262 - Acc: 0.8999 - AUC: 0.5730 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5020 - LR: 0.000800
-2025-04-08 11:23:13,892 - INFO - [on_epoch_end] - Época 43/250 - Loss: 0.3258 - Acc: 0.9000 - AUC: 0.5752 - Val Loss: 0.3288 - Val Acc: 0.9000 - Val AUC: 0.5020 - LR: 0.000800
-2025-04-08 11:23:15,366 - INFO - [on_epoch_end] - Época 44/250 - Loss: 0.3253 - Acc: 0.9000 - AUC: 0.5783 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5001 - LR: 0.000800
-2025-04-08 11:23:16,794 - INFO - [on_epoch_end] - Época 45/250 - Loss: 0.3247 - Acc: 0.9000 - AUC: 0.5810 - Val Loss: 0.3292 - Val Acc: 0.9000 - Val AUC: 0.5006 - LR: 0.000800
-2025-04-08 11:23:18,173 - INFO - [on_epoch_end] - Época 46/250 - Loss: 0.3251 - Acc: 0.9000 - AUC: 0.5792 - Val Loss: 0.3293 - Val Acc: 0.9000 - Val AUC: 0.5004 - LR: 0.000800
-2025-04-08 11:23:19,635 - INFO - [on_epoch_end] - Época 47/250 - Loss: 0.3249 - Acc: 0.9000 - AUC: 0.5788 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5005 - LR: 0.000800
-2025-04-08 11:23:21,033 - INFO - [on_epoch_end] - Época 48/250 - Loss: 0.3236 - Acc: 0.9000 - AUC: 0.5861 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5004 - LR: 0.000200
-2025-04-08 11:23:22,407 - INFO - [on_epoch_end] - Época 49/250 - Loss: 0.3238 - Acc: 0.9000 - AUC: 0.5845 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5011 - LR: 0.000200
-2025-04-08 11:23:23,785 - INFO - [on_epoch_end] - Época 50/250 - Loss: 0.3234 - Acc: 0.9000 - AUC: 0.5881 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5010 - LR: 0.000200
-2025-04-08 11:23:25,237 - INFO - [on_epoch_end] - Época 51/250 - Loss: 0.3234 - Acc: 0.9000 - AUC: 0.5883 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5005 - LR: 0.000200
-2025-04-08 11:23:26,610 - INFO - [on_epoch_end] - Época 52/250 - Loss: 0.3229 - Acc: 0.9000 - AUC: 0.5899 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5006 - LR: 0.000200
-2025-04-08 11:23:28,005 - INFO - [on_epoch_end] - Época 53/250 - Loss: 0.3230 - Acc: 0.8999 - AUC: 0.5893 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5004 - LR: 0.000200
-2025-04-08 11:23:29,390 - INFO - [on_epoch_end] - Época 54/250 - Loss: 0.3225 - Acc: 0.9000 - AUC: 0.5916 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5012 - LR: 0.000200
-2025-04-08 11:23:30,793 - INFO - [on_epoch_end] - Época 55/250 - Loss: 0.3229 - Acc: 0.9000 - AUC: 0.5878 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5013 - LR: 0.000200
-2025-04-08 11:23:32,237 - INFO - [on_epoch_end] - Época 56/250 - Loss: 0.3231 - Acc: 0.9000 - AUC: 0.5878 - Val Loss: 0.3290 - Val Acc: 0.9000 - Val AUC: 0.5016 - LR: 0.000200
-2025-04-08 11:23:33,622 - INFO - [on_epoch_end] - Época 57/250 - Loss: 0.3222 - Acc: 0.9000 - AUC: 0.5933 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000200
-2025-04-08 11:23:35,011 - INFO - [on_epoch_end] - Época 58/250 - Loss: 0.3222 - Acc: 0.9000 - AUC: 0.5933 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5021 - LR: 0.000050
-2025-04-08 11:23:36,461 - INFO - [on_epoch_end] - Época 59/250 - Loss: 0.3218 - Acc: 0.9000 - AUC: 0.5954 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5026 - LR: 0.000050
-2025-04-08 11:23:37,835 - INFO - [on_epoch_end] - Época 60/250 - Loss: 0.3220 - Acc: 0.9000 - AUC: 0.5940 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5022 - LR: 0.000050
-2025-04-08 11:23:39,215 - INFO - [on_epoch_end] - Época 61/250 - Loss: 0.3219 - Acc: 0.9000 - AUC: 0.5944 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5025 - LR: 0.000050
-2025-04-08 11:23:40,631 - INFO - [on_epoch_end] - Época 62/250 - Loss: 0.3222 - Acc: 0.9000 - AUC: 0.5937 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5025 - LR: 0.000050
-2025-04-08 11:23:42,003 - INFO - [on_epoch_end] - Época 63/250 - Loss: 0.3226 - Acc: 0.9000 - AUC: 0.5924 - Val Loss: 0.3291 - Val Acc: 0.9000 - Val AUC: 0.5024 - LR: 0.000050
-2025-04-08 11:23:42,030 - INFO - [train_model] - Treinamento concluído.
-2025-04-08 11:23:42,032 - INFO - [main] - Etapa 7: Avaliação Modelo...
-2025-04-08 11:23:42,032 - INFO - [evaluate_model] - Avaliando o modelo final no conjunto de teste...
-2025-04-08 11:23:42,032 - INFO - [evaluate_model] - Calculando métricas básicas (Loss, Accuracy, AUC)...
-2025-04-08 11:23:42,180 - INFO - [evaluate_model] - Calculando acertos reais (Top 6)...
-2025-04-08 11:23:42,181 - INFO - [evaluate_real_hits] - Avaliando acertos reais nas previsões (Top 6)...
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] - ANÁLISE DE ACERTOS REAIS (TOP 6 PREVISTOS vs SORTEADOS)
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] - Total de sorteios no teste: 408
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] - Média acertos: 0.645, Máximo acertos: 3
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] - Distribuição:
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] -   0 acerto(s): 189 (46.3%)
-2025-04-08 11:23:42,726 - INFO - [evaluate_real_hits] -   1 acerto(s): 179 (43.9%)
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] -   2 acerto(s): 36 (8.8%)
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] -   3 acerto(s): 4 (1.0%)
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] - Exemplo últimos 5 sorteios teste:
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] -   Idx 403: Prev[2, 3, 8, 37, 42, 50] Real[10, 31, 40, 52, 54, 56] -> Hits [] (0)
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] -   Idx 404: Prev[2, 3, 8, 51, 53, 59] Real[1, 12, 16, 17, 25, 57] -> Hits [] (0)
-2025-04-08 11:23:42,727 - INFO - [evaluate_real_hits] -   Idx 405: Prev[2, 3, 8, 34, 37, 51] Real[3, 5, 22, 35, 53, 56] -> Hits [3] (1)
-2025-04-08 11:23:42,728 - INFO - [evaluate_real_hits] -   Idx 406: Prev[2, 3, 8, 29, 45, 51] Real[5, 14, 19, 29, 30, 54] -> Hits [29] (1)
-2025-04-08 11:23:42,728 - INFO - [evaluate_real_hits] -   Idx 407: Prev[2, 3, 8, 29, 34, 51] Real[13, 19, 25, 29, 31, 43] -> Hits [29] (1)
-2025-04-08 11:23:42,728 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+2025-04-08 11:50:14,487 - INFO - [main] - --- Iniciando Script Mega-Sena V3.1 em 2025-04-08 11:50:14 ---
+2025-04-08 11:50:14,487 - INFO - [main] - Etapa 1: Carregando Configuração Base...
+2025-04-08 11:50:14,488 - INFO - [load_config] - Configurações carregadas de configv3.json
+2025-04-08 11:50:14,488 - WARNING - [load_config] - Ignoring 'num_features_time' from configv3.json. It will be calculated dynamically.
+2025-04-08 11:50:14,488 - INFO - [load_config] - Configurações padrão mescladas com valores do arquivo.
+2025-04-08 11:50:14,489 - INFO - [load_config] - Configuração carregada. 'num_features_time' e 'num_features_total' serão calculados dinamicamente.
+2025-04-08 11:50:14,489 - INFO - [validate_config] - Validando configuração V3.1 (base)...
+2025-04-08 11:50:14,489 - INFO - [validate_config] - Configuração V3.1 (base) validada com sucesso.
+2025-04-08 11:50:14,489 - INFO - [main] - Configuração base carregada e validada.
+2025-04-08 11:50:14,489 - INFO - [main] - Etapa 2: Download/Preparação dos Dados Históricos...
+2025-04-08 11:50:14,489 - INFO - [download_and_prepare_data] - Iniciando carregamento e preparação de dados...
+2025-04-08 11:50:14,490 - INFO - [download_and_prepare_data] - Tentando carregar dados do cache: C:\dev\python\mega_sena\output\output\cache\464ff187a3793fb1e4665abcce455791.json...
+2025-04-08 11:50:14,515 - INFO - [download_and_prepare_data] - Dados carregados com sucesso do cache.
+2025-04-08 11:50:14,515 - INFO - [download_and_prepare_data] - Processando dados carregados da API/Cache para DataFrame...
+2025-04-08 11:50:14,534 - INFO - [download_and_prepare_data] - Dados processados com sucesso da API/Cache (2849 sorteios válidos).
+2025-04-08 11:50:14,534 - INFO - [download_and_prepare_data] - Colunas das bolas encontradas usando padrão (case-insensitive/strip): ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']
+2025-04-08 11:50:14,535 - INFO - [download_and_prepare_data] - Colunas renomeadas para: ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6']
+2025-04-08 11:50:14,537 - INFO - [download_and_prepare_data] - Colunas das bolas verificadas, convertidas para inteiro e linhas inválidas removidas.
+2025-04-08 11:50:14,539 - INFO - [download_and_prepare_data] - Dados finais ordenados por 'Concurso'.
+2025-04-08 11:50:14,540 - INFO - [download_and_prepare_data] - Processamento final: 2849 sorteios válidos e limpos carregados.
+2025-04-08 11:50:14,544 - INFO - [main] - Dados históricos carregados: 2849 sorteios.
+2025-04-08 11:50:14,544 - INFO - [main] - Etapa 3: Pré-processamento dos Labels (Resultados Sorteados)...
+2025-04-08 11:50:14,544 - INFO - [preprocess_data_labels] - Iniciando pré-processamento dos labels (MultiLabelBinarizer)...
+2025-04-08 11:50:14,630 - INFO - [preprocess_data_labels] - Labels transformados com sucesso: 2849 amostras, 60 features base (números 1-60).
+2025-04-08 11:50:14,632 - INFO - [main] - Labels processados e DataFrame filtrado: 2849 sorteios válidos restantes.
+2025-04-08 11:50:14,632 - INFO - [main] - Etapa 4: Cálculo das Features (Tempo e Estatísticas)...
+2025-04-08 11:50:14,632 - INFO - [main] -   4a: Calculando Features de Tempo Complexas...
+2025-04-08 11:50:14,633 - INFO - [add_complex_time_features] - Calculando features de tempo COMPLEXAS (intervalo atual, média intervalos, desv padrão intervalos)...
+2025-04-08 11:50:19,082 - INFO - [add_complex_time_features] - Features de tempo complexas calculadas. Shape: (2849, 180)
+2025-04-08 11:50:19,084 - INFO - [main] -    -> Features de Tempo Complexas calculadas. Shape: (2849, 180). Config 'num_features_time' atualizada para: 180
+2025-04-08 11:50:19,084 - INFO - [main] -   4b: Calculando Features Estatísticas...
+2025-04-08 11:50:19,085 - INFO - [add_statistical_features] - Calculando features estatísticas (Par/Ímpar, Soma, Range, Zonas, Freq. Janelas: [10, 50, 100])...
+2025-04-08 11:50:19,093 - INFO - [add_statistical_features] - Calculando frequências rolantes...
+2025-04-08 11:50:19,113 - INFO - [add_statistical_features] - Frequências rolantes calculadas.
+2025-04-08 11:50:19,113 - INFO - [add_statistical_features] - Calculando estatísticas por sorteio (Par/Ímpar, Soma, Range, Zonas)...
+2025-04-08 11:50:19,203 - INFO - [add_statistical_features] - Features estatísticas combinadas. Shape: (2849, 187)
+2025-04-08 11:50:19,205 - INFO - [main] -    -> Features Estatísticas calculadas. Shape: (2849, 187). Config 'num_features_statistical' verificada/ajustada: 187
+2025-04-08 11:50:19,205 - INFO - [main] - Etapa 5: Cálculo e Validação Final das Features Totais...
+2025-04-08 11:50:19,205 - INFO - [main] -  -> Config 'num_features_total' calculado: 427
+2025-04-08 11:50:19,206 - INFO - [validate_config] - Validando configuração V3.1 (final)...
+2025-04-08 11:50:19,206 - INFO - [validate_config] - Configuração V3.1 (final) validada com sucesso.
+2025-04-08 11:50:19,206 - INFO - [main] - Contagem total de features validada.
+2025-04-08 11:50:19,206 - INFO - [main] - Etapa 6: Verificação de Teste de Hiperparâmetros...
+2025-04-08 11:50:19,206 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:50:19,206 - INFO - [main] - MODO DE TESTE DE HIPERPARÂMETROS ATIVADO
+2025-04-08 11:50:19,207 - INFO - [main] - Os resultados deste modo podem sobrescrever parâmetros no 'config' para o treinamento final.
+2025-04-08 11:50:19,207 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:50:19,207 - INFO - [main] - Instanciando HyperparameterTuner...
+2025-04-08 11:50:19,207 - INFO - [main] - Iniciando busca de hiperparâmetros...
+2025-04-08 11:50:19,207 - INFO - [generate_params_grid] - Geradas 288 combinações de hiperparâmetros para teste.
+2025-04-08 11:50:19,208 - INFO - [run_search] - Iniciando busca de hiperparâmetros - Método: grid
+2025-04-08 11:50:19,208 - INFO - [run_search] - Testando 288 combinações de parâmetros...
+2025-04-08 11:50:19,210 - INFO - [validate_config] - Validando configuração V3.1 (base)...
+2025-04-08 11:50:19,211 - INFO - [validate_config] - Configuração V3.1 (base) validada com sucesso.
+2025-04-08 11:50:19,211 - INFO - [split_data] - Dividindo dados, escalando features (Tempo e Estatísticas separadamente) e criando sequências...
+2025-04-08 11:50:19,211 - INFO - [split_data] - Índices Brutos - Treino: 2057 (0 a 2056), Val: 364 (2057 a 2420), Teste: 428 (2421 a 2848)
+2025-04-08 11:50:19,213 - INFO - [split_data] - Dados brutos divididos: Treino(2057), Val(364), Teste(428)
+2025-04-08 11:50:19,213 - INFO - [split_data] - Ajustando Scalers (StandardScaler) SEPARADAMENTE nas features de TEMPO e ESTATÍSTICAS do treino...
+2025-04-08 11:50:19,224 - INFO - [split_data] - Scalers ajustados. Escalando features de validação e teste...
+2025-04-08 11:50:19,227 - INFO - [split_data] - Criando sequências para treino...
+2025-04-08 11:50:19,245 - INFO - [split_data] - Criando sequências para validação...
+2025-04-08 11:50:19,249 - INFO - [split_data] - Criando sequências para teste...
+2025-04-08 11:50:19,253 - INFO - [split_data] - Tamanho final dos conjuntos de sequências:
+2025-04-08 11:50:19,253 - INFO - [split_data] - - Treino:    X=(2047, 10, 427), y=(2047, 60)
+2025-04-08 11:50:19,253 - INFO - [split_data] - - Validação: X=(354, 10, 427), y=(354, 60)
+2025-04-08 11:50:19,254 - INFO - [split_data] - - Teste:     X=(418, 10, 427), y=(418, 60)
+2025-04-08 11:50:19,254 - INFO - [build_model] - Construindo modelo GRU: SeqLen=10, TotalFeat=427, BaseFeat=60, GRUUnits=128, Dropout=0.3, BatchNorm=True
+2025-04-08 11:50:19,396 - INFO - [build_model] - Resumo do Modelo (Keras):
+2025-04-08 11:50:19,406 - INFO - [build_model] - Model: "Modelo_GRU_MegaSena_V3"
+2025-04-08 11:50:19,406 - INFO - [build_model] - ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+2025-04-08 11:50:19,407 - INFO - [build_model] - ┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+2025-04-08 11:50:19,407 - INFO - [build_model] - ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+2025-04-08 11:50:19,407 - INFO - [build_model] - │ BN_Input (BatchNormalization)        │ (None, 10, 427)             │           1,708 │
+2025-04-08 11:50:19,407 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,408 - INFO - [build_model] - │ GRU_1 (GRU)                          │ (None, 10, 128)             │         213,888 │
+2025-04-08 11:50:19,408 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,408 - INFO - [build_model] - │ BN_GRU_1 (BatchNormalization)        │ (None, 10, 128)             │             512 │
+2025-04-08 11:50:19,408 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,408 - INFO - [build_model] - │ Dropout_GRU_1 (Dropout)              │ (None, 10, 128)             │               0 │
+2025-04-08 11:50:19,408 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,409 - INFO - [build_model] - │ GRU_2 (GRU)                          │ (None, 64)                  │          37,248 │
+2025-04-08 11:50:19,409 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,409 - INFO - [build_model] - │ BN_GRU_2 (BatchNormalization)        │ (None, 64)                  │             256 │
+2025-04-08 11:50:19,409 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,409 - INFO - [build_model] - │ Dropout_GRU_2 (Dropout)              │ (None, 64)                  │               0 │
+2025-04-08 11:50:19,410 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,410 - INFO - [build_model] - │ Dense_Hidden (Dense)                 │ (None, 64)                  │           4,160 │
+2025-04-08 11:50:19,410 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,410 - INFO - [build_model] - │ BN_Dense_Hidden (BatchNormalization) │ (None, 64)                  │             256 │
+2025-04-08 11:50:19,410 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,410 - INFO - [build_model] - │ Dropout_Output (Dropout)             │ (None, 64)                  │               0 │
+2025-04-08 11:50:19,411 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:19,411 - INFO - [build_model] - │ Output_Layer (Dense)                 │ (None, 60)                  │           3,900 │
+2025-04-08 11:50:19,411 - INFO - [build_model] - └──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+2025-04-08 11:50:19,411 - INFO - [build_model] -  Total params: 261,928 (1023.16 KB)
+2025-04-08 11:50:19,411 - INFO - [build_model] -  Trainable params: 260,562 (1017.82 KB)
+2025-04-08 11:50:19,411 - INFO - [build_model] -  Non-trainable params: 1,366 (5.34 KB)
+2025-04-08 11:50:19,412 - INFO - [build_model] - 
+2025-04-08 11:50:19,412 - INFO - [train_and_evaluate_config] - Treinando modelo com: seq_len=10, gru_units=128, batch_size=32, dropout=0.3, batch_norm=True
+2025-04-08 11:50:49,865 - WARNING - [_tfmw_add_deprecation_warning] - From C:\dev\python\mega_sena\.env\lib\site-packages\keras\src\backend\common\global_state.py:82: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+2025-04-08 11:50:50,036 - ERROR - [main] - Erro durante a execução do teste de hiperparâmetros: unsupported format string passed to NoneType.__format__
+Traceback (most recent call last):
+  File "c:\dev\python\mega_sena\mega_sena_v3.py", line 2326, in main
+    best_params = tuner.run_search()
+  File "c:\dev\python\mega_sena\hyperparameter_tuning.py", line 226, in run_search
+    result = self.train_and_evaluate_config(test_config, verbose=(i % 5 == 0))
+  File "c:\dev\python\mega_sena\hyperparameter_tuning.py", line 189, in train_and_evaluate_config
+    logger.info(f"Resultado: val_auc={metrics.get('val_auc', 'N/A'):.4f}, "
+TypeError: unsupported format string passed to NoneType.__format__
+2025-04-08 11:50:50,037 - WARNING - [main] - Continuando com a configuração original devido ao erro no tuner.
+2025-04-08 11:50:50,040 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:50:50,040 - INFO - [main] - CONCLUÍDO TESTE DE HIPERPARÂMETROS. CONTINUANDO COM TREINAMENTO FINAL.
+2025-04-08 11:50:50,040 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:50:50,041 - INFO - [main] - Etapa 7: Divisão Final / Escalonamento / Sequenciamento...
+2025-04-08 11:50:50,041 - INFO - [split_data] - Dividindo dados, escalando features (Tempo e Estatísticas separadamente) e criando sequências...
+2025-04-08 11:50:50,041 - INFO - [split_data] - Índices Brutos - Treino: 2057 (0 a 2056), Val: 364 (2057 a 2420), Teste: 428 (2421 a 2848)
+2025-04-08 11:50:50,043 - INFO - [split_data] - Dados brutos divididos: Treino(2057), Val(364), Teste(428)
+2025-04-08 11:50:50,043 - INFO - [split_data] - Ajustando Scalers (StandardScaler) SEPARADAMENTE nas features de TEMPO e ESTATÍSTICAS do treino...
+2025-04-08 11:50:50,053 - INFO - [split_data] - Scalers ajustados. Escalando features de validação e teste...
+2025-04-08 11:50:50,056 - INFO - [split_data] - Criando sequências para treino...
+2025-04-08 11:50:50,091 - INFO - [split_data] - Criando sequências para validação...
+2025-04-08 11:50:50,098 - INFO - [split_data] - Criando sequências para teste...
+2025-04-08 11:50:50,105 - INFO - [split_data] - Tamanho final dos conjuntos de sequências:
+2025-04-08 11:50:50,106 - INFO - [split_data] - - Treino:    X=(2037, 20, 427), y=(2037, 60)
+2025-04-08 11:50:50,106 - INFO - [split_data] - - Validação: X=(344, 20, 427), y=(344, 60)
+2025-04-08 11:50:50,106 - INFO - [split_data] - - Teste:     X=(408, 20, 427), y=(408, 60)
+2025-04-08 11:50:50,107 - INFO - [main] - Dados divididos, escalados e sequenciados para Treino/Validação/Teste.
+2025-04-08 11:50:50,107 - INFO - [main] - Etapa 8: Construção do Modelo GRU Final...
+2025-04-08 11:50:50,107 - INFO - [build_model] - Construindo modelo GRU: SeqLen=20, TotalFeat=427, BaseFeat=60, GRUUnits=256, Dropout=0.45, BatchNorm=True
+2025-04-08 11:50:50,246 - INFO - [build_model] - Resumo do Modelo (Keras):
+2025-04-08 11:50:50,253 - INFO - [build_model] - Model: "Modelo_GRU_MegaSena_V3"
+2025-04-08 11:50:50,253 - INFO - [build_model] - ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+2025-04-08 11:50:50,254 - INFO - [build_model] - ┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+2025-04-08 11:50:50,254 - INFO - [build_model] - ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+2025-04-08 11:50:50,254 - INFO - [build_model] - │ BN_Input (BatchNormalization)        │ (None, 20, 427)             │           1,708 │
+2025-04-08 11:50:50,255 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,255 - INFO - [build_model] - │ GRU_1 (GRU)                          │ (None, 20, 256)             │         526,080 │
+2025-04-08 11:50:50,255 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,255 - INFO - [build_model] - │ BN_GRU_1 (BatchNormalization)        │ (None, 20, 256)             │           1,024 │
+2025-04-08 11:50:50,255 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,256 - INFO - [build_model] - │ Dropout_GRU_1 (Dropout)              │ (None, 20, 256)             │               0 │
+2025-04-08 11:50:50,256 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,256 - INFO - [build_model] - │ GRU_2 (GRU)                          │ (None, 128)                 │         148,224 │
+2025-04-08 11:50:50,256 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,256 - INFO - [build_model] - │ BN_GRU_2 (BatchNormalization)        │ (None, 128)                 │             512 │
+2025-04-08 11:50:50,257 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,257 - INFO - [build_model] - │ Dropout_GRU_2 (Dropout)              │ (None, 128)                 │               0 │
+2025-04-08 11:50:50,257 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,257 - INFO - [build_model] - │ Dense_Hidden (Dense)                 │ (None, 128)                 │          16,512 │
+2025-04-08 11:50:50,257 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,257 - INFO - [build_model] - │ BN_Dense_Hidden (BatchNormalization) │ (None, 128)                 │             512 │
+2025-04-08 11:50:50,258 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,258 - INFO - [build_model] - │ Dropout_Output (Dropout)             │ (None, 128)                 │               0 │
+2025-04-08 11:50:50,258 - INFO - [build_model] - ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+2025-04-08 11:50:50,258 - INFO - [build_model] - │ Output_Layer (Dense)                 │ (None, 60)                  │           7,740 │
+2025-04-08 11:50:50,258 - INFO - [build_model] - └──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+2025-04-08 11:50:50,258 - INFO - [build_model] -  Total params: 702,312 (2.68 MB)
+2025-04-08 11:50:50,259 - INFO - [build_model] -  Trainable params: 700,434 (2.67 MB)
+2025-04-08 11:50:50,259 - INFO - [build_model] -  Non-trainable params: 1,878 (7.34 KB)
+2025-04-08 11:50:50,259 - INFO - [build_model] - 
+2025-04-08 11:50:50,259 - INFO - [main] - Modelo GRU construído com sucesso.
+2025-04-08 11:50:50,259 - INFO - [main] - Etapa 9: Treinamento do Modelo Final...
+2025-04-08 11:50:50,259 - INFO - [train_model] - Iniciando o treinamento do modelo GRU...
+2025-04-08 11:50:50,259 - INFO - [train_model] - Logs do TensorBoard serão salvos em: output\output/logs/fit/20250408-115050
+2025-04-08 11:50:50,260 - INFO - [train_model] - Usando conjunto de validação com 344 amostras.
+2025-04-08 11:50:50,260 - INFO - [train_model] - Iniciando treinamento por até 250 épocas com batch_size=64...
+2025-04-08 11:50:56,020 - INFO - [on_epoch_end] - Época 1/250 - Loss: 0.9034 - Acc: 0.5071 - AUC: 0.4984 - Val Loss: 0.6900 - Val Acc: 0.5492 - Val AUC: 0.5006 - LR: 0.000800
+2025-04-08 11:50:57,651 - INFO - [on_epoch_end] - Época 2/250 - Loss: 0.8236 - Acc: 0.5260 - AUC: 0.5069 - Val Loss: 0.6551 - Val Acc: 0.6202 - Val AUC: 0.4990 - LR: 0.000800
+2025-04-08 11:50:59,146 - INFO - [on_epoch_end] - Época 3/250 - Loss: 0.7521 - Acc: 0.5557 - AUC: 0.5145 - Val Loss: 0.6210 - Val Acc: 0.6889 - Val AUC: 0.5021 - LR: 0.000800
+2025-04-08 11:51:00,698 - INFO - [on_epoch_end] - Época 4/250 - Loss: 0.6862 - Acc: 0.6035 - AUC: 0.5087 - Val Loss: 0.5751 - Val Acc: 0.7671 - Val AUC: 0.5031 - LR: 0.000800
+2025-04-08 11:51:02,338 - INFO - [on_epoch_end] - Época 5/250 - Loss: 0.6005 - Acc: 0.6825 - AUC: 0.5163 - Val Loss: 0.5029 - Val Acc: 0.8618 - Val AUC: 0.5040 - LR: 0.000800
+2025-04-08 11:51:03,919 - INFO - [on_epoch_end] - Época 6/250 - Loss: 0.5110 - Acc: 0.7729 - AUC: 0.5104 - Val Loss: 0.4208 - Val Acc: 0.8986 - Val AUC: 0.5081 - LR: 0.000800
+2025-04-08 11:51:05,415 - INFO - [on_epoch_end] - Época 7/250 - Loss: 0.4385 - Acc: 0.8399 - AUC: 0.5135 - Val Loss: 0.3552 - Val Acc: 0.9000 - Val AUC: 0.5046 - LR: 0.000800
+2025-04-08 11:51:06,909 - INFO - [on_epoch_end] - Época 8/250 - Loss: 0.3923 - Acc: 0.8758 - AUC: 0.5125 - Val Loss: 0.3372 - Val Acc: 0.9000 - Val AUC: 0.5045 - LR: 0.000800
+2025-04-08 11:51:08,524 - INFO - [on_epoch_end] - Época 9/250 - Loss: 0.3705 - Acc: 0.8872 - AUC: 0.5174 - Val Loss: 0.3301 - Val Acc: 0.9000 - Val AUC: 0.5049 - LR: 0.000800
+2025-04-08 11:51:10,034 - INFO - [on_epoch_end] - Época 10/250 - Loss: 0.3605 - Acc: 0.8932 - AUC: 0.5169 - Val Loss: 0.3284 - Val Acc: 0.9000 - Val AUC: 0.5093 - LR: 0.000800
+2025-04-08 11:51:11,528 - INFO - [on_epoch_end] - Época 11/250 - Loss: 0.3557 - Acc: 0.8960 - AUC: 0.5151 - Val Loss: 0.3293 - Val Acc: 0.9000 - Val AUC: 0.5076 - LR: 0.000800
+2025-04-08 11:51:13,090 - INFO - [on_epoch_end] - Época 12/250 - Loss: 0.3510 - Acc: 0.8971 - AUC: 0.5221 - Val Loss: 0.3283 - Val Acc: 0.9000 - Val AUC: 0.5070 - LR: 0.000800
+2025-04-08 11:51:14,611 - INFO - [on_epoch_end] - Época 13/250 - Loss: 0.3497 - Acc: 0.8979 - AUC: 0.5201 - Val Loss: 0.3287 - Val Acc: 0.9000 - Val AUC: 0.5057 - LR: 0.000800
+2025-04-08 11:51:16,117 - INFO - [on_epoch_end] - Época 14/250 - Loss: 0.3470 - Acc: 0.8986 - AUC: 0.5237 - Val Loss: 0.3282 - Val Acc: 0.9000 - Val AUC: 0.5071 - LR: 0.000800
+2025-04-08 11:51:17,614 - INFO - [on_epoch_end] - Época 15/250 - Loss: 0.3468 - Acc: 0.8987 - AUC: 0.5240 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5079 - LR: 0.000800
+2025-04-08 11:51:19,199 - INFO - [on_epoch_end] - Época 16/250 - Loss: 0.3450 - Acc: 0.8986 - AUC: 0.5256 - Val Loss: 0.3283 - Val Acc: 0.9000 - Val AUC: 0.5099 - LR: 0.000800
+2025-04-08 11:51:20,707 - INFO - [on_epoch_end] - Época 17/250 - Loss: 0.3437 - Acc: 0.8990 - AUC: 0.5256 - Val Loss: 0.3277 - Val Acc: 0.9000 - Val AUC: 0.5092 - LR: 0.000800
+2025-04-08 11:51:22,214 - INFO - [on_epoch_end] - Época 18/250 - Loss: 0.3421 - Acc: 0.8992 - AUC: 0.5286 - Val Loss: 0.3284 - Val Acc: 0.9000 - Val AUC: 0.5094 - LR: 0.000800
+2025-04-08 11:51:23,792 - INFO - [on_epoch_end] - Época 19/250 - Loss: 0.3417 - Acc: 0.8995 - AUC: 0.5301 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5072 - LR: 0.000800
+2025-04-08 11:51:25,299 - INFO - [on_epoch_end] - Época 20/250 - Loss: 0.3407 - Acc: 0.8994 - AUC: 0.5299 - Val Loss: 0.3286 - Val Acc: 0.9000 - Val AUC: 0.5047 - LR: 0.000800
+2025-04-08 11:51:26,800 - INFO - [on_epoch_end] - Época 21/250 - Loss: 0.3393 - Acc: 0.8997 - AUC: 0.5340 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5074 - LR: 0.000800
+2025-04-08 11:51:28,299 - INFO - [on_epoch_end] - Época 22/250 - Loss: 0.3393 - Acc: 0.8998 - AUC: 0.5301 - Val Loss: 0.3284 - Val Acc: 0.9000 - Val AUC: 0.5063 - LR: 0.000800
+2025-04-08 11:51:29,875 - INFO - [on_epoch_end] - Época 23/250 - Loss: 0.3386 - Acc: 0.8997 - AUC: 0.5317 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5057 - LR: 0.000800
+2025-04-08 11:51:31,512 - INFO - [on_epoch_end] - Época 24/250 - Loss: 0.3369 - Acc: 0.8998 - AUC: 0.5353 - Val Loss: 0.3294 - Val Acc: 0.9000 - Val AUC: 0.5049 - LR: 0.000800
+2025-04-08 11:51:33,022 - INFO - [on_epoch_end] - Época 25/250 - Loss: 0.3361 - Acc: 0.8996 - AUC: 0.5374 - Val Loss: 0.3278 - Val Acc: 0.9000 - Val AUC: 0.5059 - LR: 0.000800
+2025-04-08 11:51:34,653 - INFO - [on_epoch_end] - Época 26/250 - Loss: 0.3350 - Acc: 0.8998 - AUC: 0.5406 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5066 - LR: 0.000800
+2025-04-08 11:51:36,317 - INFO - [on_epoch_end] - Época 27/250 - Loss: 0.3337 - Acc: 0.8998 - AUC: 0.5430 - Val Loss: 0.3279 - Val Acc: 0.9000 - Val AUC: 0.5072 - LR: 0.000200
+2025-04-08 11:51:37,871 - INFO - [on_epoch_end] - Época 28/250 - Loss: 0.3336 - Acc: 0.8999 - AUC: 0.5425 - Val Loss: 0.3279 - Val Acc: 0.9000 - Val AUC: 0.5074 - LR: 0.000200
+2025-04-08 11:51:39,493 - INFO - [on_epoch_end] - Época 29/250 - Loss: 0.3348 - Acc: 0.8999 - AUC: 0.5397 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5069 - LR: 0.000200
+2025-04-08 11:51:41,060 - INFO - [on_epoch_end] - Época 30/250 - Loss: 0.3332 - Acc: 0.8999 - AUC: 0.5443 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5074 - LR: 0.000200
+2025-04-08 11:51:42,595 - INFO - [on_epoch_end] - Época 31/250 - Loss: 0.3337 - Acc: 0.8998 - AUC: 0.5432 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5056 - LR: 0.000200
+2025-04-08 11:51:44,198 - INFO - [on_epoch_end] - Época 32/250 - Loss: 0.3334 - Acc: 0.8999 - AUC: 0.5439 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5076 - LR: 0.000200
+2025-04-08 11:51:45,913 - INFO - [on_epoch_end] - Época 33/250 - Loss: 0.3335 - Acc: 0.8999 - AUC: 0.5428 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5062 - LR: 0.000200
+2025-04-08 11:51:47,523 - INFO - [on_epoch_end] - Época 34/250 - Loss: 0.3338 - Acc: 0.8995 - AUC: 0.5455 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5065 - LR: 0.000200
+2025-04-08 11:51:49,332 - INFO - [on_epoch_end] - Época 35/250 - Loss: 0.3323 - Acc: 0.8999 - AUC: 0.5481 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5054 - LR: 0.000200
+2025-04-08 11:51:50,946 - INFO - [on_epoch_end] - Época 36/250 - Loss: 0.3327 - Acc: 0.8999 - AUC: 0.5457 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5064 - LR: 0.000200
+2025-04-08 11:51:52,477 - INFO - [on_epoch_end] - Época 37/250 - Loss: 0.3325 - Acc: 0.9000 - AUC: 0.5470 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5057 - LR: 0.000050
+2025-04-08 11:51:53,980 - INFO - [on_epoch_end] - Época 38/250 - Loss: 0.3315 - Acc: 0.8999 - AUC: 0.5497 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5065 - LR: 0.000050
+2025-04-08 11:51:55,556 - INFO - [on_epoch_end] - Época 39/250 - Loss: 0.3310 - Acc: 0.8999 - AUC: 0.5511 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5068 - LR: 0.000050
+2025-04-08 11:51:57,059 - INFO - [on_epoch_end] - Época 40/250 - Loss: 0.3320 - Acc: 0.8999 - AUC: 0.5483 - Val Loss: 0.3280 - Val Acc: 0.9000 - Val AUC: 0.5061 - LR: 0.000050
+2025-04-08 11:51:58,566 - INFO - [on_epoch_end] - Época 41/250 - Loss: 0.3321 - Acc: 0.8999 - AUC: 0.5459 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5062 - LR: 0.000050
+2025-04-08 11:52:00,124 - INFO - [on_epoch_end] - Época 42/250 - Loss: 0.3310 - Acc: 0.8997 - AUC: 0.5518 - Val Loss: 0.3281 - Val Acc: 0.9000 - Val AUC: 0.5065 - LR: 0.000050
+2025-04-08 11:52:00,157 - INFO - [train_model] - Treinamento concluído.
+2025-04-08 11:52:00,162 - INFO - [main] - Modelo treinado com sucesso.
+2025-04-08 11:52:00,163 - INFO - [main] - Etapa 10: Avaliação do Modelo Final no Conjunto de Teste...
+2025-04-08 11:52:00,163 - INFO - [evaluate_model] - Avaliando o modelo final no conjunto de teste...
+2025-04-08 11:52:00,164 - INFO - [evaluate_model] - Calculando métricas padrão Keras (Loss, Accuracy, AUC)...
+2025-04-08 11:52:00,362 - INFO - [evaluate_model] - Métricas padrão Keras calculadas:
+2025-04-08 11:52:00,362 - INFO - [evaluate_model] -   - loss: 0.3270
+2025-04-08 11:52:00,362 - INFO - [evaluate_model] -   - compile_metrics: 0.9000
+2025-04-08 11:52:00,363 - INFO - [evaluate_model] - Calculando acertos reais (Top 6)...
+2025-04-08 11:52:00,363 - INFO - [evaluate_real_hits] - Avaliando acertos reais nas previsões do conjunto de teste (Top 6)...
+2025-04-08 11:52:00,363 - INFO - [evaluate_real_hits] - Realizando previsões no conjunto de teste (408 amostras)...
+2025-04-08 11:52:00,934 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+2025-04-08 11:52:00,935 - INFO - [evaluate_real_hits] - ANÁLISE DE ACERTOS REAIS (TOP 6 PREVISTOS vs SORTEADOS NO TESTE)
+2025-04-08 11:52:00,935 - INFO - [evaluate_real_hits] - Total de sorteios no teste avaliados: 408
+2025-04-08 11:52:00,935 - INFO - [evaluate_real_hits] - Média de acertos por sorteio: 0.650
+2025-04-08 11:52:00,935 - INFO - [evaluate_real_hits] - Máximo de acertos em um único sorteio: 3
+2025-04-08 11:52:00,935 - INFO - [evaluate_real_hits] - Distribuição de Acertos:
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - 0 acerto(s): 196 sorteios (48.0%)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - 1 acerto(s): 164 sorteios (40.2%)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - 2 acerto(s): 43 sorteios (10.5%)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - 3 acerto(s): 5 sorteios (1.2%)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] - Exemplo dos últimos 5 sorteios do teste:
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - Idx 403: Prev[9, 10, 17, 35, 40, 44] | Real[10, 31, 40, 52, 54, 56] -> Hits: [10, 40] (2)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - Idx 404: Prev[9, 10, 14, 17, 40, 44] | Real[1, 12, 16, 17, 25, 57] -> Hits: [17] (1)
+2025-04-08 11:52:00,936 - INFO - [evaluate_real_hits] -   - Idx 405: Prev[9, 17, 35, 40, 44, 54] | Real[3, 5, 22, 35, 53, 56] -> Hits: [35] (1)
+2025-04-08 11:52:00,937 - INFO - [evaluate_real_hits] -   - Idx 406: Prev[9, 14, 17, 30, 40, 54] | Real[5, 14, 19, 29, 30, 54] -> Hits: [14, 30, 54] (3)
+2025-04-08 11:52:00,937 - INFO - [evaluate_real_hits] -   - Idx 407: Prev[5, 9, 17, 30, 40, 54] | Real[13, 19, 25, 29, 31, 43] -> Hits: [] (0)
+2025-04-08 11:52:00,937 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
 AVISO: Acertos passados NÃO garantem acertos futuros.
 ------------------------------------------------------------
-2025-04-08 11:23:42,728 - INFO - [evaluate_model] - ------------------------------------------------------------
-Resultados da Avaliação no Conjunto de Teste
+2025-04-08 11:52:00,937 - INFO - [evaluate_model] - ------------------------------------------------------------
+Resumo da Avaliação no Conjunto de Teste
 ------------------------------------------------------------
-2025-04-08 11:23:42,728 - INFO - [evaluate_model] - Métricas Padrão:
-2025-04-08 11:23:42,728 - INFO - [evaluate_model] -   - loss: 0.3284
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -   - compile_metrics: 0.9000
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] - 
-Estatísticas de Acertos Reais (Top 6):
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -   - Média acertos: 0.645, Máx acertos: 3
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -   Distribuição:
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -     * 0 acerto(s): 189 (46.3%)
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -     * 1 acerto(s): 179 (43.9%)
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -     * 2 acerto(s): 36 (8.8%)
-2025-04-08 11:23:42,729 - INFO - [evaluate_model] -     * 3 acerto(s): 4 (1.0%)
-2025-04-08 11:23:42,730 - INFO - [evaluate_model] - ------------------------------------------------------------
-Lembrete: Métricas refletem desempenho no passado.
+2025-04-08 11:52:00,937 - INFO - [evaluate_model] - 1. Métricas Padrão Keras:
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -   - loss: 0.3270
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -   - compile_metrics: 0.9000
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] - 
+2. Estatísticas de Acertos Reais (Top 6 Previstos vs Sorteados):
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -   - Média acertos: 0.650
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -   - Máx acertos: 3
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -   - Distribuição:
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -     * 0 acerto(s): 196 (48.0%)
+2025-04-08 11:52:00,938 - INFO - [evaluate_model] -     * 1 acerto(s): 164 (40.2%)
+2025-04-08 11:52:00,939 - INFO - [evaluate_model] -     * 2 acerto(s): 43 (10.5%)
+2025-04-08 11:52:00,939 - INFO - [evaluate_model] -     * 3 acerto(s): 5 (1.2%)
+2025-04-08 11:52:00,939 - INFO - [evaluate_model] - ------------------------------------------------------------
+Lembrete: Métricas refletem desempenho no passado e em dados não vistos durante treino.
 ------------------------------------------------------------
-2025-04-08 11:23:42,730 - INFO - [main] - Etapa 8: Previsão Próximo Sorteio...
-2025-04-08 11:23:42,730 - INFO - [predict_next_draw] - Preparando sequência final e fazendo previsão para o PRÓXIMO sorteio...
-2025-04-08 11:23:42,731 - INFO - [predict_next_draw] - Shape da sequência final para previsão: (1, 20, 307)
-2025-04-08 11:23:42,792 - INFO - [predict_next_draw] - --------------------------------------------------
-2025-04-08 11:23:42,792 - INFO - [predict_next_draw] - Previsão dos 6 números mais prováveis: [3, 8, 29, 34, 37, 45]
-2025-04-08 11:23:42,792 - INFO - [predict_next_draw] - Confiança Média: 0.1309, Máx: 0.1468, Mín: 0.1205
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] - Probabilidades individuais (previstos):
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 8: 0.1468
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 34: 0.1385
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 29: 0.1274
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 3: 0.1264
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 37: 0.1259
-2025-04-08 11:23:42,793 - INFO - [predict_next_draw] -   - Número 45: 0.1205
-2025-04-08 11:23:42,794 - INFO - [predict_next_draw] - --------------------------------------------------
-AVISO CRÍTICO: Previsão experimental. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-08 11:52:00,939 - INFO - [main] - Avaliação no conjunto de teste concluída (ou pulada).
+2025-04-08 11:52:00,939 - INFO - [main] - Etapa 11: Previsão para o Próximo Sorteio...
+2025-04-08 11:52:00,939 - INFO - [predict_next_draw] - Preparando última sequência e fazendo previsão para o PRÓXIMO sorteio (Top 6)...
+2025-04-08 11:52:00,940 - INFO - [predict_next_draw] - Shape da sequência final formatada para previsão: (1, 20, 427)
+2025-04-08 11:52:01,001 - INFO - [predict_next_draw] - --------------------------------------------------
+2025-04-08 11:52:01,001 - INFO - [predict_next_draw] - PREVISÃO PARA O PRÓXIMO SORTEIO
+2025-04-08 11:52:01,001 - INFO - [predict_next_draw] - Números mais prováveis (6): [5, 9, 13, 17, 53, 54]
+2025-04-08 11:52:01,001 - INFO - [predict_next_draw] - Confiança (Probabilidade Média/Máx/Mín): 0.1225 / 0.1307 / 0.1172
+2025-04-08 11:52:01,001 - INFO - [predict_next_draw] - Probabilidades individuais dos números previstos (ordenado por prob):
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 17: 0.1307
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 05: 0.1263
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 54: 0.1224
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 09: 0.1208
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 53: 0.1177
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] -   - Número 13: 0.1172
+2025-04-08 11:52:01,002 - INFO - [predict_next_draw] - --------------------------------------------------
+AVISO CRÍTICO: Esta é uma previsão estatística experimental. NÃO HÁ GARANTIA DE ACERTO. Jogue com responsabilidade.
 --------------------------------------------------
-2025-04-08 11:23:42,794 - INFO - [main] - Etapa 9: Visualizações...
-2025-04-08 11:23:42,794 - INFO - [plot_training_history] - Gerando gráficos do histórico de treinamento em output\training_history_v3.png...
-2025-04-08 11:23:43,145 - INFO - [plot_training_history] - Gráficos salvos em 'output\training_history_v3.png'
-2025-04-08 11:23:43,152 - INFO - [plot_prediction_analysis] - Gerando análise visual das previsões em output\prediction_analysis_v3.png...
-2025-04-08 11:23:43,708 - INFO - [plot_prediction_analysis] - Análise visual salva em 'output\prediction_analysis_v3.png'
-2025-04-08 11:23:43,717 - INFO - [plot_hits_over_time] - Gerando gráfico de acertos ao longo do tempo no teste em output\hits_over_time_v3.png...
-2025-04-08 11:23:43,718 - INFO - [plot_hits_over_time] - Calculando acertos no teste para plotagem...
-2025-04-08 11:23:44,011 - INFO - [plot_hits_over_time] - Gráfico de acertos salvo em 'output\hits_over_time_v3.png'
-2025-04-08 11:23:44,017 - INFO - [main] - Etapa 10: Exportação Resultados...
-2025-04-08 11:23:44,017 - INFO - [export_results] - Exportando resultados para Excel (output\output/historico_e_previsoes_megasena_v3.xlsx)...
-2025-04-08 11:23:44,022 - INFO - [export_results] - Escrevendo abas no Excel...
-2025-04-08 11:23:44,481 - INFO - [export_results] - Resultados exportados para 'output\output/historico_e_previsoes_megasena_v3.xlsx'
-2025-04-08 11:23:44,482 - INFO - [main] - ------------------------------------------------------------
-Processo V3 concluído com sucesso em: 0:01:43.265726
-------------------------------------------------------------
-2025-04-08 11:23:44,483 - INFO - [main] - Log: output\mega_sena_v3.log | Excel: output\output/historico_e_previsoes_megasena_v3.xlsx
-2025-04-08 11:23:44,483 - INFO - [main] - Gráficos: output\training_history_v3.png, output\prediction_analysis_v3.png, output\hits_over_time_v3.png
-2025-04-08 11:23:44,483 - INFO - [main] - Logs TensorBoard: output\output/logs/fit/ (use 'tensorboard --logdir output\output/logs/fit/' para visualizar)
-2025-04-08 11:23:44,483 - INFO - [main] - ------------------------------------------------------------
-Lembre-se: Resultados experimentais. Jogue com responsabilidade.
-------------------------------------------------------------
+2025-04-08 11:52:01,003 - INFO - [main] - Previsão para o próximo sorteio realizada.
+2025-04-08 11:52:01,003 - INFO - [main] - Etapa 12: Geração de Visualizações...
+2025-04-08 11:52:01,003 - INFO - [plot_training_history] - Gerando gráficos do histórico de treinamento em output\training_history_v3.png...
+2025-04-08 11:52:01,371 - INFO - [plot_training_history] - Gráficos do histórico de treinamento salvos em 'output\training_history_v3.png'
+2025-04-08 11:52:01,379 - INFO - [plot_prediction_analysis] - Gerando análise visual das previsões em output\prediction_analysis_v3.png...
+2025-04-08 11:52:02,047 - INFO - [plot_prediction_analysis] - Análise visual das previsões salva em 'output\prediction_analysis_v3.png'
+2025-04-08 11:52:02,056 - INFO - [plot_hits_over_time] - Gerando gráfico de acertos ao longo do tempo no teste em output\hits_over_time_v3.png...
+2025-04-08 11:52:02,056 - INFO - [plot_hits_over_time] - Calculando acertos no conjunto de teste para plotagem...
+2025-04-08 11:52:02,419 - INFO - [plot_hits_over_time] - Gráfico de acertos ao longo do tempo salvo em 'output\hits_over_time_v3.png'
+2025-04-08 11:52:02,426 - INFO - [main] - Visualizações geradas.
+2025-04-08 11:52:02,426 - INFO - [main] - Etapa 13: Exportação dos Resultados para Excel...
+2025-04-08 11:52:02,426 - INFO - [export_results] - Exportando resultados para Excel: output\output/historico_e_previsoes_megasena_v3.xlsx...
+2025-04-08 11:52:02,431 - INFO - [export_results] - Escrevendo abas no arquivo Excel...
+2025-04-08 11:52:02,905 - INFO - [export_results] - Resultados exportados com sucesso para 'output\output/historico_e_previsoes_megasena_v3.xlsx'
+2025-04-08 11:52:02,906 - INFO - [main] - Exportação concluída.
+2025-04-08 11:52:02,906 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:52:02,906 - INFO - [main] - --- Processo V3.1 CONCLUÍDO com sucesso ---
+2025-04-08 11:52:02,907 - INFO - [main] - Tempo Total de Execução: 0:01:48.419007
+2025-04-08 11:52:02,907 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:52:02,907 - INFO - [main] - Log principal: output\mega_sena_v3.log
+2025-04-08 11:52:02,907 - INFO - [main] - Resultados exportados: output\output/historico_e_previsoes_megasena_v3.xlsx
+2025-04-08 11:52:02,907 - INFO - [main] - Gráficos salvos em: output
+2025-04-08 11:52:02,907 - INFO - [main] - Logs TensorBoard: output\output/logs/fit/ (use 'tensorboard --logdir "output\output/logs/fit/"' para visualizar)
+2025-04-08 11:52:02,908 - INFO - [main] - Resultados do teste de hiperparâmetros: output/hyperparameter_results.xlsx
+2025-04-08 11:52:02,908 - INFO - [main] - ------------------------------------------------------------
+2025-04-08 11:52:02,908 - INFO - [main] - AVISO FINAL: Lembre-se que este é um modelo experimental baseado em dados passados.
+2025-04-08 11:52:02,908 - INFO - [main] - Resultados da loteria são inerentemente aleatórios. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-08 11:52:02,908 - INFO - [main] - Jogue com responsabilidade e moderação.
+2025-04-08 11:52:02,908 - INFO - [main] - ------------------------------------------------------------

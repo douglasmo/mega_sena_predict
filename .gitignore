@@ -1,3 +1,4 @@
 *.xlsx
 .env
 logs/
+*.png
