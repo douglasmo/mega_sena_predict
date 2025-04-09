@@ -1,0 +1,230 @@
+2025-04-09 17:55:58,560 - INFO - [main] - --- Iniciando Script Lotofácil V3.1-LF em 2025-04-09 17:55:58 ---
+2025-04-09 17:55:58,561 - INFO - [main] - Etapa 1: Carregando Configuração Base Lotofácil...
+2025-04-09 17:55:58,564 - INFO - [load_config] - Configurações carregadas de config_lotofacil.json
+2025-04-09 17:55:58,564 - INFO - [load_config] - Configurações padrão mescladas com valores do arquivo.
+2025-04-09 17:55:58,564 - INFO - [load_config] - Configuração carregada. 'num_features_time' e 'num_features_total' serão calculados dinamicamente.
+2025-04-09 17:55:58,564 - INFO - [validate_config] - Validando configuração V3.1-LF (base)...
+2025-04-09 17:55:58,565 - INFO - [validate_config] - Configuração V3.1-LF (base) validada.
+2025-04-09 17:55:58,565 - INFO - [main] - Configuração base carregada e validada.
+2025-04-09 17:55:58,565 - INFO - [main] - Etapa 2: Download/Preparação Dados Lotofácil...
+2025-04-09 17:55:58,565 - INFO - [download_and_prepare_data] - Iniciando carregamento e preparação de dados da Lotofácil...
+2025-04-09 17:55:58,616 - INFO - [download_and_prepare_data] - Dados carregados com sucesso do cache.
+2025-04-09 17:55:58,617 - INFO - [download_and_prepare_data] - Processando dados da API/Cache para DataFrame...
+2025-04-09 17:55:58,617 - INFO - [download_and_prepare_data] - Formato de dados da API detectado: Lista de sorteios.
+2025-04-09 17:55:58,617 - INFO - [download_and_prepare_data] - Chaves ajustadas/confirmadas: Dezenas='dezenas', Concurso='concurso', Data='data'
+2025-04-09 17:55:58,870 - INFO - [download_and_prepare_data] - Dados processados da API/Cache (3363 sorteios válidos).
+2025-04-09 17:55:58,871 - INFO - [download_and_prepare_data] - Colunas renomeadas para: ['Bola1', 'Bola2', 'Bola3', 'Bola4', 'Bola5', 'Bola6', 'Bola7', 'Bola8', 'Bola9', 'Bola10', 'Bola11', 'Bola12', 'Bola13', 'Bola14', 'Bola15']
+2025-04-09 17:55:58,889 - INFO - [download_and_prepare_data] - Dados ordenados por 'Concurso'.
+2025-04-09 17:55:58,889 - INFO - [download_and_prepare_data] - Processamento final: 3363 sorteios válidos carregados.
+2025-04-09 17:55:58,898 - INFO - [main] - Dados históricos carregados: 3363 sorteios.
+2025-04-09 17:55:58,899 - INFO - [main] - Etapa 3: Pré-processamento dos Labels (Resultados Sorteados)...
+2025-04-09 17:55:58,899 - INFO - [preprocess_data_labels] - Pré-processando labels (MultiLabelBinarizer)...
+2025-04-09 17:55:59,065 - INFO - [preprocess_data_labels] - Labels transformados: 3363 amostras, 25 features base (números 1-25).
+2025-04-09 17:55:59,066 - INFO - [main] - Labels processados: 3363 sorteios válidos restantes.
+2025-04-09 17:55:59,067 - INFO - [main] - Etapa 4: Cálculo das Features (Tempo e Estatísticas)...
+2025-04-09 17:55:59,067 - INFO - [main] -   4a: Calculando Features de Tempo Complexas...
+2025-04-09 17:55:59,068 - INFO - [add_complex_time_features] - Calculando features de tempo COMPLEXAS...
+2025-04-09 17:56:03,598 - INFO - [add_complex_time_features] - Features de tempo complexas calculadas. Shape: (3363, 75)
+2025-04-09 17:56:03,599 - INFO - [main] -    -> Features Tempo. Shape: (3363, 75). Config 'num_features_time': 75
+2025-04-09 17:56:03,599 - INFO - [main] -   4b: Calculando Features Estatísticas...
+2025-04-09 17:56:03,600 - INFO - [add_statistical_features] - Calculando features estatísticas (Janelas: [10, 50, 100])...
+2025-04-09 17:56:03,741 - INFO - [add_statistical_features] - Features estatísticas combinadas. Shape: (3363, 83)
+2025-04-09 17:56:03,742 - INFO - [main] -    -> Features Estatísticas. Shape: (3363, 83). Config 'num_features_statistical': 83
+2025-04-09 17:56:03,742 - INFO - [main] - Etapa 5: Cálculo e Validação Final Features Totais...
+2025-04-09 17:56:03,743 - INFO - [main] -  -> Config 'num_features_total' calculado: 183
+2025-04-09 17:56:03,743 - INFO - [validate_config] - Validando configuração V3.1-LF (final)...
+2025-04-09 17:56:03,744 - INFO - [validate_config] - Configuração V3.1-LF (final) validada.
+2025-04-09 17:56:03,744 - INFO - [main] - Contagem total de features validada.
+2025-04-09 17:56:03,744 - INFO - [main] - Etapa 6: Verificação de Teste de Hiperparâmetros...
+2025-04-09 17:56:03,744 - INFO - [main] - Teste de hiperparâmetros desativado ou módulo indisponível.
+2025-04-09 17:56:03,745 - INFO - [main] - Etapa 7: Divisão Final / Escalonamento / Sequenciamento...
+2025-04-09 17:56:03,745 - INFO - [split_data] - Dividindo dados, escalando features e criando sequências...
+2025-04-09 17:56:03,745 - INFO - [split_data] - Índices - Treino: 2429, Val: 429, Teste: 505
+2025-04-09 17:56:03,751 - INFO - [split_data] - Scalers ajustados no treino e aplicados a Val/Teste.
+2025-04-09 17:56:03,779 - INFO - [split_data] - Sequências criadas:
+2025-04-09 17:56:03,779 - INFO - [split_data] -  Treino:    X=(2409, 20, 183), y=(2409, 25)
+2025-04-09 17:56:03,779 - INFO - [split_data] -  Validação: X=(409, 20, 183), y=(409, 25)
+2025-04-09 17:56:03,780 - INFO - [split_data] -  Teste:     X=(485, 20, 183), y=(485, 25)
+2025-04-09 17:56:03,780 - INFO - [main] - Dados divididos, escalados e sequenciados.
+2025-04-09 17:56:03,780 - INFO - [main] - Etapa 8: Construção do Modelo GRU Final...
+2025-04-09 17:56:03,780 - INFO - [build_model] - Construindo modelo GRU: SeqLen=20, TotalFeat=183, BaseFeat(Saída)=25, GRU=128, DO=0.3, BN=True
+2025-04-09 17:56:04,072 - INFO - [build_model] - Resumo do Modelo (Keras):
+2025-04-09 17:56:04,085 - INFO - [print_summary] - Model: "Modelo_GRU_Lotofacil_V3_F25"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ batch_normalization                  │ (None, 20, 183)             │             732 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ gru (GRU)                            │ (None, 20, 128)             │         120,192 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_1                │ (None, 20, 128)             │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 20, 128)             │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ gru_1 (GRU)                          │ (None, 64)                  │          37,248 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_2                │ (None, 64)                  │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_1 (Dropout)                  │ (None, 64)                  │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 64)                  │           4,160 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_3                │ (None, 64)                  │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_2 (Dropout)                  │ (None, 64)                  │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ Output_Layer (Dense)                 │ (None, 25)                  │           1,625 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 164,981 (644.46 KB)
+ Trainable params: 164,103 (641.03 KB)
+ Non-trainable params: 878 (3.43 KB)
+
+2025-04-09 17:56:04,088 - INFO - [main] - Modelo GRU construído.
+2025-04-09 17:56:04,089 - INFO - [main] - Etapa 9: Treinamento do Modelo Final...
+2025-04-09 17:56:04,089 - INFO - [train_model] - Iniciando o treinamento do modelo GRU...
+2025-04-09 17:56:04,089 - INFO - [train_model] - Logs do TensorBoard: output_lotofacil\output_lotofacil/logs/fit/20250409-175604
+2025-04-09 17:56:04,089 - INFO - [train_model] - Usando conjunto de validação (409 amostras).
+2025-04-09 17:56:04,089 - INFO - [train_model] - Iniciando treinamento por até 150 épocas (batch_size=64)...
+2025-04-09 17:56:09,207 - INFO - [on_epoch_end] - Época 1/150 - Loss: 0.8558 - Val Loss: 0.7074 - AUC: 0.5054 - Val AUC: 0.4883 - LR: 0.001000
+2025-04-09 17:56:10,055 - INFO - [on_epoch_end] - Época 2/150 - Loss: 0.7914 - Val Loss: 0.7018 - AUC: 0.5104 - Val AUC: 0.4905 - LR: 0.001000
+2025-04-09 17:56:10,868 - INFO - [on_epoch_end] - Época 3/150 - Loss: 0.7565 - Val Loss: 0.6970 - AUC: 0.5157 - Val AUC: 0.4933 - LR: 0.001000
+2025-04-09 17:56:11,672 - INFO - [on_epoch_end] - Época 4/150 - Loss: 0.7343 - Val Loss: 0.6928 - AUC: 0.5185 - Val AUC: 0.4936 - LR: 0.001000
+2025-04-09 17:56:12,473 - INFO - [on_epoch_end] - Época 5/150 - Loss: 0.7186 - Val Loss: 0.6895 - AUC: 0.5248 - Val AUC: 0.4938 - LR: 0.001000
+2025-04-09 17:56:13,275 - INFO - [on_epoch_end] - Época 6/150 - Loss: 0.7110 - Val Loss: 0.6858 - AUC: 0.5238 - Val AUC: 0.4954 - LR: 0.001000
+2025-04-09 17:56:14,082 - INFO - [on_epoch_end] - Época 7/150 - Loss: 0.7012 - Val Loss: 0.6845 - AUC: 0.5286 - Val AUC: 0.4964 - LR: 0.001000
+2025-04-09 17:56:14,881 - INFO - [on_epoch_end] - Época 8/150 - Loss: 0.6949 - Val Loss: 0.6829 - AUC: 0.5338 - Val AUC: 0.4976 - LR: 0.001000
+2025-04-09 17:56:15,687 - INFO - [on_epoch_end] - Época 9/150 - Loss: 0.6933 - Val Loss: 0.6813 - AUC: 0.5294 - Val AUC: 0.4989 - LR: 0.001000
+2025-04-09 17:56:16,472 - INFO - [on_epoch_end] - Época 10/150 - Loss: 0.6878 - Val Loss: 0.6803 - AUC: 0.5361 - Val AUC: 0.4978 - LR: 0.001000
+2025-04-09 17:56:17,255 - INFO - [on_epoch_end] - Época 11/150 - Loss: 0.6837 - Val Loss: 0.6799 - AUC: 0.5404 - Val AUC: 0.4991 - LR: 0.001000
+2025-04-09 17:56:18,060 - INFO - [on_epoch_end] - Época 12/150 - Loss: 0.6822 - Val Loss: 0.6797 - AUC: 0.5411 - Val AUC: 0.4984 - LR: 0.001000
+2025-04-09 17:56:18,859 - INFO - [on_epoch_end] - Época 13/150 - Loss: 0.6799 - Val Loss: 0.6798 - AUC: 0.5414 - Val AUC: 0.4980 - LR: 0.001000
+2025-04-09 17:56:19,666 - INFO - [on_epoch_end] - Época 14/150 - Loss: 0.6774 - Val Loss: 0.6797 - AUC: 0.5477 - Val AUC: 0.4994 - LR: 0.001000
+2025-04-09 17:56:20,500 - INFO - [on_epoch_end] - Época 15/150 - Loss: 0.6755 - Val Loss: 0.6791 - AUC: 0.5516 - Val AUC: 0.4986 - LR: 0.001000
+2025-04-09 17:56:21,314 - INFO - [on_epoch_end] - Época 16/150 - Loss: 0.6742 - Val Loss: 0.6789 - AUC: 0.5528 - Val AUC: 0.4996 - LR: 0.001000
+2025-04-09 17:56:22,099 - INFO - [on_epoch_end] - Época 17/150 - Loss: 0.6727 - Val Loss: 0.6786 - AUC: 0.5565 - Val AUC: 0.5028 - LR: 0.001000
+2025-04-09 17:56:22,903 - INFO - [on_epoch_end] - Época 18/150 - Loss: 0.6708 - Val Loss: 0.6786 - AUC: 0.5610 - Val AUC: 0.5024 - LR: 0.001000
+2025-04-09 17:56:23,705 - INFO - [on_epoch_end] - Época 19/150 - Loss: 0.6683 - Val Loss: 0.6792 - AUC: 0.5681 - Val AUC: 0.5010 - LR: 0.001000
+2025-04-09 17:56:24,496 - INFO - [on_epoch_end] - Época 20/150 - Loss: 0.6688 - Val Loss: 0.6790 - AUC: 0.5665 - Val AUC: 0.5006 - LR: 0.001000
+2025-04-09 17:56:25,305 - INFO - [on_epoch_end] - Época 21/150 - Loss: 0.6667 - Val Loss: 0.6792 - AUC: 0.5736 - Val AUC: 0.5021 - LR: 0.001000
+2025-04-09 17:56:26,105 - INFO - [on_epoch_end] - Época 22/150 - Loss: 0.6673 - Val Loss: 0.6795 - AUC: 0.5706 - Val AUC: 0.5024 - LR: 0.001000
+2025-04-09 17:56:26,913 - INFO - [on_epoch_end] - Época 23/150 - Loss: 0.6656 - Val Loss: 0.6800 - AUC: 0.5774 - Val AUC: 0.5016 - LR: 0.001000
+2025-04-09 17:56:27,694 - INFO - [on_epoch_end] - Época 24/150 - Loss: 0.6652 - Val Loss: 0.6800 - AUC: 0.5766 - Val AUC: 0.5035 - LR: 0.001000
+2025-04-09 17:56:28,498 - INFO - [on_epoch_end] - Época 25/150 - Loss: 0.6637 - Val Loss: 0.6803 - AUC: 0.5816 - Val AUC: 0.5034 - LR: 0.000200
+2025-04-09 17:56:29,300 - INFO - [on_epoch_end] - Época 26/150 - Loss: 0.6612 - Val Loss: 0.6803 - AUC: 0.5897 - Val AUC: 0.5036 - LR: 0.000200
+2025-04-09 17:56:30,139 - INFO - [on_epoch_end] - Época 27/150 - Loss: 0.6616 - Val Loss: 0.6803 - AUC: 0.5880 - Val AUC: 0.5039 - LR: 0.000200
+2025-04-09 17:56:30,951 - INFO - [on_epoch_end] - Época 28/150 - Loss: 0.6605 - Val Loss: 0.6804 - AUC: 0.5915 - Val AUC: 0.5039 - LR: 0.000200
+2025-04-09 17:56:31,746 - INFO - [on_epoch_end] - Época 29/150 - Loss: 0.6614 - Val Loss: 0.6807 - AUC: 0.5898 - Val AUC: 0.5036 - LR: 0.000200
+2025-04-09 17:56:32,554 - INFO - [on_epoch_end] - Época 30/150 - Loss: 0.6606 - Val Loss: 0.6808 - AUC: 0.5910 - Val AUC: 0.5037 - LR: 0.000200
+2025-04-09 17:56:33,363 - INFO - [on_epoch_end] - Época 31/150 - Loss: 0.6603 - Val Loss: 0.6807 - AUC: 0.5928 - Val AUC: 0.5043 - LR: 0.000200
+2025-04-09 17:56:34,146 - INFO - [on_epoch_end] - Época 32/150 - Loss: 0.6602 - Val Loss: 0.6808 - AUC: 0.5934 - Val AUC: 0.5041 - LR: 0.000200
+2025-04-09 17:56:34,960 - INFO - [on_epoch_end] - Época 33/150 - Loss: 0.6598 - Val Loss: 0.6811 - AUC: 0.5929 - Val AUC: 0.5036 - LR: 0.000040
+2025-04-09 17:56:35,752 - INFO - [on_epoch_end] - Época 34/150 - Loss: 0.6595 - Val Loss: 0.6811 - AUC: 0.5952 - Val AUC: 0.5035 - LR: 0.000040
+2025-04-09 17:56:36,536 - INFO - [on_epoch_end] - Época 35/150 - Loss: 0.6593 - Val Loss: 0.6812 - AUC: 0.5962 - Val AUC: 0.5035 - LR: 0.000040
+2025-04-09 17:56:37,332 - INFO - [on_epoch_end] - Época 36/150 - Loss: 0.6597 - Val Loss: 0.6812 - AUC: 0.5932 - Val AUC: 0.5035 - LR: 0.000040
+2025-04-09 17:56:38,135 - INFO - [on_epoch_end] - Época 37/150 - Loss: 0.6586 - Val Loss: 0.6812 - AUC: 0.5971 - Val AUC: 0.5038 - LR: 0.000040
+2025-04-09 17:56:38,935 - INFO - [on_epoch_end] - Época 38/150 - Loss: 0.6592 - Val Loss: 0.6813 - AUC: 0.5958 - Val AUC: 0.5038 - LR: 0.000040
+2025-04-09 17:56:38,959 - INFO - [train_model] - Treinamento concluído.
+2025-04-09 17:56:38,960 - INFO - [main] - Modelo treinado.
+2025-04-09 17:56:38,961 - INFO - [main] - Etapa 10: Avaliação do Modelo Final no Teste...
+2025-04-09 17:56:38,961 - INFO - [evaluate_model] - Avaliando o modelo final no conjunto de teste...
+2025-04-09 17:56:38,961 - INFO - [evaluate_model] - Calculando métricas padrão Keras...
+2025-04-09 17:56:39,075 - INFO - [evaluate_real_hits] - Avaliando acertos reais (Top 15) no conjunto de teste...
+2025-04-09 17:56:39,076 - INFO - [evaluate_real_hits] - Realizando previsões no teste (485 amostras)...
+2025-04-09 17:56:39,597 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] - ANÁLISE DE ACERTOS REAIS (TOP 15 PREVISTOS vs SORTEADOS)
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] - Sorteios no teste avaliados: 485
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] - Média de acertos: 9.016
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] - Máximo de acertos: 13
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] - Distribuição:
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] -   - 5 acerto(s): 2 sorteios (0.4%)
+2025-04-09 17:56:39,598 - INFO - [evaluate_real_hits] -   - 6 acerto(s): 5 sorteios (1.0%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 7 acerto(s): 39 sorteios (8.0%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 8 acerto(s): 119 sorteios (24.5%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 9 acerto(s): 156 sorteios (32.2%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 10 acerto(s): 112 sorteios (23.1%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 11 acerto(s): 41 sorteios (8.5%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 12 acerto(s): 10 sorteios (2.1%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] -   - 13 acerto(s): 1 sorteios (0.2%)
+2025-04-09 17:56:39,599 - INFO - [evaluate_real_hits] - ------------------------------------------------------------
+AVISO: Acertos passados NÃO garantem acertos futuros.
+------------------------------------------------------------
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] - ------------------------------------------------------------
+Resumo da Avaliação no Teste (Lotofácil)
+------------------------------------------------------------
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] - 1. Métricas Keras:
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] -   - loss: 0.6777
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] -   - compile_metrics: 0.5955
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] - 
+2. Estatísticas Acertos Reais (Top 15):
+2025-04-09 17:56:39,600 - INFO - [evaluate_model] -   - Média acertos: 9.016
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -   - Máx acertos: 13
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -   - Distribuição:
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -     * 0 acerto(s): 0 (0.0%)
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -     * 1 acerto(s): 0 (0.0%)
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -     * 2 acerto(s): 0 (0.0%)
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -     * 3 acerto(s): 0 (0.0%)
+2025-04-09 17:56:39,601 - INFO - [evaluate_model] -     * 4 acerto(s): 0 (0.0%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 5 acerto(s): 2 (0.4%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 6 acerto(s): 5 (1.0%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 7 acerto(s): 39 (8.0%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 8 acerto(s): 119 (24.5%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 9 acerto(s): 156 (32.2%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 10 acerto(s): 112 (23.1%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 11 acerto(s): 41 (8.5%)
+2025-04-09 17:56:39,602 - INFO - [evaluate_model] -     * 12 acerto(s): 10 (2.1%)
+2025-04-09 17:56:39,603 - INFO - [evaluate_model] -     * 13 acerto(s): 1 (0.2%)
+2025-04-09 17:56:39,603 - INFO - [evaluate_model] - ------------------------------------------------------------
+2025-04-09 17:56:39,603 - INFO - [main] - Avaliação no teste concluída (ou pulada).
+2025-04-09 17:56:39,603 - INFO - [main] - Etapa 11: Previsão para o Próximo Sorteio Lotofácil...
+2025-04-09 17:56:39,603 - INFO - [predict_next_draw] - Preparando última sequência e prevendo PRÓXIMO sorteio (Top 15 Lotofácil)...
+2025-04-09 17:56:39,665 - INFO - [predict_next_draw] - --------------------------------------------------
+2025-04-09 17:56:39,665 - INFO - [predict_next_draw] - PREVISÃO LOTOFÁCIL - PRÓXIMO SORTEIO
+2025-04-09 17:56:39,665 - INFO - [predict_next_draw] - Números Mais Prováveis (15): [3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21]
+2025-04-09 17:56:39,665 - INFO - [predict_next_draw] - Confiança (Média/Máx/Mín): 0.6336 / 0.7173 / 0.5852
+2025-04-09 17:56:39,665 - INFO - [predict_next_draw] - Probabilidades individuais (Top 15 ordenado):
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 13: 0.7173
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 20: 0.6886
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 03: 0.6884
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 10: 0.6747
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 18: 0.6617
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 14: 0.6399
+2025-04-09 17:56:39,666 - INFO - [predict_next_draw] -   - Número 06: 0.6360
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 09: 0.6244
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 04: 0.6102
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 17: 0.6033
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 05: 0.5964
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 21: 0.5961
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 16: 0.5939
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 12: 0.5878
+2025-04-09 17:56:39,667 - INFO - [predict_next_draw] -   - Número 08: 0.5852
+2025-04-09 17:56:39,668 - INFO - [predict_next_draw] - --------------------------------------------------
+AVISO CRÍTICO: Previsão estatística experimental. NÃO HÁ GARANTIA DE ACERTO.
+--------------------------------------------------
+2025-04-09 17:56:39,668 - INFO - [main] - Previsão para próximo sorteio realizada.
+2025-04-09 17:56:39,668 - INFO - [main] - Etapa 12: Geração de Visualizações...
+2025-04-09 17:56:39,668 - INFO - [plot_training_history] - Gerando gráficos do histórico de treinamento...
+2025-04-09 17:56:41,093 - INFO - [plot_training_history] - Gráficos de treinamento salvos em 'output_lotofacil\training_history_lotofacil.png'
+2025-04-09 17:56:41,094 - INFO - [plot_prediction_analysis] - Gerando análise visual das previsões...
+2025-04-09 17:56:41,621 - INFO - [plot_prediction_analysis] - Análise visual salva em 'output_lotofacil\prediction_analysis_lotofacil.png'
+2025-04-09 17:56:41,622 - INFO - [plot_hits_over_time] - Gerando gráfico de acertos (Top 15) ao longo do tempo...
+2025-04-09 17:56:41,958 - INFO - [plot_hits_over_time] - Gráfico de acertos salvo em 'output_lotofacil\hits_over_time_lotofacil.png'
+2025-04-09 17:56:41,959 - INFO - [main] - Visualizações geradas.
+2025-04-09 17:56:41,959 - INFO - [main] - Etapa 13: Exportação dos Resultados para Excel...
+2025-04-09 17:56:41,959 - INFO - [export_results] - Exportando resultados para Excel: output_lotofacil\output_lotofacil/historico_e_previsoes_lotofacil_v3.xlsx...
+2025-04-09 17:56:41,966 - INFO - [export_results] - Escrevendo abas no Excel...
+2025-04-09 17:56:43,310 - INFO - [export_results] - Resultados exportados com sucesso para 'output_lotofacil\output_lotofacil/historico_e_previsoes_lotofacil_v3.xlsx'
+2025-04-09 17:56:43,311 - INFO - [main] - ------------------------------------------------------------
+2025-04-09 17:56:43,312 - INFO - [main] - --- Processo Lotofácil V3.1-LF CONCLUÍDO ---
+2025-04-09 17:56:43,312 - INFO - [main] - Tempo Total: 0:00:44.751329
+2025-04-09 17:56:43,312 - INFO - [main] - Log principal: output_lotofacil\lotofacil_v3.log
+2025-04-09 17:56:43,312 - INFO - [main] - Resultados exportados: output_lotofacil\output_lotofacil/historico_e_previsoes_lotofacil_v3.xlsx
+2025-04-09 17:56:43,312 - INFO - [main] - Gráficos salvos em: output_lotofacil
+2025-04-09 17:56:43,313 - INFO - [main] - Logs TensorBoard: output_lotofacil\output_lotofacil/logs/fit/
+2025-04-09 17:56:43,313 - INFO - [main] - ------------------------------------------------------------
+2025-04-09 17:56:43,313 - INFO - [main] - AVISO FINAL: Modelo experimental. Loteria é aleatória. NÃO HÁ GARANTIA DE ACERTO.
+2025-04-09 17:56:43,313 - INFO - [main] - Jogue com responsabilidade.
+2025-04-09 17:56:43,313 - INFO - [main] - ------------------------------------------------------------
