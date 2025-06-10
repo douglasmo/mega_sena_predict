@@ -54,6 +54,9 @@ def main():
             # Carregar configuração
             with open(args.config, 'r') as f:
                 config = json.load(f)
+
+            # Manter cópia original para o backup antes das alterações
+            original_config = json.loads(json.dumps(config))
             
             # Ativar teste de hiperparâmetros
             config['test_hyperparameters'] = True
@@ -69,7 +72,7 @@ def main():
             config_backup = f"{args.config}.bak"
             print(f"Criando backup da configuração em: {config_backup}")
             with open(config_backup, 'w') as f:
-                json.dump(config, f, indent=4)
+                json.dump(original_config, f, indent=4)
             
             print(f"Atualizando configuração para teste de hiperparâmetros...")
             with open(args.config, 'w') as f:
