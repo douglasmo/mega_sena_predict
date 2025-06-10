@@ -51,7 +51,7 @@ source .env/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 
-3. Configure o arquivo `configv3.json` conforme necessário (um exemplo é fornecido)
+3. Configure o arquivo `configv3.json` (Mega-Sena) ou `config_lotofacil.json` conforme necessário (exemplos já incluídos)
 
 ## Uso
 
@@ -80,6 +80,14 @@ O programa irá:
 4. Gerar previsões para o próximo sorteio
 5. Criar visualizações
 6. Exportar resultados em Excel
+
+### Lotofácil
+Para executar a versão adaptada para Lotofácil utilize:
+```bash
+python run_lotofacil.py
+```
+O script irá rodar `lotofacil.py` e, ao final, exibir a previsão mais recente
+registrada em `output_lotofacil/lotofacil_v3.log`.
 
 ## Otimização de Hiperparâmetros
 
@@ -128,20 +136,24 @@ mega_sena/
 ├── mega_sena_v3.py      # Script principal
 ├── hyperparameter_tuning.py # Módulo de otimização de hiperparâmetros
 ├── configv3.json        # Configurações do modelo
+├── lotofacil.py         # Versão adaptada para Lotofácil
+├── config_lotofacil.json # Configurações da Lotofácil
 ├── run_mega_sena.py     # Script para execução via terminal
+├── run_lotofacil.py     # Script para execução da Lotofácil
 ├── run_mega_sena.bat    # Script para execução via Windows
 ├── setup_env.bat        # Script para configurar ambiente virtual
 ├── requirements.txt     # Dependências do projeto
 ├── README.md            # Este arquivo
 ├── .env/                # Ambiente virtual Python
 ├── output/              # Diretório para arquivos de saída
+├── output_lotofacil/    # Diretório para saídas da Lotofácil
 ├── cache/               # Diretório para cache de dados
 └── logs/                # Diretório para logs do TensorBoard
 ```
 
 ## Configuração
 
-O arquivo `configv3.json` permite ajustar vários parâmetros:
+Os arquivos `configv3.json` (Mega-Sena) e `config_lotofacil.json` (Lotofácil) permitem ajustar vários parâmetros:
 
 ```json
 {
