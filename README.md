@@ -73,6 +73,19 @@ python run_mega_sena.py --test-hyperparameters --method grid
 python run_mega_sena.py --test-hyperparameters --method random --iterations 15
 ```
 
+Ao rodar `python run_mega_sena.py`, a pasta `output` é criada automaticamente (se
+necessário) e todo o processo é exibido no terminal. Os arquivos gerados ficam em
+`output/`, sendo os principais:
+
+- `mega_sena_v3.log` com todas as mensagens e a previsão final do próximo sorteio;
+- `historico_e_previsoes_megasena_v3.xlsx` contendo a mesma previsão e o histórico
+  de sorteios;
+- gráficos de treinamento e análise de acertos.
+
+Caso execute em modo de teste de hiperparâmetros, os resultados serão salvos no
+mesmo diretório (`hyperparameter_results.xlsx`, `hyperparameter_analysis.png` e
+`top_hyperparameters.png`).
+
 O programa irá:
 1. Baixar os dados históricos (ou usar cache se disponível)
 2. Calcular features estatísticas e temporais
@@ -86,8 +99,9 @@ Para executar a versão adaptada para Lotofácil utilize:
 ```bash
 python run_lotofacil.py
 ```
-O script irá rodar `lotofacil.py` e, ao final, exibir a previsão mais recente
-registrada em `output_lotofacil/lotofacil_v3.log`.
+O script roda `lotofacil.py` e, ao término, imprime na tela a previsão mais
+recente extraída de `output_lotofacil/lotofacil_v3.log`. Os demais arquivos (planilha
+e gráficos) ficam nessa mesma pasta `output_lotofacil/`.
 
 ## Otimização de Hiperparâmetros
 
